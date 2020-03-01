@@ -10,7 +10,7 @@ import SwiftUI
 
 struct BPM: View {
 
-	@Binding public var bpm: Int
+	@EnvironmentObject var audioController: AudioController
 
 	@State private var offset: CGFloat = 0.0
 	@State private var previousOffset: CGFloat = 0.0
@@ -25,7 +25,7 @@ struct BPM: View {
 				.shadow(color: .colorScheme, radius: 10)
 				.shadow(color: .colorScheme, radius: 05)
 
-				Text("\(self.bpm)")
+				Text("\(self.audioController.bpm)")
 				.font(Font.custom("System", size: 40))
 				.bold()
 				.foregroundColor(.white)
@@ -49,14 +49,14 @@ struct BPM: View {
 					}
 					let realValue = (containingViewHeight / 2 + self.offset)
 					self.sliderValue = abs((realValue / containingViewHeight) - 1)
-					self.bpm = Int(self.sliderValue * 280) + 20
+					self.audioController.bpm = Int(self.sliderValue * 280) + 20
 				}
 				.onEnded { _ in
 					self.previousOffset = self.offset
 				})
 			.onAppear {
 				let containingViewHeight = geo.size.height - 100
-				self.sliderValue = CGFloat(self.bpm - 20) / 280
+				self.sliderValue = CGFloat(self.audioController.bpm - 20) / 280
 				self.offset = -(self.sliderValue * containingViewHeight - (containingViewHeight / 2))
 				self.previousOffset = self.offset
 			}

@@ -20,7 +20,7 @@ struct ContentView: View {
 			.edgesIgnoringSafeArea(.all)
 
 			VStack {
-				BPM(bpm: self.$bpm)
+				BPM()
 				.padding(.top, 25)
 
 

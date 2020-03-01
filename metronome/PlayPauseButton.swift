@@ -9,6 +9,9 @@
 import SwiftUI
 
 struct PlayPauseButton: View {
+
+	@EnvironmentObject var audioController: AudioController
+
 	@Binding public var isPlaying: Bool
 
 	var body: some View {
@@ -28,6 +31,12 @@ struct PlayPauseButton: View {
 		}
 		.frame(width: 75, height: 75)
 		.onTapGesture {
+			if self.isPlaying {
+				self.audioController.stop()
+			} else {
+				self.audioController.play()
+			}
+
 			self.isPlaying.toggle()
 		}
 	}
