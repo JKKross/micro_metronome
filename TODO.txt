@@ -1,0 +1,6 @@
+FIX BPM to reflect the bpm
+Ignore dark/light mode (for now)
+Read through wav spec
+Implement playback
+Settings screen
+Themes
