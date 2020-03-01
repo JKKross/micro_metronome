@@ -1,4 +1,8 @@
-Read through wav spec
-Implement playback
+Read through aiff spec
+Implement Decoding & Encoding of aiff (Encoding means inserting or removing samples [zeroes] depending on the bpm)
+Implement real playback
+
+Figure out what to do with magic number 100 in BPM.swift (the play button is 75 height + 25 padding)
 Settings screen
 Themes
+Handle the bpm slider not changing to the right y when rotating device
