@@ -39,6 +39,7 @@ struct BPM: View {
 			.gesture(
 				DragGesture()
 				.onChanged { val in
+					if self.audioController.isPlaying { self.audioController.stop() }
 					self.offset = val.translation.height + self.previousOffset
 
 					let containingViewHeight = geo.size.height - 100
@@ -53,6 +54,8 @@ struct BPM: View {
 				}
 				.onEnded { _ in
 					self.previousOffset = self.offset
+					self.audioController.prepareBuffer()
+					if self.audioController.isPlaying { self.audioController.play() }
 				})
 			.onAppear {
 				let containingViewHeight = geo.size.height - 100

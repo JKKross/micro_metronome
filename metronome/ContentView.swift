@@ -10,9 +10,6 @@ import SwiftUI
 
 struct ContentView: View {
 
-	@State private var isPlaying = false
-	@State private var bpm = 90
-
 	var body: some View {
 		ZStack {
 // 			LinearGradient(gradient: Gradient(colors: [Color(red: , .backgroundEnd]), startPoint: .topLeading, endPoint: .bottomTrailing)
@@ -23,8 +20,7 @@ struct ContentView: View {
 				BPM()
 				.padding(.top, 25)
 
-
-				PlayPauseButton(isPlaying: $isPlaying)
+				PlayPauseButton()
 				.frame(height: 75)
 				.padding(.vertical, 25)
 			}

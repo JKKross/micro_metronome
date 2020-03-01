@@ -12,8 +12,6 @@ struct PlayPauseButton: View {
 
 	@EnvironmentObject var audioController: AudioController
 
-	@Binding public var isPlaying: Bool
-
 	var body: some View {
 		ZStack {
 			RadialGradient(gradient: Gradient(colors: [.colorScheme, .white]), center: .center, startRadius: 20, endRadius: 40)
@@ -22,7 +20,7 @@ struct PlayPauseButton: View {
 			.shadow(color: .colorScheme, radius: 10)
 			.shadow(color: .colorScheme, radius: 05)
 
-			Image(systemName: isPlaying ? "pause" : "play")
+			Image(systemName: audioController.isPlaying ? "pause" : "play")
 			.foregroundColor(.white)
 			.font(Font.custom("System", size: 50))
 			.shadow(color: .colorScheme, radius: 15)
@@ -31,13 +29,14 @@ struct PlayPauseButton: View {
 		}
 		.frame(width: 75, height: 75)
 		.onTapGesture {
-			if self.isPlaying {
+			if self.audioController.isPlaying {
 				self.audioController.stop()
+				self.audioController.prepareBuffer()
 			} else {
 				self.audioController.play()
 			}
 
-			self.isPlaying.toggle()
+			self.audioController.isPlaying.toggle()
 		}
 	}
 }
