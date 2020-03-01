@@ -1,4 +1,3 @@
-Ignore dark/light mode (for now)
 Read through wav spec
 Implement playback
 Settings screen

@@ -14,19 +14,20 @@ struct ContentView: View {
 	@State private var bpm = 90
 
 	var body: some View {
+		ZStack {
+// 			LinearGradient(gradient: Gradient(colors: [Color(red: , .backgroundEnd]), startPoint: .topLeading, endPoint: .bottomTrailing)
+			Color.black
+			.edgesIgnoringSafeArea(.all)
 
-		VStack {
-			BPM(bpm: self.$bpm)
-			.padding(.top, 25)
+			VStack {
+				BPM(bpm: self.$bpm)
+				.padding(.top, 25)
 
-			ZStack {
-			Rectangle() // TODO: Just for visual reference, delete later
-			.foregroundColor(.red)
 
-			PlayPauseButton(isPlaying: $isPlaying)
+				PlayPauseButton(isPlaying: $isPlaying)
+				.frame(height: 75)
+				.padding(.vertical, 25)
 			}
-			.frame(height: 75)
-			.padding(.vertical, 25)
 		}
 	}
 }
