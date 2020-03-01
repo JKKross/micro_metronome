@@ -11,7 +11,7 @@ import SwiftUI
 struct ContentView: View {
 
 	@State private var isPlaying = false
-	@State private var bpm = 60
+	@State private var bpm = 90
 
 	var body: some View {
 
