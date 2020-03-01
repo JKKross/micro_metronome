@@ -22,6 +22,7 @@ final class AudioController: ObservableObject {
 	}
 	*/
 
+	private var aiffBuffer: Data
 	private let player: AVAudioPlayer
 	private let rimshotURL: URL
 
@@ -38,6 +39,12 @@ final class AudioController: ObservableObject {
 			fatalError("Could not properly initialize AVAudioPlayer. Error message: \(error)")
 		}
 
+		do {
+			aiffBuffer = try Data(contentsOf: rimshotURL)
+		} catch {
+			fatalError("DATA READING ERROR: \(error)")
+		}
+
 		player.numberOfLoops = -1
 		player.prepareToPlay()
 	}
@@ -51,7 +58,19 @@ final class AudioController: ObservableObject {
 	}
 
 	public func prepareBuffer() {
-		print("Preparing buffer. BPM set to \(self.bpm)")
+		print("***** PREPARING BUFFER *****")
+		defer { print("***** BUFFER PPEPARATION COMPLETE *****") }
+		print("BPM set to \(self.bpm)")
 		player.prepareToPlay()
+
+
+		do {
+			aiffBuffer = try Data(contentsOf: rimshotURL)
+			print("DATA:\n\n", aiffBuffer.debugDescription)
+		} catch {
+			fatalError("DATA READING ERROR: \(error)")
+		}
 	}
+
+
 }

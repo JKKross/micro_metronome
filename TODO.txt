@@ -5,4 +5,4 @@ Implement real playback
 Figure out what to do with magic number 100 in BPM.swift (the play button is 75 height + 25 padding)
 Settings screen
 Themes
-Handle the bpm slider not changing to the right y when rotating device
+Handle the bpm slider not changing to the correct y when rotating device
