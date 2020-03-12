@@ -17,7 +17,8 @@
 		384B703E23FF304F00E22067 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 384B703D23FF304F00E22067 /* Preview Assets.xcassets */; };
 		384B704123FF304F00E22067 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 384B703F23FF304F00E22067 /* LaunchScreen.storyboard */; };
 		385CF96C2401A51C0001D5D9 /* PlayPauseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385CF96B2401A51C0001D5D9 /* PlayPauseButton.swift */; };
-		38BA7F0D2401CFB60054ABB9 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38BA7F0C2401CFB60054ABB9 /* ColorExtension.swift */; };
+		38C1FB7E241A6D5600D83179 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C1FB7D241A6D5600D83179 /* Settings.swift */; };
+		38C1FB80241A88C800D83179 /* CircleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C1FB7F241A88C800D83179 /* CircleButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,7 +34,8 @@
 		384B704023FF304F00E22067 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		384B704223FF304F00E22067 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		385CF96B2401A51C0001D5D9 /* PlayPauseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayPauseButton.swift; sourceTree = "<group>"; };
-		38BA7F0C2401CFB60054ABB9 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
+		38C1FB7D241A6D5600D83179 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		38C1FB7F241A88C800D83179 /* CircleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,8 +71,9 @@
 				384B703423FF304900E22067 /* AppDelegate.swift */,
 				384B703623FF304900E22067 /* SceneDelegate.swift */,
 				384B703823FF304900E22067 /* ContentView.swift */,
-				38BA7F0C2401CFB60054ABB9 /* ColorExtension.swift */,
+				38C1FB7D241A6D5600D83179 /* Settings.swift */,
 				3820F0E12401BE3800FE8EF8 /* BPM.swift */,
+				38C1FB7F241A88C800D83179 /* CircleButton.swift */,
 				38074AB9240BE7D600748945 /* AudioController.swift */,
 				385CF96B2401A51C0001D5D9 /* PlayPauseButton.swift */,
 				384B703A23FF304F00E22067 /* Assets.xcassets */,
@@ -164,9 +167,10 @@
 			files = (
 				38074ABA240BE7D600748945 /* AudioController.swift in Sources */,
 				3820F0E22401BE3800FE8EF8 /* BPM.swift in Sources */,
+				38C1FB7E241A6D5600D83179 /* Settings.swift in Sources */,
+				38C1FB80241A88C800D83179 /* CircleButton.swift in Sources */,
 				385CF96C2401A51C0001D5D9 /* PlayPauseButton.swift in Sources */,
 				384B703523FF304900E22067 /* AppDelegate.swift in Sources */,
-				38BA7F0D2401CFB60054ABB9 /* ColorExtension.swift in Sources */,
 				384B703723FF304900E22067 /* SceneDelegate.swift in Sources */,
 				384B703923FF304900E22067 /* ContentView.swift in Sources */,
 			);

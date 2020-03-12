@@ -12,20 +12,18 @@ struct PlayPauseButton: View {
 
 	@EnvironmentObject var audioController: AudioController
 
+	@State private var scale: CGFloat = 1.0
+
 	var body: some View {
 		ZStack {
-			RadialGradient(gradient: Gradient(colors: [.colorScheme, .white]), center: .center, startRadius: 20, endRadius: 40)
-			.clipShape(Circle())
-			.shadow(color: .colorScheme, radius: 15)
-			.shadow(color: .colorScheme, radius: 10)
-			.shadow(color: .colorScheme, radius: 05)
+			CircleButton()
+			.scaleEffect(scale)
+			.animation(.spring())
 
 			Image(systemName: audioController.isPlaying ? "pause" : "play")
 			.foregroundColor(.white)
 			.font(Font.custom("System", size: 50))
-			.shadow(color: .colorScheme, radius: 15)
-			.shadow(color: .colorScheme, radius: 10)
-			.shadow(color: .colorScheme, radius: 05)
+			.offset(x: audioController.isPlaying ? 0 : 3)
 		}
 		.frame(width: 75, height: 75)
 		.onTapGesture {
@@ -37,6 +35,9 @@ struct PlayPauseButton: View {
 			}
 
 			self.audioController.isPlaying.toggle()
+			DispatchQueue.main.asyncAfter(deadline: .now(), execute: { self.scale = 0.7 })
+			DispatchQueue.main.asyncAfter(deadline: .now() + 0.1, execute: { self.scale = 1.2 })
+			DispatchQueue.main.asyncAfter(deadline: .now() + 0.2, execute: { self.scale = 1.0 })
 		}
 	}
 }

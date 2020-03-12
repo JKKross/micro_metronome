@@ -8,14 +8,52 @@
 
 import SwiftUI
 
+fileprivate struct Background: View {
+
+	@Environment(\.colorScheme) var colorScheme
+	@EnvironmentObject var settings: Settings
+
+	private var colorStart: Color {
+		switch self.settings.theme {
+		case .standart:
+			if colorScheme == .dark {
+				return Color.black
+			} else {
+				return Color.white
+			}
+		case .neomorphic:
+			return Color.white
+		case .neonGreen:
+			return Color.black
+		}
+	}
+	private var colorEnd: Color {
+		switch self.settings.theme {
+		case .standart:
+			if colorScheme == .dark {
+				return Color.black
+			} else {
+				return Color.white
+			}
+		case .neomorphic:
+			return Color.white
+		case .neonGreen:
+			return Color.black
+		}
+	}
+
+	var body: some View {
+		LinearGradient(gradient: Gradient(colors: [colorStart, colorEnd]), startPoint: .topLeading, endPoint: .bottomTrailing)
+	}
+}
+
 struct ContentView: View {
 
 	@EnvironmentObject var audioController: AudioController
 
 	var body: some View {
 		ZStack {
-// 			LinearGradient(gradient: Gradient(colors: [Color(red: , .backgroundEnd]), startPoint: .topLeading, endPoint: .bottomTrailing)
-			Color.black
+			Background()
 			.edgesIgnoringSafeArea(.all)
 
 			VStack {

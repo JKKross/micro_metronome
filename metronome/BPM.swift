@@ -8,6 +8,7 @@
 
 import SwiftUI
 
+
 struct BPM: View {
 
 	@EnvironmentObject var audioController: AudioController
@@ -19,19 +20,12 @@ struct BPM: View {
 	var body: some View {
 		GeometryReader { geo in
 			ZStack {
-				RadialGradient(gradient: Gradient(colors: [.colorScheme, .white]), center: .center, startRadius: 30, endRadius: 60)
-				.clipShape(Circle())
-				.shadow(color: .colorScheme, radius: 15)
-				.shadow(color: .colorScheme, radius: 10)
-				.shadow(color: .colorScheme, radius: 05)
+				CircleButton()
 
 				Text("\(self.audioController.bpm)")
 				.font(Font.custom("System", size: 40))
 				.bold()
 				.foregroundColor(.white)
-				.shadow(color: .colorScheme, radius: 15)
-				.shadow(color: .colorScheme, radius: 10)
-				.shadow(color: .colorScheme, radius: 05)
 
 			}
 			.frame(width: 100, height: 100)
