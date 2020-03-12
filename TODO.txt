@@ -1,8 +1,23 @@
-Read through aiff spec
 Implement Decoding & Encoding of aiff (Encoding means inserting or removing samples [zeroes] depending on the bpm)
-Implement real playback
+Preprocess files??? (remove comment chunk etc.)
+Implement real playback (continue with AVAudioPlayer or drop down to AVAudioEngine???)
+
+AudioSession config:
+- play when muted
+- play in background
+- when volume is 0%, vibrate
+- duck others ???
 
 Figure out what to do with magic number 100 in BPM.swift (the play button is 75 height + 25 padding)
 Settings screen
 Themes
 Handle the bpm slider not changing to the correct y when rotating device
+Siri Shortcuts support
+
+more sounds:
+- rimshot heavy
+- hi hat
+- cowbell
+- bass drum
+- clap
+- HJONK!

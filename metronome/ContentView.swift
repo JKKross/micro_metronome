@@ -10,6 +10,8 @@ import SwiftUI
 
 struct ContentView: View {
 
+	@EnvironmentObject var audioController: AudioController
+
 	var body: some View {
 		ZStack {
 // 			LinearGradient(gradient: Gradient(colors: [Color(red: , .backgroundEnd]), startPoint: .topLeading, endPoint: .bottomTrailing)
@@ -25,6 +27,7 @@ struct ContentView: View {
 				.padding(.vertical, 25)
 			}
 		}
+		.onAppear { self.audioController.prepareBuffer() }
 	}
 }
 

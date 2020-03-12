@@ -21,7 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		38074AB9240BE7D600748945 /* AudioController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioController.swift; sourceTree = "<group>"; };
+		38074AB9240BE7D600748945 /* AudioController.swift */ = {isa = PBXFileReference; indentWidth = 3; lastKnownFileType = sourcecode.swift; path = AudioController.swift; sourceTree = "<group>"; tabWidth = 3; };
 		38074ABC240BEFA500748945 /* rimshot.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = rimshot.aif; sourceTree = "<group>"; };
 		3820F0E12401BE3800FE8EF8 /* BPM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BPM.swift; sourceTree = "<group>"; usesTabs = 1; };
 		384B703123FF304900E22067 /* metronome.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = metronome.app; sourceTree = BUILT_PRODUCTS_DIR; };
