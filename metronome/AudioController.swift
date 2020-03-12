@@ -47,16 +47,9 @@ final class AudioController: ObservableObject {
 	}
 
 	public func prepareBuffer() {
-		print("\n***** PREPARING BUFFER *****\n")
-		defer { print("aiffBuffer.count: \(aiffBuffer.count) \n\n***** BUFFER PREPARATION COMPLETE *****\n") }
-		print("BPM set to \(self.bpm)\n")
-
 		aiffBuffer = origialAiffBuffer
 
-		defer { player.numberOfLoops = -1; player.prepareToPlay() }
-
 		var index = 0
-
 		var sizeToAdd: Int32 = Int32((35_288 * 300 / self.bpm) - 35_288)
 
  		if sizeToAdd % 2 != 0 { sizeToAdd += 1 }
@@ -65,39 +58,34 @@ final class AudioController: ObservableObject {
 		let numSampleFramesToAdd: UInt32 = UInt32(sizeToAdd / 4)
 
 		while self.bpm != 300 && index < aiffBuffer.count {
+			// To figure out what's going on here, read through the AIFF specification:
+			// http://www-mmsp.ece.mcgill.ca/Documents/AudioFormats/AIFF/Docs/AIFF-1.3.pdf
 			guard let ckID = String(bytes: aiffBuffer[index...(index + 3)], encoding: .utf8) else {
 				fatalError("Could not read ckID. current index: \(index)")
 			}
-			print("ckID: \(ckID), current index: \(index)")
 			index += 4
 
 			if ckID == "FORM" {
-				// Update ckSize to reflect the new length of the sound chunk
 				let ptr = UnsafeMutableRawPointer(&aiffBuffer[index])
 				let safePtr = ptr.assumingMemoryBound(to: Int32.self)
-				let size = Int32(bigEndian: safePtr.pointee) + sizeToAdd
-				safePtr.pointee = Int32(bigEndian: size)
-				// next line is for debug only, delete when finished
-				print("Updated size of FORM: \(Int32(bigEndian: safePtr.pointee))")
+				// Update ckSize to reflect the new length of the sound chunk
+				let ckSize = Int32(bigEndian: safePtr.pointee) + sizeToAdd
+				safePtr.pointee = Int32(bigEndian: ckSize)
 				// Skip right to the beginning of the next chunk
 				index += 8
 				continue
 			} else if ckID == "COMM" {
-				// update numSampleFrames to reflect new length of the sound chunk
 				let ptr = UnsafeMutableRawPointer(&aiffBuffer[index + 6])
 				let safePtr = ptr.assumingMemoryBound(to: UInt32.self)
+				// update numSampleFrames to reflect new length of the sound chunk
 				let numSampleFrames = UInt32(bigEndian: safePtr.pointee) + numSampleFramesToAdd
 				safePtr.pointee = UInt32(bigEndian: numSampleFrames)
-				// next line is for debug only, delete when finished
-				print("Updated numSampleFrames of COMM: \(UInt32(bigEndian: safePtr.pointee))")
 			} else if ckID == "SSND" {
 				let ptr = UnsafeMutableRawPointer(&aiffBuffer[index])
 				let safePtr = ptr.assumingMemoryBound(to: Int32.self)
-				let size = Int32(bigEndian: safePtr.pointee) + sizeToAdd
-				safePtr.pointee = Int32(bigEndian: size)
-
-				// next line is for debug only, delete when finished
-				print("Updated ckSize of SSND: \(Int32(bigEndian: safePtr.pointee))")
+				// Update ckSize to reflect the new length of the sound chunk
+				let ckSize = Int32(bigEndian: safePtr.pointee) + sizeToAdd
+				safePtr.pointee = Int32(bigEndian: ckSize)
 
 				let bytesToAdd: Array<UInt8> = Array(repeating: 0, count: Int(sizeToAdd))
 				aiffBuffer.insert(contentsOf: bytesToAdd, at: index + 8)
@@ -107,13 +95,13 @@ final class AudioController: ObservableObject {
 			let ptr = UnsafeRawPointer(&aiffBuffer[index])
 			let ckSize = Int32(bigEndian: ptr.assumingMemoryBound(to: Int32.self).pointee)
 			index += 4 + Int(ckSize)
-			print("ckSize: \(ckSize), next index: \(index)")
-
 		}
 
 		do {
 			self.soundData = Data(aiffBuffer)
 			self.player = try AVAudioPlayer(data: soundData, fileTypeHint: "public.aiff-audio")
+			player.numberOfLoops = -1
+			player.prepareToPlay()
 		} catch {
 			fatalError("Could not init AVAudioPlayer: \(error)")
 		}
