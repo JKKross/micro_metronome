@@ -27,7 +27,10 @@ struct ContentView: View {
 				.padding(.vertical, 25)
 			}
 		}
-		.onAppear { self.audioController.prepareBuffer() }
+		.onAppear {
+			self.audioController.prepareBuffer()
+			self.audioController.setUpAudioSession()
+		}
 	}
 }
 

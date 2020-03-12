@@ -11,7 +11,9 @@ import AVFoundation
 final class AudioController: ObservableObject {
 
 	@Published public var isPlaying = false
-	@Published public var bpm = 300
+	@Published public var bpm = 100
+
+	private let audioSession = AVAudioSession.sharedInstance()
 
 	private let soundFileURL: URL
 	private let origialAiffBuffer: Array<UInt8>
@@ -39,6 +41,11 @@ final class AudioController: ObservableObject {
 	}
 
 	public func play() {
+		do {
+			try audioSession.setActive(true)
+		} catch {
+			debugPrint("Could not activate audioSession:", error)
+		}
 		player.play()
 	}
 
@@ -104,6 +111,14 @@ final class AudioController: ObservableObject {
 			player.prepareToPlay()
 		} catch {
 			fatalError("Could not init AVAudioPlayer: \(error)")
+		}
+	}
+
+	func setUpAudioSession() {
+		do {
+			try audioSession.setCategory(.playback, mode: .default, options: [])
+		} catch {
+			debugPrint("Could not set-up audioSession:", error)
 		}
 	}
 

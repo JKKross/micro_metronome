@@ -1,11 +1,6 @@
 Audio:
 
 Preprocess files??? (remove comment chunk etc.)
-AudioSession config:
-- play when muted
-- play in background
-- when volume is 0%, vibrate
-- duck others ???
 
 more sounds:
 - rimshot heavy
