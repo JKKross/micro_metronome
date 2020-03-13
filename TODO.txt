@@ -2,14 +2,6 @@ Audio:
 
 Preprocess files??? (remove comment chunk etc.)
 
-more sounds:
-- rimshot heavy
-- hi hat
-- cowbell
-- bass drum
-- clap
-- HJONK!
-
 __________________________
 
 UI:
