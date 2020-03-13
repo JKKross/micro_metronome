@@ -27,6 +27,10 @@ struct PlayPauseButton: View {
 		}
 		.frame(width: 75, height: 75)
 		.onTapGesture {
+			DispatchQueue.main.asyncAfter(deadline: .now(), execute: { self.scale = 0.7 })
+			DispatchQueue.main.asyncAfter(deadline: .now() + 0.05, execute: { self.scale = 1.2 })
+			DispatchQueue.main.asyncAfter(deadline: .now() + 0.1, execute: { self.scale = 1.0 })
+			
 			if self.audioController.isPlaying {
 				self.audioController.stop()
 				self.audioController.prepareBuffer()
@@ -35,9 +39,6 @@ struct PlayPauseButton: View {
 			}
 
 			self.audioController.isPlaying.toggle()
-			DispatchQueue.main.asyncAfter(deadline: .now(), execute: { self.scale = 0.7 })
-			DispatchQueue.main.asyncAfter(deadline: .now() + 0.1, execute: { self.scale = 1.2 })
-			DispatchQueue.main.asyncAfter(deadline: .now() + 0.2, execute: { self.scale = 1.0 })
 		}
 	}
 }

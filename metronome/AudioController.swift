@@ -16,7 +16,7 @@ final class AudioController: ObservableObject {
 	private let audioSession = AVAudioSession.sharedInstance()
 
 	private let soundFileURL: URL
-	private let origialAiffBuffer: Array<UInt8>
+	private let originalAiffBuffer: Array<UInt8>
 	private var aiffBuffer: Array<UInt8>
 	private var soundData: Data
 	private var player: AVAudioPlayer!
@@ -30,19 +30,29 @@ final class AudioController: ObservableObject {
 
 		do {
 			self.soundData = try Data(contentsOf: soundFileURL)
-			origialAiffBuffer = Array(soundData[0..<soundData.endIndex])
+			originalAiffBuffer = Array(soundData[0..<soundData.endIndex])
 			aiffBuffer = Array()
 			aiffBuffer.reserveCapacity(530_000)
 		} catch {
 			fatalError("DATA READING ERROR: \(error)")
 		}
 
+		self.setUpAudioSession()
 		self.prepareBuffer()
+	}
+	
+	deinit {
+		player.stop()
+		do {
+			try audioSession.setActive(false, options: .notifyOthersOnDeactivation)
+		} catch {
+			debugPrint("Could not deactivate audioSession:", error)
+		}
 	}
 
 	public func play() {
 		do {
-			try audioSession.setActive(true)
+			try audioSession.setActive(true, options: .notifyOthersOnDeactivation)
 		} catch {
 			debugPrint("Could not activate audioSession:", error)
 		}
@@ -54,7 +64,7 @@ final class AudioController: ObservableObject {
 	}
 
 	public func prepareBuffer() {
-		aiffBuffer = origialAiffBuffer
+		aiffBuffer = originalAiffBuffer
 
 		var index = 0
 		var sizeToAdd: Int32 = Int32((35_288 * 300 / self.bpm) - 35_288)
@@ -116,6 +126,7 @@ final class AudioController: ObservableObject {
 
 	func setUpAudioSession() {
 		do {
+			try audioSession.setActive(false, options: .notifyOthersOnDeactivation)
 			try audioSession.setCategory(.playback, mode: .default, options: [])
 		} catch {
 			debugPrint("Could not set-up audioSession:", error)
