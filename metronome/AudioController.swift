@@ -22,7 +22,7 @@ final class AudioController: ObservableObject {
 	private var player: AVAudioPlayer!
 
 	public init() {
-		if let path = Bundle.main.path(forResource: "rimshot.aif", ofType: nil) {
+		if let path = Bundle.main.path(forResource: "hi-hat.aif", ofType: nil) {
 			self.soundFileURL = URL(fileURLWithPath: path)
 		} else {
 			fatalError("Could not create url for rimshot.aif")

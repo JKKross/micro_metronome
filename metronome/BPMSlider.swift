@@ -1,5 +1,5 @@
 //
-//  BPM.swift
+//  BPMSlider.swift
 //  metronome
 //
 //  Created by Jan Kříž on 22/02/2020.
@@ -9,7 +9,7 @@
 import SwiftUI
 
 
-struct BPM: View {
+struct BPMSlider: View {
 
 	@EnvironmentObject var audioController: AudioController
 
@@ -20,23 +20,22 @@ struct BPM: View {
 	var body: some View {
 		GeometryReader { geo in
 			ZStack {
-				CircleButton()
+				RoundedRectangle(cornerRadius: 5)
+				.frame(width: 5)
+				.foregroundColor(Color("secondary_controls"))
 
-				Text("\(self.audioController.bpm)")
-				.font(Font.custom("System", size: 40))
-				.bold()
-				.foregroundColor(.white)
-
+				RoundedRectangle(cornerRadius: 5)
+				.frame(width: 100, height: 30)
+				.offset(y: self.offset)
+				.foregroundColor(Color("controls"))
 			}
-			.frame(width: 100, height: 100)
-			.offset(y: self.offset)
 			.gesture(
-				DragGesture()
+				DragGesture(minimumDistance: 5)
 				.onChanged { val in
 					if self.audioController.isPlaying { self.audioController.stop() }
 					self.offset = val.translation.height + self.previousOffset
 
-					let containingViewHeight = geo.size.height - 100
+					let containingViewHeight = geo.size.height
 					if self.offset > (containingViewHeight / 2) {
 						self.offset = containingViewHeight / 2
 					} else if self.offset < -(containingViewHeight / 2) {

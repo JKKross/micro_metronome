@@ -1,17 +1,17 @@
 Audio:
 
 Preprocess files??? (remove comment chunk etc.)
+Sounds are being cutoff & sound weird because of it - figure out!!!
+First beat is silent - figure out!!!
 
 __________________________
 
 UI:
 
-Figure out what to do with magic number 100 in BPM.swift (the play button is 75 height + 25 padding)
 Settings screen
-Themes
+Setlist screen
 Handle the bpm slider not changing to the correct y when rotating device
 
 __________________________
 
-Siri Shortcuts support
-
+Siri Shortcuts support ???

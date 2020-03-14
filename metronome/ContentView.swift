@@ -10,37 +10,8 @@ import SwiftUI
 
 fileprivate struct Background: View {
 
-	@Environment(\.colorScheme) var colorScheme
-	@EnvironmentObject var settings: Settings
-
-	private var colorStart: Color {
-		switch self.settings.theme {
-		case .standart:
-			if colorScheme == .dark {
-				return Color.black
-			} else {
-				return Color.white
-			}
-		case .neomorphic:
-			return Color.white
-		case .neonGreen:
-			return Color.black
-		}
-	}
-	private var colorEnd: Color {
-		switch self.settings.theme {
-		case .standart:
-			if colorScheme == .dark {
-				return Color.black
-			} else {
-				return Color.white
-			}
-		case .neomorphic:
-			return Color.white
-		case .neonGreen:
-			return Color.black
-		}
-	}
+	private var colorStart = Color("background_start")
+	private var colorEnd = Color("background_end")
 
 	var body: some View {
 		LinearGradient(gradient: Gradient(colors: [colorStart, colorEnd]), startPoint: .topLeading, endPoint: .bottomTrailing)
@@ -57,12 +28,18 @@ struct ContentView: View {
 			.edgesIgnoringSafeArea(.all)
 
 			VStack {
-				BPM()
+				Text("\(audioController.bpm)")
+				.font(Font.custom("Futura", size: 50))
 				.padding(.top, 25)
+				.foregroundColor(Color("text"))
+
+				BPMSlider()
 
 				PlayPauseButton()
 				.frame(height: 75)
-				.padding(.vertical, 25)
+				.padding(.bottom, 25)
+				.padding(.top, 10)
+				
 			}
 		}
 	}
