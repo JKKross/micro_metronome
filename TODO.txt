@@ -2,14 +2,16 @@
 FIGURE OUT A NAME!!!!!!!!
 __________________________
 
+Saving: User Defaults (bpm, selected sound, setlist)
+
 UI:
 
 Settings screen
 Setlist screen
 Handle the bpm slider not changing to the correct y when rotating device
+Bpm + or - when tapping above or below the slider!!!
 
 __________________________
 
-User Defaults (bpm, selected sound, setlist)
 
 Siri Shortcuts support ???

@@ -84,7 +84,7 @@ struct SettingsView: View {
 
 				Spacer()
 			}
-			.frame(width: UIScreen.main.bounds.width, alignment: .topLeading)
+			.frame(alignment: .topLeading)
 
 				// About etc.
 		}
