@@ -32,7 +32,6 @@ final class AudioController: ObservableObject {
 			self.soundData = try Data(contentsOf: soundFileURL)
 			originalAiffBuffer = Array(soundData[0..<soundData.endIndex])
 			aiffBuffer = originalAiffBuffer
-// 			aiffBuffer.reserveCapacity(530_000)
 		} catch {
 			fatalError("DATA READING ERROR: \(error)")
 		}

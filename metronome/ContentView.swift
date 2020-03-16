@@ -35,11 +35,11 @@ struct ContentView: View {
 
 				BPMSlider()
 
-				PlayPauseButton()
+				BottomControlsBar()
 				.frame(height: 75)
 				.padding(.bottom, 25)
 				.padding(.top, 10)
-				
+				.padding(.horizontal, 25)
 			}
 		}
 	}

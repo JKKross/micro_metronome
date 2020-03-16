@@ -1,5 +1,5 @@
 //
-//  PlayPauseButton.swift
+//  BottomControlsBar.swift
 //  metronome
 //
 //  Created by Jan Kříž on 22/02/2020.
