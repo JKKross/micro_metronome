@@ -19,13 +19,15 @@ struct CustomButtonStyle: ButtonStyle {
 struct BottomControlsBar: View {
 
 	@EnvironmentObject var audioController: AudioController
+	@State private var isShowingSettingsView = false
 
 	var body: some View {
 
 		HStack {
 			Button(action: {
-				print("settings tapped")
+				self.isShowingSettingsView = true
 			}) { Image(systemName: "gear") }
+				.sheet(isPresented: $isShowingSettingsView) { SettingsView(selectedSound: self.$audioController.selectedSound) }
 			.buttonStyle(CustomButtonStyle())
 			.font(Font.custom("System", size: 40))
 

@@ -142,10 +142,10 @@ final class AudioController: ObservableObject {
 	}
 
 	private func loadFile(_ selectedSound: Sounds) {
-		if let path = Bundle.main.path(forResource: "\(selectedSound).aif", ofType: nil) {
+		if let path = Bundle.main.path(forResource: "\(selectedSound.rawValue).aif", ofType: nil) {
 			self.soundFileURL = URL(fileURLWithPath: path)
 		} else {
-			fatalError("Could not create url for \(selectedSound).aif")
+			fatalError("Could not create url for \(selectedSound.rawValue).aif")
 		}
 
 		do {
