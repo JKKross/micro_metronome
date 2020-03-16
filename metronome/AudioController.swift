@@ -8,34 +8,38 @@
 
 import AVFoundation
 
+enum Sounds: String {
+	case rimshot  = "rimshot"
+	case bassDrum = "bass-drum"
+	case clap     = "clap"
+	case cowbell  = "cowbell"
+	case hiHat    = "hi-hat"
+	case hjonk    = "hjonk"
+}
+
 final class AudioController: ObservableObject {
 
 	@Published public var isPlaying = false
 	@Published public var bpm = 100
+	@Published public var selectedSound: Sounds = .rimshot {
+		willSet {
+			if self.isPlaying { self.stop() }
+			self.loadFile(newValue)
+			self.prepareBuffer()
+			if self.isPlaying { self.play() }
+		}
+	}
 
 	private let audioSession = AVAudioSession.sharedInstance()
 
-	private let soundFileURL: URL
-	private let originalAiffBuffer: Array<UInt8>
-	private var aiffBuffer: Array<UInt8>
-	private var soundData: Data
+	private var soundFileURL: URL!
+	private var originalAiffBuffer: Array<UInt8>!
+	private var aiffBuffer: Array<UInt8>!
+	private var soundData: Data!
 	private var player: AVAudioPlayer!
 
 	public init() {
-		if let path = Bundle.main.path(forResource: "rimshot.aif", ofType: nil) {
-			self.soundFileURL = URL(fileURLWithPath: path)
-		} else {
-			fatalError("Could not create url for rimshot.aif")
-		}
-
-		do {
-			self.soundData = try Data(contentsOf: soundFileURL)
-			originalAiffBuffer = Array(soundData[0..<soundData.endIndex])
-			aiffBuffer = originalAiffBuffer
-		} catch {
-			fatalError("DATA READING ERROR: \(error)")
-		}
-
+		self.loadFile(self.selectedSound)
 		self.setUpAudioSession()
 		self.prepareBuffer()
 	}
@@ -128,12 +132,28 @@ final class AudioController: ObservableObject {
 		}
 	}
 
-	func setUpAudioSession() {
+	public func setUpAudioSession() {
 		do {
 			try audioSession.setActive(false, options: .notifyOthersOnDeactivation)
 			try audioSession.setCategory(.playback, mode: .default, options: [])
 		} catch {
 			debugPrint("Could not set-up audioSession:", error)
+		}
+	}
+
+	private func loadFile(_ selectedSound: Sounds) {
+		if let path = Bundle.main.path(forResource: "\(selectedSound).aif", ofType: nil) {
+			self.soundFileURL = URL(fileURLWithPath: path)
+		} else {
+			fatalError("Could not create url for \(selectedSound).aif")
+		}
+
+		do {
+			self.soundData = try Data(contentsOf: soundFileURL)
+			originalAiffBuffer = Array(soundData[0..<soundData.endIndex])
+			aiffBuffer = originalAiffBuffer
+		} catch {
+			fatalError("DATA READING ERROR: \(error)")
 		}
 	}
 
