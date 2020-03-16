@@ -43,7 +43,7 @@ struct BPMSlider: View {
 					}
 					let realValue = (containingViewHeight / 2 + self.offset)
 					self.sliderValue = abs((realValue / containingViewHeight) - 1)
-					self.audioController.bpm = Int(self.sliderValue * 280) + 20
+					self.audioController.bpm = Int(self.sliderValue * 240) + 20
 				}
 				.onEnded { _ in
 					self.previousOffset = self.offset
