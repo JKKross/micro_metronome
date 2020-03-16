@@ -22,7 +22,7 @@ final class AudioController: ObservableObject {
 	private var player: AVAudioPlayer!
 
 	public init() {
-		if let path = Bundle.main.path(forResource: "hi-hat.aif", ofType: nil) {
+		if let path = Bundle.main.path(forResource: "rimshot.aif", ofType: nil) {
 			self.soundFileURL = URL(fileURLWithPath: path)
 		} else {
 			fatalError("Could not create url for rimshot.aif")
@@ -31,8 +31,8 @@ final class AudioController: ObservableObject {
 		do {
 			self.soundData = try Data(contentsOf: soundFileURL)
 			originalAiffBuffer = Array(soundData[0..<soundData.endIndex])
-			aiffBuffer = Array()
-			aiffBuffer.reserveCapacity(530_000)
+			aiffBuffer = originalAiffBuffer
+// 			aiffBuffer.reserveCapacity(530_000)
 		} catch {
 			fatalError("DATA READING ERROR: \(error)")
 		}
@@ -40,7 +40,7 @@ final class AudioController: ObservableObject {
 		self.setUpAudioSession()
 		self.prepareBuffer()
 	}
-	
+
 	deinit {
 		player.stop()
 		do {
@@ -67,14 +67,17 @@ final class AudioController: ObservableObject {
 		aiffBuffer = originalAiffBuffer
 
 		var index = 0
-		var sizeToAdd: Int32 = Int32((35_288 * 300 / self.bpm) - 35_288)
+		// 529_208 is the size of the sound chunk (in bytes).
+		// Since we know that those bytes represent 20 bpm, we can get the number of bytes
+		// to subtract from it with this formula to get the sound of desired length.
+		var sizeToSubtract = Int32(529_208 - (529_208 * 20 / self.bpm))
 
- 		if sizeToAdd % 2 != 0 { sizeToAdd += 1 }
+ 		if sizeToSubtract % 2 != 0 { sizeToSubtract += 1 }
 
-		// Divide by 4 because one sample frame if 32-bits wide (Two 16-bit floats, one for each channel)
-		let numSampleFramesToAdd: UInt32 = UInt32(sizeToAdd / 4)
+		// Divide by 4 because one sample frame is 32-bits wide (Two 16-bit floats, one for each channel)
+		let numSampleFramesToSubtract = UInt32(sizeToSubtract / 4)
 
-		while self.bpm != 300 && index < aiffBuffer.count {
+		while self.bpm != 20 && index < aiffBuffer.count {
 			// To figure out what's going on here, read through the AIFF specification:
 			// http://www-mmsp.ece.mcgill.ca/Documents/AudioFormats/AIFF/Docs/AIFF-1.3.pdf
 			guard let ckID = String(bytes: aiffBuffer[index...(index + 3)], encoding: .utf8) else {
@@ -86,7 +89,7 @@ final class AudioController: ObservableObject {
 				let ptr = UnsafeMutableRawPointer(&aiffBuffer[index])
 				let safePtr = ptr.assumingMemoryBound(to: Int32.self)
 				// Update ckSize to reflect the new length of the sound chunk
-				let ckSize = Int32(bigEndian: safePtr.pointee) + sizeToAdd
+				let ckSize = Int32(bigEndian: safePtr.pointee) - sizeToSubtract
 				safePtr.pointee = Int32(bigEndian: ckSize)
 				// Skip right to the beginning of the next chunk
 				index += 8
@@ -95,17 +98,19 @@ final class AudioController: ObservableObject {
 				let ptr = UnsafeMutableRawPointer(&aiffBuffer[index + 6])
 				let safePtr = ptr.assumingMemoryBound(to: UInt32.self)
 				// update numSampleFrames to reflect new length of the sound chunk
-				let numSampleFrames = UInt32(bigEndian: safePtr.pointee) + numSampleFramesToAdd
+				let numSampleFrames = UInt32(bigEndian: safePtr.pointee) - numSampleFramesToSubtract
 				safePtr.pointee = UInt32(bigEndian: numSampleFrames)
 			} else if ckID == "SSND" {
 				let ptr = UnsafeMutableRawPointer(&aiffBuffer[index])
 				let safePtr = ptr.assumingMemoryBound(to: Int32.self)
+				let originalSize = Int32(bigEndian: safePtr.pointee)
 				// Update ckSize to reflect the new length of the sound chunk
-				let ckSize = Int32(bigEndian: safePtr.pointee) + sizeToAdd
+				let ckSize = originalSize - sizeToSubtract
 				safePtr.pointee = Int32(bigEndian: ckSize)
 
-				let bytesToAdd: Array<UInt8> = Array(repeating: 0, count: Int(sizeToAdd))
-				aiffBuffer.insert(contentsOf: bytesToAdd, at: index + 8)
+				let lowerBound = index + 8 + Int(ckSize)
+				let upperBound = index + 8 + Int(originalSize)
+				aiffBuffer.removeSubrange(lowerBound..<upperBound)
 				break
 			}
 

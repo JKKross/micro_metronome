@@ -1,8 +1,6 @@
 Audio:
 
 Preprocess files??? (remove comment chunk etc.)
-Sounds are being cutoff & sound weird because of it - figure out!!!
-First beat is silent - figure out!!!
 
 __________________________
 
@@ -13,5 +11,7 @@ Setlist screen
 Handle the bpm slider not changing to the correct y when rotating device
 
 __________________________
+
+User Defaults (bpm, selected sound, setlist)
 
 Siri Shortcuts support ???
