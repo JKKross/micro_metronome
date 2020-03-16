@@ -27,7 +27,7 @@ struct BottomControlsBar: View {
 			Button(action: {
 				self.isShowingSettingsView = true
 			}) { Image(systemName: "gear") }
-				.sheet(isPresented: $isShowingSettingsView) { SettingsView(selectedSound: self.$audioController.selectedSound) }
+			.sheet(isPresented: $isShowingSettingsView) { SettingsView(selectedSound: self.$audioController.selectedSound) }
 			.buttonStyle(CustomButtonStyle())
 			.font(Font.custom("System", size: 40))
 
