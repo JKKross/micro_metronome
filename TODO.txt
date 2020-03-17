@@ -14,6 +14,11 @@ Bpm + or - when tapping above or below the slider!!!
 
 __________________________
 
+Add README
+Add License
+
+__________________________
+
 
 Platforms:
 iOS 13+
@@ -23,4 +28,4 @@ Mac - Terminal
 WatchOS ???
 Linux terminal ???
 Windows terminal ???
-Web ??? (webassembly)
+Web ??? (probably not, we'll see...)
