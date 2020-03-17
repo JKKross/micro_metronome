@@ -26,13 +26,7 @@ fileprivate struct Cell: View {
 	public var name: Sounds
 	public var currentlySelectedSound: Sounds
 
-	private var isSelected: String {
-		if self.name.rawValue == self.currentlySelectedSound.rawValue {
-			return "checkmark.circle"
-		} else {
-			return ""
-		}
-	}
+	private var isSelected: Bool { self.name.rawValue == self.currentlySelectedSound.rawValue }
 
 	var body: some View {
 		VStack(alignment: .leading) {
@@ -44,8 +38,8 @@ fileprivate struct Cell: View {
 
 				Spacer()
 
-				Image(systemName: isSelected)
-				.foregroundColor(.green)
+				Image(systemName: "checkmark.circle")
+				.foregroundColor(isSelected ? .green : Color("background_end"))
 			}
 			.padding(.horizontal, 20)
 
@@ -79,20 +73,24 @@ struct SettingsView: View {
 					.padding(.trailing, 20)
 				}
 				.padding(.vertical, 25)
-
-				Group {
-					Cell(action: { self.selectedSound = .rimshot }, name: .rimshot, currentlySelectedSound: selectedSound)
-					Cell(action: { self.selectedSound = .bassDrum }, name: .bassDrum, currentlySelectedSound: selectedSound)
-					Cell(action: { self.selectedSound = .clap }, name: .clap, currentlySelectedSound: selectedSound)
-					Cell(action: { self.selectedSound = .cowbell }, name: .cowbell, currentlySelectedSound: selectedSound)
-					Cell(action: { self.selectedSound = .hiHat }, name: .hiHat, currentlySelectedSound: selectedSound)
-					Cell(action: { self.selectedSound = .hjonk }, name: .hjonk, currentlySelectedSound: selectedSound)
+				
+				ScrollView {
+					Group {
+						Cell(action: { self.selectedSound = .rimshot }, name: .rimshot, currentlySelectedSound: selectedSound)
+						Cell(action: { self.selectedSound = .bassDrum }, name: .bassDrum, currentlySelectedSound: selectedSound)
+						Cell(action: { self.selectedSound = .clap }, name: .clap, currentlySelectedSound: selectedSound)
+						Cell(action: { self.selectedSound = .cowbell }, name: .cowbell, currentlySelectedSound: selectedSound)
+						Cell(action: { self.selectedSound = .hiHat }, name: .hiHat, currentlySelectedSound: selectedSound)
+						Cell(action: { self.selectedSound = .hjonk }, name: .hjonk, currentlySelectedSound: selectedSound)
+						Cell(action: { self.selectedSound = .jackSlap }, name: .jackSlap, currentlySelectedSound: selectedSound)
+						Cell(action: { self.selectedSound = .laugh }, name: .laugh, currentlySelectedSound: selectedSound)
+						Cell(action: { self.selectedSound = .uHuh }, name: .uHuh, currentlySelectedSound: selectedSound)
+						Cell(action: { self.selectedSound = .elephant }, name: .elephant, currentlySelectedSound: selectedSound)
+					}
 				}
-
-				Spacer()
 			}
 			.frame(alignment: .topLeading)
-
+				
 				// About etc.
 		}
 	}

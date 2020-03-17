@@ -16,12 +16,16 @@
 		384B703B23FF304F00E22067 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 384B703A23FF304F00E22067 /* Assets.xcassets */; };
 		384B703E23FF304F00E22067 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 384B703D23FF304F00E22067 /* Preview Assets.xcassets */; };
 		384B704123FF304F00E22067 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 384B703F23FF304F00E22067 /* LaunchScreen.storyboard */; };
-		38A163BA241FA56D00276606 /* clap.aif in Resources */ = {isa = PBXBuildFile; fileRef = 38A163B4241FA56D00276606 /* clap.aif */; };
-		38A163BB241FA56D00276606 /* bass-drum.aif in Resources */ = {isa = PBXBuildFile; fileRef = 38A163B5241FA56D00276606 /* bass-drum.aif */; };
-		38A163BC241FA56D00276606 /* hi-hat.aif in Resources */ = {isa = PBXBuildFile; fileRef = 38A163B6241FA56D00276606 /* hi-hat.aif */; };
-		38A163BD241FA56D00276606 /* hjonk.aif in Resources */ = {isa = PBXBuildFile; fileRef = 38A163B7241FA56D00276606 /* hjonk.aif */; };
-		38A163BE241FA56D00276606 /* rimshot.aif in Resources */ = {isa = PBXBuildFile; fileRef = 38A163B8241FA56D00276606 /* rimshot.aif */; };
-		38A163BF241FA56D00276606 /* cowbell.aif in Resources */ = {isa = PBXBuildFile; fileRef = 38A163B9241FA56D00276606 /* cowbell.aif */; };
+		38A0815D242124E6000537D7 /* U-huh!.aif in Resources */ = {isa = PBXBuildFile; fileRef = 38A08153242124E5000537D7 /* U-huh!.aif */; };
+		38A0815E242124E6000537D7 /* Clap.aif in Resources */ = {isa = PBXBuildFile; fileRef = 38A08154242124E5000537D7 /* Clap.aif */; };
+		38A0815F242124E6000537D7 /* Hjonk.aif in Resources */ = {isa = PBXBuildFile; fileRef = 38A08155242124E5000537D7 /* Hjonk.aif */; };
+		38A08160242124E6000537D7 /* LAUGH!.aif in Resources */ = {isa = PBXBuildFile; fileRef = 38A08156242124E6000537D7 /* LAUGH!.aif */; };
+		38A08161242124E6000537D7 /* And the elephants went....aif in Resources */ = {isa = PBXBuildFile; fileRef = 38A08157242124E6000537D7 /* And the elephants went....aif */; };
+		38A08162242124E6000537D7 /* Hi-hat.aif in Resources */ = {isa = PBXBuildFile; fileRef = 38A08158242124E6000537D7 /* Hi-hat.aif */; };
+		38A08163242124E6000537D7 /* Rimshot.aif in Resources */ = {isa = PBXBuildFile; fileRef = 38A08159242124E6000537D7 /* Rimshot.aif */; };
+		38A08164242124E6000537D7 /* Cowbell.aif in Resources */ = {isa = PBXBuildFile; fileRef = 38A0815A242124E6000537D7 /* Cowbell.aif */; };
+		38A08165242124E6000537D7 /* Bass drum.aif in Resources */ = {isa = PBXBuildFile; fileRef = 38A0815B242124E6000537D7 /* Bass drum.aif */; };
+		38A08166242124E6000537D7 /* Jack slap.aif in Resources */ = {isa = PBXBuildFile; fileRef = 38A0815C242124E6000537D7 /* Jack slap.aif */; };
 		38A163C1241FB3AC00276606 /* BottomControlsBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38A163C0241FB3AC00276606 /* BottomControlsBar.swift */; };
 /* End PBXBuildFile section */
 
@@ -29,7 +33,7 @@
 		38074AB9240BE7D600748945 /* AudioController.swift */ = {isa = PBXFileReference; indentWidth = 3; lastKnownFileType = sourcecode.swift; path = AudioController.swift; sourceTree = "<group>"; tabWidth = 3; };
 		381BAEA5241FC07F00CA8720 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		3820F0E12401BE3800FE8EF8 /* BPMSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BPMSlider.swift; sourceTree = "<group>"; usesTabs = 1; };
-		384B703123FF304900E22067 /* metronome.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = metronome.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		384B703123FF304900E22067 /* Untitled Metronome.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Untitled Metronome.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		384B703423FF304900E22067 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		384B703623FF304900E22067 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		384B703823FF304900E22067 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -37,12 +41,16 @@
 		384B703D23FF304F00E22067 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		384B704023FF304F00E22067 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		384B704223FF304F00E22067 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		38A163B4241FA56D00276606 /* clap.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = clap.aif; sourceTree = "<group>"; };
-		38A163B5241FA56D00276606 /* bass-drum.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "bass-drum.aif"; sourceTree = "<group>"; };
-		38A163B6241FA56D00276606 /* hi-hat.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "hi-hat.aif"; sourceTree = "<group>"; };
-		38A163B7241FA56D00276606 /* hjonk.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = hjonk.aif; sourceTree = "<group>"; };
-		38A163B8241FA56D00276606 /* rimshot.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = rimshot.aif; sourceTree = "<group>"; };
-		38A163B9241FA56D00276606 /* cowbell.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = cowbell.aif; sourceTree = "<group>"; };
+		38A08153242124E5000537D7 /* U-huh!.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "U-huh!.aif"; sourceTree = "<group>"; };
+		38A08154242124E5000537D7 /* Clap.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = Clap.aif; sourceTree = "<group>"; };
+		38A08155242124E5000537D7 /* Hjonk.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = Hjonk.aif; sourceTree = "<group>"; };
+		38A08156242124E6000537D7 /* LAUGH!.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LAUGH!.aif"; sourceTree = "<group>"; };
+		38A08157242124E6000537D7 /* And the elephants went....aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "And the elephants went....aif"; sourceTree = "<group>"; };
+		38A08158242124E6000537D7 /* Hi-hat.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Hi-hat.aif"; sourceTree = "<group>"; };
+		38A08159242124E6000537D7 /* Rimshot.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = Rimshot.aif; sourceTree = "<group>"; };
+		38A0815A242124E6000537D7 /* Cowbell.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = Cowbell.aif; sourceTree = "<group>"; };
+		38A0815B242124E6000537D7 /* Bass drum.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Bass drum.aif"; sourceTree = "<group>"; };
+		38A0815C242124E6000537D7 /* Jack slap.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Jack slap.aif"; sourceTree = "<group>"; };
 		38A163C0241FB3AC00276606 /* BottomControlsBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomControlsBar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -60,12 +68,16 @@
 		381A0155241C179000711F9B /* Sounds */ = {
 			isa = PBXGroup;
 			children = (
-				38A163B5241FA56D00276606 /* bass-drum.aif */,
-				38A163B4241FA56D00276606 /* clap.aif */,
-				38A163B9241FA56D00276606 /* cowbell.aif */,
-				38A163B6241FA56D00276606 /* hi-hat.aif */,
-				38A163B7241FA56D00276606 /* hjonk.aif */,
-				38A163B8241FA56D00276606 /* rimshot.aif */,
+				38A08157242124E6000537D7 /* And the elephants went....aif */,
+				38A0815B242124E6000537D7 /* Bass drum.aif */,
+				38A08154242124E5000537D7 /* Clap.aif */,
+				38A0815A242124E6000537D7 /* Cowbell.aif */,
+				38A08158242124E6000537D7 /* Hi-hat.aif */,
+				38A08155242124E5000537D7 /* Hjonk.aif */,
+				38A0815C242124E6000537D7 /* Jack slap.aif */,
+				38A08156242124E6000537D7 /* LAUGH!.aif */,
+				38A08159242124E6000537D7 /* Rimshot.aif */,
+				38A08153242124E5000537D7 /* U-huh!.aif */,
 			);
 			path = Sounds;
 			sourceTree = "<group>";
@@ -92,7 +104,7 @@
 		384B703223FF304900E22067 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				384B703123FF304900E22067 /* metronome.app */,
+				384B703123FF304900E22067 /* Untitled Metronome.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -138,7 +150,7 @@
 			);
 			name = metronome;
 			productName = metronome;
-			productReference = 384B703123FF304900E22067 /* metronome.app */;
+			productReference = 384B703123FF304900E22067 /* Untitled Metronome.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -179,15 +191,19 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				38A08165242124E6000537D7 /* Bass drum.aif in Resources */,
+				38A08162242124E6000537D7 /* Hi-hat.aif in Resources */,
+				38A0815E242124E6000537D7 /* Clap.aif in Resources */,
+				38A08164242124E6000537D7 /* Cowbell.aif in Resources */,
+				38A0815D242124E6000537D7 /* U-huh!.aif in Resources */,
+				38A08160242124E6000537D7 /* LAUGH!.aif in Resources */,
+				38A08161242124E6000537D7 /* And the elephants went....aif in Resources */,
 				384B704123FF304F00E22067 /* LaunchScreen.storyboard in Resources */,
-				38A163BD241FA56D00276606 /* hjonk.aif in Resources */,
 				384B703E23FF304F00E22067 /* Preview Assets.xcassets in Resources */,
-				38A163BA241FA56D00276606 /* clap.aif in Resources */,
 				384B703B23FF304F00E22067 /* Assets.xcassets in Resources */,
-				38A163BF241FA56D00276606 /* cowbell.aif in Resources */,
-				38A163BB241FA56D00276606 /* bass-drum.aif in Resources */,
-				38A163BC241FA56D00276606 /* hi-hat.aif in Resources */,
-				38A163BE241FA56D00276606 /* rimshot.aif in Resources */,
+				38A0815F242124E6000537D7 /* Hjonk.aif in Resources */,
+				38A08163242124E6000537D7 /* Rimshot.aif in Resources */,
+				38A08166242124E6000537D7 /* Jack slap.aif in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -350,8 +366,8 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 0.1;
-				PRODUCT_BUNDLE_IDENTIFIER = com.jankriz.metronome;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jankriz.untitled-metronome";
+				PRODUCT_NAME = "Untitled Metronome";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -371,8 +387,8 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 0.1;
-				PRODUCT_BUNDLE_IDENTIFIER = com.jankriz.metronome;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jankriz.untitled-metronome";
+				PRODUCT_NAME = "Untitled Metronome";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

@@ -1,17 +1,26 @@
-
-FIGURE OUT A NAME!!!!!!!!
-__________________________
-
 Saving: User Defaults (bpm, selected sound, setlist)
+User sounds ???
+Siri Shortcuts support ???
+Internationalization (czech, russian?, spanish?, german?)
+
+__________________________
 
 UI:
 
 Settings screen
 Setlist screen
-Handle the bpm slider not changing to the correct y when rotating device
+Handle the bpm slider not changing to the correct y when rotating iPad
 Bpm + or - when tapping above or below the slider!!!
 
 __________________________
 
 
-Siri Shortcuts support ???
+Platforms:
+iOS 13+
+iPadOS 13+
+MacOS 10.15+
+Mac - Terminal
+WatchOS ???
+Linux terminal ???
+Windows terminal ???
+Web ??? (webassembly)
