@@ -58,6 +58,7 @@ fileprivate struct Cell: View {
 struct SettingsView: View {
 
 	@Binding var selectedSound: Sounds
+	@Binding var isOnScreen: Bool
 
     var body: some View {
 		ZStack {
@@ -65,11 +66,17 @@ struct SettingsView: View {
 
 			VStack {
 				HStack {
-					// close button
-
 					Text("Settings")
 					.font(.largeTitle)
 					.bold()
+					.padding(.leading, 20)
+					
+					Spacer()
+					
+					Button(action: { self.isOnScreen = false }) { Image(systemName: "xmark") }
+					.buttonStyle(CustomButtonStyle())
+					.font(Font.custom("System Bold", size: 25))
+					.padding(.trailing, 20)
 				}
 				.padding(.vertical, 25)
 
