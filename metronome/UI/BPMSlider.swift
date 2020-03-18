@@ -25,7 +25,7 @@ struct BPMSlider: View {
 				.foregroundColor(Color("secondary_controls"))
 
 				RoundedRectangle(cornerRadius: 5)
-				.frame(width: 100, height: 30)
+				.frame(width: 120, height: 35)
 				.offset(y: self.offset)
 				.foregroundColor(Color("controls"))
 			}

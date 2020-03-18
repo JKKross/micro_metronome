@@ -29,17 +29,18 @@ struct ContentView: View {
 
 			VStack {
 				Text("\(audioController.bpm)")
-				.font(Font.custom("Futura", size: 50))
-				.padding(.top, 25)
+				.font(Font.custom("Futura", size: 65))
+				.padding(.top, 30)
 				.foregroundColor(Color("text"))
 				.accessibility(label: Text("\(audioController.bpm) bpm"))
+				.frame(height: 55)
 
 				BPMSlider()
 
 				BottomControlsBar()
 				.frame(height: 75)
 				.padding(.bottom, 25)
-				.padding(.top, 10)
+				.padding(.top, 15)
 				.padding(.horizontal, 25)
 			}
 		}
