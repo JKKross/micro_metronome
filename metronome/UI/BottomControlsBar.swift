@@ -23,6 +23,13 @@ struct CustomButtonStyle: ButtonStyle {
 				Circle()
 					.foregroundColor(Color("controls"))
 					.frame(width: size, height: size)
+					.scaleEffect(configuration.isPressed ? 1.2 : 1)
+			)
+			.overlay(
+				Circle()
+					.foregroundColor(Color(UIColor(red: 0, green: 0, blue: 0, alpha: configuration.isPressed ? 0.2 : 0)))
+					.frame(width: size, height: size)
+					.scaleEffect(configuration.isPressed ? 1.2 : 1)
 			)
 	}
 }
