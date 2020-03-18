@@ -26,8 +26,13 @@ struct BPMSlider: View {
 
 				RoundedRectangle(cornerRadius: 5)
 				.frame(width: 120, height: 35)
+				.foregroundColor(Color("highlight"))
+				.overlay(
+					RoundedRectangle(cornerRadius: 5)
+					.frame(width: 110, height: 25)
+					.foregroundColor(Color("controls"))
+				)
 				.offset(y: self.offset)
-				.foregroundColor(Color("controls"))
 			}
 			.gesture(
 				DragGesture(minimumDistance: 5)
