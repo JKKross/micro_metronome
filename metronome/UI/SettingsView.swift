@@ -77,16 +77,30 @@ struct SettingsView: View {
 				.padding(.vertical, 25)
 				
 				ScrollView {
-					Group {
-						Cell(action: { self.selectedSound = .rimshot }, name: .rimshot, currentlySelectedSound: selectedSound)
-						Cell(action: { self.selectedSound = .bassDrum }, name: .bassDrum, currentlySelectedSound: selectedSound)
-						Cell(action: { self.selectedSound = .clap }, name: .clap, currentlySelectedSound: selectedSound)
-						Cell(action: { self.selectedSound = .cowbell }, name: .cowbell, currentlySelectedSound: selectedSound)
-						Cell(action: { self.selectedSound = .hiHat }, name: .hiHat, currentlySelectedSound: selectedSound)
-						Cell(action: { self.selectedSound = .hjonk }, name: .hjonk, currentlySelectedSound: selectedSound)
-						Cell(action: { self.selectedSound = .jackSlap }, name: .jackSlap, currentlySelectedSound: selectedSound)
-						Cell(action: { self.selectedSound = .laugh }, name: .laugh, currentlySelectedSound: selectedSound)
-						Cell(action: { self.selectedSound = .uHuh }, name: .uHuh, currentlySelectedSound: selectedSound)
+					VStack(alignment: .leading) {
+						Text("Sounds")
+						.font(.headline)
+						.bold()
+						.padding(.leading, 20)
+						.padding(.bottom, 10)
+						.foregroundColor(.white)
+						
+						Group {
+							Cell(action: { self.selectedSound = .rimshot }, name: .rimshot, currentlySelectedSound: selectedSound)
+							Cell(action: { self.selectedSound = .bassDrum }, name: .bassDrum, currentlySelectedSound: selectedSound)
+							Cell(action: { self.selectedSound = .clap }, name: .clap, currentlySelectedSound: selectedSound)
+							Cell(action: { self.selectedSound = .cowbell }, name: .cowbell, currentlySelectedSound: selectedSound)
+							Cell(action: { self.selectedSound = .hiHat }, name: .hiHat, currentlySelectedSound: selectedSound)
+							Cell(action: { self.selectedSound = .hjonk }, name: .hjonk, currentlySelectedSound: selectedSound)
+							Cell(action: { self.selectedSound = .jackSlap }, name: .jackSlap, currentlySelectedSound: selectedSound)
+							Cell(action: { self.selectedSound = .laugh }, name: .laugh, currentlySelectedSound: selectedSound)
+							Cell(action: { self.selectedSound = .uHuh }, name: .uHuh, currentlySelectedSound: selectedSound)
+						}
+						
+						Text("version 0.1.1 (BETA), build 2")
+						.font(.footnote)
+						.foregroundColor(.white)
+						.padding(20)
 					}
 				}
 			}

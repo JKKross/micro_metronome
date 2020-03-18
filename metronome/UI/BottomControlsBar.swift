@@ -9,10 +9,21 @@
 import SwiftUI
 
 struct CustomButtonStyle: ButtonStyle {
+	
+	let size: CGFloat
+	
+	init(size: CGFloat = 0) {
+		self.size = size
+	}
 
 	func makeBody(configuration: Self.Configuration) -> some View {
 		configuration.label
  			.foregroundColor(Color("highlight"))
+			.background(
+				Circle()
+					.foregroundColor(Color("controls"))
+					.frame(width: size, height: size)
+			)
 	}
 }
 
@@ -20,6 +31,7 @@ struct BottomControlsBar: View {
 
 	@EnvironmentObject var audioController: AudioController
 	@State private var isShowingSettingsView = false
+	@State private var isShowingSetlistView = false
 
 	var body: some View {
 
@@ -27,9 +39,9 @@ struct BottomControlsBar: View {
 			Button(action: {
 				self.isShowingSettingsView = true
 			}) { Image(systemName: "gear") }
-				.sheet(isPresented: $isShowingSettingsView) { SettingsView(selectedSound: self.$audioController.selectedSound, isOnScreen: self.$isShowingSettingsView) }
-			.buttonStyle(CustomButtonStyle())
-			.font(.system(size: 50))
+			.sheet(isPresented: $isShowingSettingsView) { SettingsView(selectedSound: self.$audioController.selectedSound, isOnScreen: self.$isShowingSettingsView) }
+			.buttonStyle(CustomButtonStyle(size: 60))
+			.font(.system(size: 35))
 			.accessibility(label: Text("Settings"))
 
 			Spacer()
@@ -47,18 +59,21 @@ struct BottomControlsBar: View {
 				Image(systemName: audioController.isPlaying ? "pause" : "play")
 				.offset(x: audioController.isPlaying ? 0 : 3)
 				}
-				.buttonStyle(CustomButtonStyle())
-				.font(.system(size: 75))
-				.accessibility(label: audioController.isPlaying ? Text("pause") : Text("play"))
+			.buttonStyle(CustomButtonStyle(size: 80))
+			.font(.system(size: 55))
+			.accessibility(label: audioController.isPlaying ? Text("pause") : Text("play"))
 
 			Spacer()
 
 			Button(action: {
-				print("setlist tapped")
+				self.isShowingSetlistView = true
 			}) { Image(systemName: "music.note.list") }
-			.buttonStyle(CustomButtonStyle())
-			.font(.system(size: 50))
+			.buttonStyle(CustomButtonStyle(size: 60))
+			.font(.system(size: 35))
 			.accessibility(label: Text("Setlist"))
+				.alert(isPresented: $isShowingSetlistView) {
+					Alert(title: Text("Not implemented"), dismissButton: .default(Text("OK")))
+			}
 		}
 
 	}
