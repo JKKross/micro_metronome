@@ -32,7 +32,6 @@ fileprivate struct Cell: View {
 		VStack(alignment: .leading) {
 			HStack {
 				Button(action: self.action) { Text(self.name.rawValue) }
-				.font(Font.custom("System Bold", size: 25))
 				.foregroundColor(Color("controls"))
 				.frame(alignment: .leading)
 
@@ -69,7 +68,7 @@ struct SettingsView: View {
 					
 					Button(action: { self.isOnScreen = false }) { Image(systemName: "xmark") }
 					.buttonStyle(CustomButtonStyle())
-					.font(Font.custom("System Bold", size: 25))
+					.font(.largeTitle)
 					.padding(.trailing, 20)
 				}
 				.padding(.vertical, 25)

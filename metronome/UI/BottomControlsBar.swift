@@ -29,7 +29,7 @@ struct BottomControlsBar: View {
 			}) { Image(systemName: "gear") }
 				.sheet(isPresented: $isShowingSettingsView) { SettingsView(selectedSound: self.$audioController.selectedSound, isOnScreen: self.$isShowingSettingsView) }
 			.buttonStyle(CustomButtonStyle())
-			.font(Font.custom("System", size: 40))
+			.font(.largeTitle)
 
 			Spacer()
 
@@ -47,7 +47,7 @@ struct BottomControlsBar: View {
 				.offset(x: audioController.isPlaying ? 0 : 3)
 				}
 				.buttonStyle(CustomButtonStyle())
-				.font(Font.custom("System", size: 60))
+				.font(Font.custom("System", size: 70))
 
 			Spacer()
 
@@ -55,7 +55,7 @@ struct BottomControlsBar: View {
 				print("setlist tapped")
 			}) { Image(systemName: "music.note.list") }
 			.buttonStyle(CustomButtonStyle())
-			.font(Font.custom("System", size: 40))
+			.font(.largeTitle)
 		}
 
 	}
