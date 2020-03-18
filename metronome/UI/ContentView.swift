@@ -32,6 +32,7 @@ struct ContentView: View {
 				.font(Font.custom("Futura", size: 50))
 				.padding(.top, 25)
 				.foregroundColor(Color("text"))
+				.accessibility(label: Text("\(audioController.bpm) bpm"))
 
 				BPMSlider()
 

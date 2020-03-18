@@ -30,6 +30,7 @@ struct BottomControlsBar: View {
 				.sheet(isPresented: $isShowingSettingsView) { SettingsView(selectedSound: self.$audioController.selectedSound, isOnScreen: self.$isShowingSettingsView) }
 			.buttonStyle(CustomButtonStyle())
 			.font(.largeTitle)
+			.accessibility(label: Text("Settings"))
 
 			Spacer()
 
@@ -48,6 +49,7 @@ struct BottomControlsBar: View {
 				}
 				.buttonStyle(CustomButtonStyle())
 				.font(Font.custom("System", size: 70))
+				.accessibility(label: audioController.isPlaying ? Text("pause") : Text("play"))
 
 			Spacer()
 
@@ -56,6 +58,7 @@ struct BottomControlsBar: View {
 			}) { Image(systemName: "music.note.list") }
 			.buttonStyle(CustomButtonStyle())
 			.font(.largeTitle)
+			.accessibility(label: Text("Setlist"))
 		}
 
 	}

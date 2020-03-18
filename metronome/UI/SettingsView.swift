@@ -32,13 +32,14 @@ fileprivate struct Cell: View {
 		VStack(alignment: .leading) {
 			HStack {
 				Button(action: self.action) { Text(self.name.rawValue) }
-				.foregroundColor(Color("controls"))
+				.foregroundColor(Color("settings_controls"))
 				.frame(alignment: .leading)
 
 				Spacer()
 
 				Image(systemName: "checkmark.circle")
-				.foregroundColor(isSelected ? .green : Color("background_end"))
+				.foregroundColor(isSelected ? .green : Color("settings_background"))
+				.accessibility(label: isSelected ? Text("Selected") : Text("Not selected"))
 			}
 			.padding(.horizontal, 20)
 
@@ -55,7 +56,7 @@ struct SettingsView: View {
 
     var body: some View {
 		ZStack {
-			Color("background_end")
+			Color("settings_background")
 
 			VStack {
 				HStack {
@@ -63,6 +64,7 @@ struct SettingsView: View {
 					.font(.largeTitle)
 					.bold()
 					.padding(.leading, 20)
+					.foregroundColor(.white)
 					
 					Spacer()
 					
@@ -70,6 +72,7 @@ struct SettingsView: View {
 					.buttonStyle(CustomButtonStyle())
 					.font(.largeTitle)
 					.padding(.trailing, 20)
+					.accessibility(label: Text("Close settings"))
 				}
 				.padding(.vertical, 25)
 				
@@ -84,7 +87,6 @@ struct SettingsView: View {
 						Cell(action: { self.selectedSound = .jackSlap }, name: .jackSlap, currentlySelectedSound: selectedSound)
 						Cell(action: { self.selectedSound = .laugh }, name: .laugh, currentlySelectedSound: selectedSound)
 						Cell(action: { self.selectedSound = .uHuh }, name: .uHuh, currentlySelectedSound: selectedSound)
-						Cell(action: { self.selectedSound = .elephant }, name: .elephant, currentlySelectedSound: selectedSound)
 					}
 				}
 			}

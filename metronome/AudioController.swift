@@ -18,7 +18,6 @@ enum Sounds: String {
 	case jackSlap = "Jack slap"
 	case laugh    = "LAUGH!"
 	case uHuh     = "U-huh!"
-	case elephant = "And the elephants went..."
 }
 
 final class AudioController: ObservableObject {
