@@ -57,6 +57,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 		// to restore the scene back to its current state.
 	}
 
+	func windowScene(_ windowScene: UIWindowScene, didUpdate previousCoordinateSpace: UICoordinateSpace, interfaceOrientation previousInterfaceOrientation: UIInterfaceOrientation, traitCollection previousTraitCollection: UITraitCollection) {
+		// This is a hack. But it is easier than to create another env. object & send more notifications etc...
+		// This just triggers the .onReceive modifier in BPMSlider, so that the slider is re-drawn correctly when the user rotates their iPad.
+		audioController.bpm += 1
+		audioController.bpm -= 1
+	}
 
 }
 

@@ -10,7 +10,6 @@ UI:
 
 Settings screen
 Setlist screen
-Handle the bpm slider not changing to the correct y when rotating iPad
 Bpm + or - when tapping above or below the slider!!!
 Keyboard controls
 Tap ???
