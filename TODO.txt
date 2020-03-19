@@ -1,6 +1,6 @@
 Saving: User Defaults (bpm, selected sound, setlist)
 User sounds ???
-Siri Shortcuts support ???
+Siri Shortcuts support ?
 Internationalization ??? (czech, russian?, spanish?, german?)
 ACESSIBILITY!!!!!! (Contrast, font scaling etc.)
 
@@ -11,8 +11,9 @@ UI:
 Settings screen
 Setlist screen
 Handle the bpm slider not changing to the correct y when rotating iPad
-BPM slider - highlight
 Bpm + or - when tapping above or below the slider!!!
+Keyboard controls
+Tap ???
 
 __________________________
 

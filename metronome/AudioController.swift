@@ -22,6 +22,9 @@ enum Sounds: String {
 
 final class AudioController: ObservableObject {
 
+	public let minBPM = 20
+	public let maxBPM = 260
+	
 	@Published public var isPlaying = false
 	@Published public var bpm = 100
 	@Published public var selectedSound: Sounds = .rimshot {
@@ -76,14 +79,14 @@ final class AudioController: ObservableObject {
 		// 529_208 is the size of the sound chunk (in bytes).
 		// Since we know that those bytes represent 20 bpm, we can get the number of bytes
 		// to subtract from it with this formula to get the sound of desired length.
-		var sizeToSubtract = Int32(529_208 - (529_208 * 20 / self.bpm))
+		var sizeToSubtract = Int32(529_208 - (529_208 * self.minBPM / self.bpm))
 
  		if sizeToSubtract % 2 != 0 { sizeToSubtract += 1 }
 
 		// Divide by 4 because one sample frame is 32-bits wide (Two 16-bit floats, one for each channel)
 		let numSampleFramesToSubtract = UInt32(sizeToSubtract / 4)
 
-		while self.bpm != 20 && index < aiffBuffer.count {
+		while self.bpm != self.minBPM && index < aiffBuffer.count {
 			// To figure out what's going on here, read through the AIFF specification:
 			// http://www-mmsp.ece.mcgill.ca/Documents/AudioFormats/AIFF/Docs/AIFF-1.3.pdf
 			guard let ckID = String(bytes: aiffBuffer[index...(index + 3)], encoding: .utf8) else {

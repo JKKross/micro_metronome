@@ -76,7 +76,7 @@ struct SettingsView: View {
 				}
 				.padding(.vertical, 25)
 				
-				ScrollView {
+				ScrollView(.vertical, showsIndicators: true) {
 					VStack(alignment: .leading) {
 						Text("Sounds")
 						.font(.headline)
