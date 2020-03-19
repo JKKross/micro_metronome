@@ -23,7 +23,7 @@ struct TopControlsBar: View {
 			Text("\(audioController.bpm)")
 			.font(Font.custom("Futura", size: 65))
 			.foregroundColor(Color("text"))
-			.accessibility(label: Text("\(audioController.bpm) bpm"))
+			.accessibility(label: Text("Current bpm: \(audioController.bpm)"))
 			.frame(width: 150, height: 25)
 
 			Button(action: { self.audioController.bpm += 1 }) { Image(systemName: "plus") }
