@@ -69,7 +69,8 @@ struct SettingsView: View {
 					Spacer()
 					
 					Button(action: { self.isOnScreen = false }) { Image(systemName: "xmark") }
-					.buttonStyle(CustomButtonStyle())
+//					.buttonStyle(CustomButtonStyle())
+					.foregroundColor(.red)
 					.font(.largeTitle)
 					.padding(.trailing, 20)
 					.accessibility(label: Text("Close settings"))
