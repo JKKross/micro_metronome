@@ -26,6 +26,7 @@
 		38A08165242124E6000537D7 /* Bass drum.aif in Resources */ = {isa = PBXBuildFile; fileRef = 38A0815B242124E6000537D7 /* Bass drum.aif */; };
 		38A08166242124E6000537D7 /* Jack slap.aif in Resources */ = {isa = PBXBuildFile; fileRef = 38A0815C242124E6000537D7 /* Jack slap.aif */; };
 		38A163C1241FB3AC00276606 /* BottomControlsBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38A163C0241FB3AC00276606 /* BottomControlsBar.swift */; };
+		38C35F5A2423C38800343745 /* TopControlsBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C35F592423C38800343745 /* TopControlsBar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +51,7 @@
 		38A0815B242124E6000537D7 /* Bass drum.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Bass drum.aif"; sourceTree = "<group>"; };
 		38A0815C242124E6000537D7 /* Jack slap.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Jack slap.aif"; sourceTree = "<group>"; };
 		38A163C0241FB3AC00276606 /* BottomControlsBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomControlsBar.swift; sourceTree = "<group>"; };
+		38C35F592423C38800343745 /* TopControlsBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopControlsBar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +87,7 @@
 				384B703823FF304900E22067 /* ContentView.swift */,
 				381BAEA5241FC07F00CA8720 /* SettingsView.swift */,
 				3820F0E12401BE3800FE8EF8 /* BPMSlider.swift */,
+				38C35F592423C38800343745 /* TopControlsBar.swift */,
 				38A163C0241FB3AC00276606 /* BottomControlsBar.swift */,
 			);
 			path = UI;
@@ -213,6 +216,7 @@
 				381BAEA6241FC07F00CA8720 /* SettingsView.swift in Sources */,
 				38A163C1241FB3AC00276606 /* BottomControlsBar.swift in Sources */,
 				38074ABA240BE7D600748945 /* AudioController.swift in Sources */,
+				38C35F5A2423C38800343745 /* TopControlsBar.swift in Sources */,
 				3820F0E22401BE3800FE8EF8 /* BPMSlider.swift in Sources */,
 				384B703523FF304900E22067 /* AppDelegate.swift in Sources */,
 				384B703723FF304900E22067 /* SceneDelegate.swift in Sources */,

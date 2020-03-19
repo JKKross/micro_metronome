@@ -10,7 +10,6 @@ UI:
 
 Settings screen
 Setlist screen
-Bpm + or - when tapping above or below the slider!!!
 Keyboard controls
 Tap ???
 

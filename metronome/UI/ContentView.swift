@@ -26,25 +26,11 @@ struct ContentView: View {
 		ZStack {
 			Background()
 			.edgesIgnoringSafeArea(.all)
-			.gesture(
-				DragGesture(minimumDistance: 0)
-				.onEnded { val in
-					let screenHeight = (UIScreen.main.bounds.height / 2)
-						
-					if val.location.y < (screenHeight - 50) && self.audioController.bpm < self.audioController.maxBPM {
-						self.audioController.bpm += 1
-					} else if val.location.y > (screenHeight + 50) && self.audioController.bpm > self.audioController.minBPM {
-						self.audioController.bpm -= 1
-					}
-				})
 
 			VStack {
-				Text("\(audioController.bpm)")
-				.font(Font.custom("Futura", size: 65))
-				.padding(.top, 30)
-				.foregroundColor(Color("text"))
-				.accessibility(label: Text("\(audioController.bpm) bpm"))
-				.frame(height: 55)
+				TopControlsBar()
+				.padding(.top, 25)
+				.padding(.horizontal, 35)
 
 				BPMSlider()
 
