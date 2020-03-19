@@ -16,7 +16,6 @@
 		384B703B23FF304F00E22067 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 384B703A23FF304F00E22067 /* Assets.xcassets */; };
 		384B703E23FF304F00E22067 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 384B703D23FF304F00E22067 /* Preview Assets.xcassets */; };
 		384B704123FF304F00E22067 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 384B703F23FF304F00E22067 /* LaunchScreen.storyboard */; };
-		38A0815D242124E6000537D7 /* U-huh!.aif in Resources */ = {isa = PBXBuildFile; fileRef = 38A08153242124E5000537D7 /* U-huh!.aif */; };
 		38A0815E242124E6000537D7 /* Clap.aif in Resources */ = {isa = PBXBuildFile; fileRef = 38A08154242124E5000537D7 /* Clap.aif */; };
 		38A0815F242124E6000537D7 /* Hjonk.aif in Resources */ = {isa = PBXBuildFile; fileRef = 38A08155242124E5000537D7 /* Hjonk.aif */; };
 		38A08160242124E6000537D7 /* LAUGH!.aif in Resources */ = {isa = PBXBuildFile; fileRef = 38A08156242124E6000537D7 /* LAUGH!.aif */; };
@@ -41,7 +40,6 @@
 		384B703D23FF304F00E22067 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		384B704023FF304F00E22067 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		384B704223FF304F00E22067 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		38A08153242124E5000537D7 /* U-huh!.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "U-huh!.aif"; sourceTree = "<group>"; };
 		38A08154242124E5000537D7 /* Clap.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = Clap.aif; sourceTree = "<group>"; };
 		38A08155242124E5000537D7 /* Hjonk.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = Hjonk.aif; sourceTree = "<group>"; };
 		38A08156242124E6000537D7 /* LAUGH!.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LAUGH!.aif"; sourceTree = "<group>"; };
@@ -76,7 +74,6 @@
 				38A0815C242124E6000537D7 /* Jack slap.aif */,
 				38A08156242124E6000537D7 /* LAUGH!.aif */,
 				38A08159242124E6000537D7 /* Rimshot.aif */,
-				38A08153242124E5000537D7 /* U-huh!.aif */,
 			);
 			path = Sounds;
 			sourceTree = "<group>";
@@ -195,7 +192,6 @@
 				38A08162242124E6000537D7 /* Hi-hat.aif in Resources */,
 				38A0815E242124E6000537D7 /* Clap.aif in Resources */,
 				38A08164242124E6000537D7 /* Cowbell.aif in Resources */,
-				38A0815D242124E6000537D7 /* U-huh!.aif in Resources */,
 				38A08160242124E6000537D7 /* LAUGH!.aif in Resources */,
 				384B704123FF304F00E22067 /* LaunchScreen.storyboard in Resources */,
 				384B703E23FF304F00E22067 /* Preview Assets.xcassets in Resources */,

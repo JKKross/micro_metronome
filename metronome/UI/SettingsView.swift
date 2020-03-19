@@ -32,13 +32,13 @@ fileprivate struct Cell: View {
 		VStack(alignment: .leading) {
 			HStack {
 				Button(action: self.action) { Text(self.name.rawValue) }
-				.foregroundColor(Color("settings_controls"))
+				.foregroundColor(.white)
 				.frame(alignment: .leading)
 
 				Spacer()
 
 				Image(systemName: "checkmark.circle")
-				.foregroundColor(isSelected ? .green : Color("settings_background"))
+				.foregroundColor(isSelected ? Color("highlight") : Color("settings_background"))
 				.accessibility(label: isSelected ? Text("Selected") : Text("Not selected"))
 			}
 			.padding(.horizontal, 20)
@@ -70,7 +70,7 @@ struct SettingsView: View {
 					
 					Button(action: { self.isOnScreen = false }) { Image(systemName: "xmark") }
 //					.buttonStyle(CustomButtonStyle())
-					.foregroundColor(.red)
+					.foregroundColor(Color("highlight"))
 					.font(.largeTitle)
 					.padding(.trailing, 20)
 					.accessibility(label: Text("Close settings"))
@@ -95,10 +95,9 @@ struct SettingsView: View {
 							Cell(action: { self.selectedSound = .hjonk }, name: .hjonk, currentlySelectedSound: selectedSound)
 							Cell(action: { self.selectedSound = .jackSlap }, name: .jackSlap, currentlySelectedSound: selectedSound)
 							Cell(action: { self.selectedSound = .laugh }, name: .laugh, currentlySelectedSound: selectedSound)
-							Cell(action: { self.selectedSound = .uHuh }, name: .uHuh, currentlySelectedSound: selectedSound)
 						}
 						
-						Text("version 0.1.1 (BETA), build 2")
+						Text("version 0.1.2 (BETA), build 3")
 						.font(.footnote)
 						.foregroundColor(.white)
 						.padding(20)

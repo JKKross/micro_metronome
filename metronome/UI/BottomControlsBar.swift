@@ -24,6 +24,8 @@ struct CustomButtonStyle: ButtonStyle {
 					.foregroundColor(Color("controls"))
 					.frame(width: size, height: size)
 					.scaleEffect(configuration.isPressed ? 1.2 : 1)
+					.shadow(color: Color(UIColor(red: 0.5, green: 0.5, blue: 0.5, alpha: 0.4)), radius: 3, x: -3, y: -3)
+					.shadow(color: Color(UIColor(red: 0, green: 0, blue: 0, alpha: 0.4)), radius: 3, x: 3, y: 3)
 			)
 			.overlay(
 				Circle()
