@@ -37,7 +37,7 @@ struct ContentView: View {
 				BottomControlsBar()
 				.frame(height: 75)
 				.padding(.bottom, 25)
-				.padding(.top, 15)
+				.padding(.top, 20)
 				.padding(.horizontal, 35)
 			}
 		}

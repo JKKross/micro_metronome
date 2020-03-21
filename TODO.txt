@@ -8,10 +8,11 @@ __________________________
 
 UI:
 
-Settings screen
+Settings screen - remake with List; sounds select, highlight color select, about, send feedback
 Setlist screen
 Keyboard controls
-Tap ???
+Tap to set tempo
+Haptics when silenced
 
 __________________________
 
