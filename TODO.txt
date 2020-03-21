@@ -8,7 +8,7 @@ __________________________
 
 UI:
 
-Settings screen - remake with List; sounds select, highlight color select, about, send feedback
+Settings screen - write "about the app", highlight color select, send feedback
 Setlist screen
 Keyboard controls
 Tap to set tempo

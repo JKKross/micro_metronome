@@ -40,9 +40,7 @@ fileprivate let appVersion  = Bundle.main.object(forInfoDictionaryKey: "CFBundle
 fileprivate let buildNumber = Bundle.main.object(forInfoDictionaryKey: kCFBundleVersionKey as String)
 
 fileprivate let aboutTheAppText = """
-About
-the
-app
+[There will be some contact info & stuff here. Eventually...]
 
 Privacy Policy:
 
@@ -161,11 +159,51 @@ struct SettingsView: View {
 							.padding(.bottom, 2000)
 							.font(.system(size: 30))
 						}
-
-						Text("OK, you win...")
-						.foregroundColor(.white)
-						.padding(.bottom, 2000)
-						.font(.system(size: 30))
+						
+						Group {
+							Text("OK, you win...")
+							.foregroundColor(.white)
+							.padding(.bottom, 2000)
+							.font(.system(size: 30))
+							
+							Text("Here's your easter egg:")
+							.foregroundColor(.white)
+							.padding(.bottom, 2000)
+							.font(.system(size: 30))
+							
+							Image("beethoven")
+							.padding(.bottom, 4000)
+							
+							Text("Really?! You're still here?!")
+							.foregroundColor(.white)
+							.padding(.bottom, 2000)
+							.font(.system(size: 30))
+							
+							Text("Jeez...")
+							.foregroundColor(.white)
+							.padding(.bottom, 2000)
+							.font(.system(size: 30))
+							
+							Text("Some people...")
+							.foregroundColor(.white)
+							.padding(.bottom, 2000)
+							.font(.system(size: 30))
+							
+							Text("OK")
+							.foregroundColor(.white)
+							.padding(.bottom, 2000)
+							.font(.system(size: 30))
+							
+							Text("Here it is for real")
+							.foregroundColor(.white)
+							.padding(.bottom, 2000)
+							.font(.system(size: 30))
+							
+							Text("(Hope it was worth it)")
+							.foregroundColor(.white)
+							.padding(.bottom, 2000)
+							.font(.system(size: 30))
+						}
 
 						Group {
 							Cell(action: { self.selectedSound = .hjonk }, name: .hjonk, currentlySelectedSound: selectedSound)
