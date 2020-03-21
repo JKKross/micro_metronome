@@ -18,7 +18,7 @@ struct CustomButtonStyle: ButtonStyle {
 
 	func makeBody(configuration: Self.Configuration) -> some View {
 		configuration.label
- 			.foregroundColor(Color("highlight"))
+			.foregroundColor(configuration.isPressed ? Color("highlight_2") : Color("highlight"))
 			.background(
 				Circle()
 					.foregroundColor(Color("controls"))

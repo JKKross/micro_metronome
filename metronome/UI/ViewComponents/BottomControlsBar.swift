@@ -39,6 +39,7 @@ struct BottomControlsBar: View {
 			}) {
 				Image(systemName: audioController.isPlaying ? "pause" : "play")
 				.offset(x: audioController.isPlaying ? 0 : 3)
+				.foregroundColor(audioController.isPlaying ? Color("highlight_2") : Color("highlight"))
 				}
 			.buttonStyle(CustomButtonStyle(size: 80))
 			.font(.system(size: 55))

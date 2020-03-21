@@ -20,13 +20,13 @@ fileprivate struct Cell: View {
 		VStack(alignment: .leading) {
 			HStack {
 				Button(action: self.action) { Text(self.name.rawValue) }
-				.foregroundColor(Color("highlight"))
+				.foregroundColor(isSelected ? Color("highlight_2") : Color("highlight"))
 				.frame(alignment: .leading)
 
 				Spacer()
 
 				Image(systemName: "checkmark.circle")
-				.foregroundColor(isSelected ? .green : .clear)
+				.foregroundColor(isSelected ? Color("highlight_2") : .clear)
 				.accessibility(label: isSelected ? Text("Selected") : Text("Not selected"))
 				.padding(.trailing, 20)
 			}

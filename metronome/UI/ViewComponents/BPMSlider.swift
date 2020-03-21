@@ -34,7 +34,7 @@ struct BPMSlider: View {
 				.overlay(
 					RoundedRectangle(cornerRadius: 3)
 					.frame(width: 103, height: 10)
-					.foregroundColor(Color("highlight"))
+					.foregroundColor(Color("highlight_2"))
 				)
 				.offset(y: self.offset)
 			}
