@@ -23,7 +23,7 @@ final class AudioController: ObservableObject {
 
 	public let minBPM = 20
 	public let maxBPM = 260
-	
+
 	@Published public var isPlaying = false
 	@Published public var bpm = 100
 	@Published public var selectedSound: Sounds = .rimshot {
@@ -36,6 +36,7 @@ final class AudioController: ObservableObject {
 	}
 
 	private let audioSession = AVAudioSession.sharedInstance()
+	private let settings = UserSettings()
 
 	private var soundFileURL: URL!
 	private var originalAiffBuffer: Array<UInt8>!
@@ -44,6 +45,9 @@ final class AudioController: ObservableObject {
 	private var player: AVAudioPlayer!
 
 	public init() {
+		self.bpm = settings.getBPM()
+		self.selectedSound = settings.getPreferredSound()
+
 		self.loadFile(self.selectedSound)
 		self.setUpAudioSession()
 		self.prepareBuffer()
@@ -56,6 +60,11 @@ final class AudioController: ObservableObject {
 		} catch {
 			debugPrint("Could not deactivate audioSession:", error)
 		}
+	}
+
+	public func save() {
+		settings.save(bpm: self.bpm)
+		settings.save(preferredSound: self.selectedSound)
 	}
 
 	public func play() {

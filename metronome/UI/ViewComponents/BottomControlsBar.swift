@@ -25,8 +25,6 @@ struct BottomControlsBar: View {
 			.font(.system(size: 35))
 			.accessibility(label: Text("Settings"))
 
-			Spacer()
-
 			Button(action: {
 				if self.audioController.isPlaying {
 					self.audioController.stop()
@@ -44,8 +42,7 @@ struct BottomControlsBar: View {
 			.buttonStyle(CustomButtonStyle(size: 80))
 			.font(.system(size: 55))
 			.accessibility(label: audioController.isPlaying ? Text("pause") : Text("play"))
-
-			Spacer()
+			.frame(width: 150)
 
 			Button(action: {
 				self.isShowingSetlistView = true
@@ -53,7 +50,7 @@ struct BottomControlsBar: View {
 			.buttonStyle(CustomButtonStyle(size: 60))
 			.font(.system(size: 35))
 			.accessibility(label: Text("Setlist"))
-				.alert(isPresented: $isShowingSetlistView) {
+			.alert(isPresented: $isShowingSetlistView) {
 					Alert(title: Text("Not implemented"), dismissButton: .default(Text("OK")))
 			}
 		}

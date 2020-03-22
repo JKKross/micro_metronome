@@ -26,7 +26,7 @@ struct TopControlsBar: View {
 			.font(Font.custom("Futura", size: 65))
 			.foregroundColor(Color("text"))
 			.accessibility(label: Text("Current bpm: \(audioController.bpm)"))
-			.frame(width: 150, height: 25)
+			.frame(width: 160, height: 25)
 
 			Button(action: {
 				if self.audioController.bpm < 260 { self.audioController.bpm += 1 }

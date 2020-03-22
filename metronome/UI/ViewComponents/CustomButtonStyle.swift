@@ -33,5 +33,6 @@ struct CustomButtonStyle: ButtonStyle {
 					.frame(width: size, height: size)
 					.scaleEffect(configuration.isPressed ? 1.2 : 1)
 			)
+			.padding(5)
 	}
 }

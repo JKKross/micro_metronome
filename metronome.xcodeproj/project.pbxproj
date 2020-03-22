@@ -17,6 +17,7 @@
 		384B703B23FF304F00E22067 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 384B703A23FF304F00E22067 /* Assets.xcassets */; };
 		384B703E23FF304F00E22067 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 384B703D23FF304F00E22067 /* Preview Assets.xcassets */; };
 		384B704123FF304F00E22067 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 384B703F23FF304F00E22067 /* LaunchScreen.storyboard */; };
+		3866CDE12427DDC4006FFF25 /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3866CDE02427DDC4006FFF25 /* UserSettings.swift */; };
 		38A0815E242124E6000537D7 /* Clap.aif in Resources */ = {isa = PBXBuildFile; fileRef = 38A08154242124E5000537D7 /* Clap.aif */; };
 		38A0815F242124E6000537D7 /* Hjonk.aif in Resources */ = {isa = PBXBuildFile; fileRef = 38A08155242124E5000537D7 /* Hjonk.aif */; };
 		38A08160242124E6000537D7 /* LAUGH!.aif in Resources */ = {isa = PBXBuildFile; fileRef = 38A08156242124E6000537D7 /* LAUGH!.aif */; };
@@ -42,6 +43,7 @@
 		384B703D23FF304F00E22067 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		384B704023FF304F00E22067 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		384B704223FF304F00E22067 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3866CDE02427DDC4006FFF25 /* UserSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettings.swift; sourceTree = "<group>"; };
 		38A08154242124E5000537D7 /* Clap.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = Clap.aif; sourceTree = "<group>"; };
 		38A08155242124E5000537D7 /* Hjonk.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = Hjonk.aif; sourceTree = "<group>"; };
 		38A08156242124E6000537D7 /* LAUGH!.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LAUGH!.aif"; sourceTree = "<group>"; };
@@ -132,6 +134,7 @@
 				384B703623FF304900E22067 /* SceneDelegate.swift */,
 				381BAEA4241FC05000CA8720 /* UI */,
 				38074AB9240BE7D600748945 /* AudioController.swift */,
+				3866CDE02427DDC4006FFF25 /* UserSettings.swift */,
 				384B703A23FF304F00E22067 /* Assets.xcassets */,
 				381A0155241C179000711F9B /* Sounds */,
 				384B703F23FF304F00E22067 /* LaunchScreen.storyboard */,
@@ -231,6 +234,7 @@
 				380DD40E2426093500B789FD /* CustomButtonStyle.swift in Sources */,
 				381BAEA6241FC07F00CA8720 /* SettingsView.swift in Sources */,
 				38A163C1241FB3AC00276606 /* BottomControlsBar.swift in Sources */,
+				3866CDE12427DDC4006FFF25 /* UserSettings.swift in Sources */,
 				38074ABA240BE7D600748945 /* AudioController.swift in Sources */,
 				38C35F5A2423C38800343745 /* TopControlsBar.swift in Sources */,
 				3820F0E22401BE3800FE8EF8 /* BPMSlider.swift in Sources */,
@@ -382,7 +386,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.1.4;
+				MARKETING_VERSION = 0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.jankriz.untitled-metronome";
 				PRODUCT_NAME = "Untitled Metronome";
 				SWIFT_VERSION = 5.0;
@@ -404,7 +408,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.1.4;
+				MARKETING_VERSION = 0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.jankriz.untitled-metronome";
 				PRODUCT_NAME = "Untitled Metronome";
 				SWIFT_VERSION = 5.0;

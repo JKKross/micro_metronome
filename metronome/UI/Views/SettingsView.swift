@@ -26,7 +26,7 @@ fileprivate struct Cell: View {
 				Spacer()
 
 				Image(systemName: "checkmark.circle")
-				.foregroundColor(isSelected ? Color("highlight_2") : .clear)
+					.foregroundColor(isSelected ? .white : .clear)
 				.accessibility(label: isSelected ? Text("Selected") : Text("Not selected"))
 				.padding(.trailing, 20)
 			}
@@ -74,7 +74,7 @@ struct SettingsView: View {
 					Spacer()
 
 					Button(action: { self.isOnScreen = false }) { Image(systemName: "xmark") }
-					.foregroundColor(.red)
+					.foregroundColor(Color("highlight_2"))
 					.font(.largeTitle)
 					.padding(.trailing, 20)
 					.accessibility(label: Text("Close settings"))

@@ -8,7 +8,7 @@ __________________________
 UI:
 
 Settings screen - write "about the app", send feedback
-Setlist screen
+Setlist - in settings ???
 Keyboard controls
 Tap to set tempo
 Haptics when silenced ???
