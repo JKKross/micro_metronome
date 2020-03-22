@@ -28,7 +28,7 @@ struct BPMSlider: View {
 
 				RoundedRectangle(cornerRadius: 5)
 				.frame(width: 120, height: 35)
-				.foregroundColor(Color("controls"))
+				.foregroundColor(.black)
 				.shadow(color: Color(UIColor(red: 0.5, green: 0.5, blue: 0.5, alpha: 0.4)), radius: 3, x: -3, y: -3)
 				.shadow(color: Color(UIColor(red: 0, green: 0, blue: 0, alpha: 0.4)), radius: 3, x: 3, y: 3)
 				.overlay(

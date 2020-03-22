@@ -1,4 +1,3 @@
-Saving: User Defaults (bpm, selected sound, setlist)
 Separate the audio etc. into a multiplatform framework
 Siri Shortcuts support ?
 ACESSIBILITY!!!!!! (Contrast, font scaling etc.) - it's probably ok, the accessibility inspector says it's fine one time & gives me zillion others next time...
@@ -9,7 +8,6 @@ UI:
 
 Settings screen - write "about the app", send feedback
 Setlist - in settings ???
-Keyboard controls
 Tap to set tempo
 Haptics when silenced ???
 
