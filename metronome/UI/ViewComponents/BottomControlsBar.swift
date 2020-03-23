@@ -46,10 +46,12 @@ struct BottomControlsBar: View {
 
 			Button(action: {
 				self.isShowingSetlistView = true
-			}) { Image(systemName: "music.note.list") }
+			}) { Text("Tap") }
 			.buttonStyle(CustomButtonStyle(size: 60))
-			.font(.system(size: 35))
-			.accessibility(label: Text("Setlist"))
+			.font(.system(size: 25, weight: .bold))
+			.lineLimit(1)
+			.frame(width: 60, height: 60, alignment: .center)
+			.accessibility(label: Text("Tap to set tempo"))
 			.alert(isPresented: $isShowingSetlistView) {
 					Alert(title: Text("Not implemented"), dismissButton: .default(Text("OK")))
 			}

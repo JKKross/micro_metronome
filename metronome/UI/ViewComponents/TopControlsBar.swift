@@ -16,7 +16,7 @@ struct TopControlsBar: View {
 		HStack {
 
 			Button(action: {
-				if self.audioController.bpm > 20 {self.audioController.bpm -= 1 }
+				if self.audioController.bpm > self.audioController.minBPM { self.audioController.bpm -= 1 }
 			}) { Image(systemName: "minus") }
 			.buttonStyle(CustomButtonStyle(size: 45))
 			.font(.system(size: 35))
@@ -29,7 +29,7 @@ struct TopControlsBar: View {
 			.frame(width: 160, height: 25)
 
 			Button(action: {
-				if self.audioController.bpm < 260 { self.audioController.bpm += 1 }
+				if self.audioController.bpm < self.audioController.maxBPM { self.audioController.bpm += 1 }
 			}) { Image(systemName: "plus") }
 			.buttonStyle(CustomButtonStyle(size: 45))
 			.font(.system(size: 35))

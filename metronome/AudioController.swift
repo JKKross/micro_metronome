@@ -26,6 +26,7 @@ final class AudioController: ObservableObject {
 
 	@Published public var isPlaying = false
 	@Published public var bpm = 100
+
 	@Published public var selectedSound: Sounds = .rimshot {
 		willSet {
 			if self.isPlaying { self.stop() }
