@@ -12,12 +12,13 @@ struct BottomControlsBar: View {
 
 	@EnvironmentObject var audioController: AudioController
 	@State private var isShowingSettingsView = false
-	@State private var isShowingSetlistView = false
+	@State private var tapTimeStamps: Array<Date> = Array()
 
 	var body: some View {
 
 		HStack {
 			Button(action: {
+				self.tapTimeStamps.removeAll()
 				self.isShowingSettingsView = true
 			}) { Image(systemName: "gear") }
 			.sheet(isPresented: $isShowingSettingsView) { SettingsView(selectedSound: self.$audioController.selectedSound, isOnScreen: self.$isShowingSettingsView) }
@@ -32,7 +33,8 @@ struct BottomControlsBar: View {
 				} else {
 					self.audioController.play()
 				}
-
+				
+				self.tapTimeStamps.removeAll()
 				self.audioController.isPlaying.toggle()
 			}) {
 				Image(systemName: audioController.isPlaying ? "pause" : "play")
@@ -45,17 +47,43 @@ struct BottomControlsBar: View {
 			.frame(width: 150)
 
 			Button(action: {
-				self.isShowingSetlistView = true
+				let d = Date()
+				self.tapTimeStamps.append(d)
+				guard self.tapTimeStamps.count > 2 else { return }
+				
+				var timeIntervals: Array<TimeInterval> = []
+				
+				for i in 0..<(self.tapTimeStamps.count - 1) {
+					let ti = DateInterval(start: self.tapTimeStamps[i], end: self.tapTimeStamps[i + 1])
+					timeIntervals.append(ti.duration)
+				}
+				
+				var sum = 0.0
+				for i in timeIntervals { sum += i }
+				let guessedBPM = Int(60 / (sum / Double(timeIntervals.count)))
+				
+				if self.audioController.isPlaying {
+					self.audioController.stop()
+					self.audioController.isPlaying = false
+				}
+				
+				if guessedBPM > self.audioController.maxBPM {
+					self.audioController.bpm = self.audioController.maxBPM
+				} else if guessedBPM < self.audioController.minBPM {
+					self.audioController.bpm = self.audioController.minBPM
+				} else {
+					self.audioController.bpm = guessedBPM
+				}
+				self.audioController.prepareBuffer()
+				if self.tapTimeStamps.count > 5 { self.tapTimeStamps.removeAll() }
+				
 			}) { Text("Tap") }
 			.buttonStyle(CustomButtonStyle(size: 60))
 			.font(.system(size: 25, weight: .bold))
 			.lineLimit(1)
 			.frame(width: 60, height: 60, alignment: .center)
 			.accessibility(label: Text("Tap to set tempo"))
-			.alert(isPresented: $isShowingSetlistView) {
-					Alert(title: Text("Not implemented"), dismissButton: .default(Text("OK")))
-			}
 		}
-
 	}
+
 }
