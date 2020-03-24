@@ -3,9 +3,6 @@ Siri Shortcuts support ?
 ACESSIBILITY!!!!!! (Contrast, font scaling etc.) - it's probably ok, the accessibility inspector says it's fine one time & gives me zillion others next time...
 Haptics when silenced ???
 Add README
-Rimshot & Hi-hat are right channnel only - fix!!!
-Clap sound - too much delay? Other sound?
-
 __________________________
 
 

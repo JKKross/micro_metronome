@@ -20,11 +20,11 @@
 		3866CDE12427DDC4006FFF25 /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3866CDE02427DDC4006FFF25 /* UserSettings.swift */; };
 		3866CDE32427ED7D006FFF25 /* KeyboardAwareUIHostingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3866CDE22427ED7D006FFF25 /* KeyboardAwareUIHostingController.swift */; };
 		38731ED6242A1F30005A1916 /* Mechanical Metronome.aif in Resources */ = {isa = PBXBuildFile; fileRef = 38731ED5242A1F30005A1916 /* Mechanical Metronome.aif */; };
-		38A0815E242124E6000537D7 /* Clap.aif in Resources */ = {isa = PBXBuildFile; fileRef = 38A08154242124E5000537D7 /* Clap.aif */; };
+		388E0563242A50E500436BDC /* Rimshot.aif in Resources */ = {isa = PBXBuildFile; fileRef = 388E0560242A50E500436BDC /* Rimshot.aif */; };
+		388E0564242A50E500436BDC /* Clap.aif in Resources */ = {isa = PBXBuildFile; fileRef = 388E0561242A50E500436BDC /* Clap.aif */; };
+		388E0565242A50E500436BDC /* Hi-hat.aif in Resources */ = {isa = PBXBuildFile; fileRef = 388E0562242A50E500436BDC /* Hi-hat.aif */; };
 		38A0815F242124E6000537D7 /* Hjonk.aif in Resources */ = {isa = PBXBuildFile; fileRef = 38A08155242124E5000537D7 /* Hjonk.aif */; };
 		38A08160242124E6000537D7 /* LAUGH!.aif in Resources */ = {isa = PBXBuildFile; fileRef = 38A08156242124E6000537D7 /* LAUGH!.aif */; };
-		38A08162242124E6000537D7 /* Hi-hat.aif in Resources */ = {isa = PBXBuildFile; fileRef = 38A08158242124E6000537D7 /* Hi-hat.aif */; };
-		38A08163242124E6000537D7 /* Rimshot.aif in Resources */ = {isa = PBXBuildFile; fileRef = 38A08159242124E6000537D7 /* Rimshot.aif */; };
 		38A08164242124E6000537D7 /* Cowbell.aif in Resources */ = {isa = PBXBuildFile; fileRef = 38A0815A242124E6000537D7 /* Cowbell.aif */; };
 		38A08165242124E6000537D7 /* Bass drum.aif in Resources */ = {isa = PBXBuildFile; fileRef = 38A0815B242124E6000537D7 /* Bass drum.aif */; };
 		38A08166242124E6000537D7 /* Jack slap.aif in Resources */ = {isa = PBXBuildFile; fileRef = 38A0815C242124E6000537D7 /* Jack slap.aif */; };
@@ -48,11 +48,11 @@
 		3866CDE02427DDC4006FFF25 /* UserSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettings.swift; sourceTree = "<group>"; };
 		3866CDE22427ED7D006FFF25 /* KeyboardAwareUIHostingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardAwareUIHostingController.swift; sourceTree = "<group>"; };
 		38731ED5242A1F30005A1916 /* Mechanical Metronome.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Mechanical Metronome.aif"; sourceTree = "<group>"; };
-		38A08154242124E5000537D7 /* Clap.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = Clap.aif; sourceTree = "<group>"; };
+		388E0560242A50E500436BDC /* Rimshot.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = Rimshot.aif; sourceTree = "<group>"; };
+		388E0561242A50E500436BDC /* Clap.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = Clap.aif; sourceTree = "<group>"; };
+		388E0562242A50E500436BDC /* Hi-hat.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Hi-hat.aif"; sourceTree = "<group>"; };
 		38A08155242124E5000537D7 /* Hjonk.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = Hjonk.aif; sourceTree = "<group>"; };
 		38A08156242124E6000537D7 /* LAUGH!.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LAUGH!.aif"; sourceTree = "<group>"; };
-		38A08158242124E6000537D7 /* Hi-hat.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Hi-hat.aif"; sourceTree = "<group>"; };
-		38A08159242124E6000537D7 /* Rimshot.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = Rimshot.aif; sourceTree = "<group>"; };
 		38A0815A242124E6000537D7 /* Cowbell.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = Cowbell.aif; sourceTree = "<group>"; };
 		38A0815B242124E6000537D7 /* Bass drum.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Bass drum.aif"; sourceTree = "<group>"; };
 		38A0815C242124E6000537D7 /* Jack slap.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Jack slap.aif"; sourceTree = "<group>"; };
@@ -95,14 +95,14 @@
 			isa = PBXGroup;
 			children = (
 				38A0815B242124E6000537D7 /* Bass drum.aif */,
-				38A08154242124E5000537D7 /* Clap.aif */,
+				388E0561242A50E500436BDC /* Clap.aif */,
+				388E0562242A50E500436BDC /* Hi-hat.aif */,
+				388E0560242A50E500436BDC /* Rimshot.aif */,
 				38A0815A242124E6000537D7 /* Cowbell.aif */,
-				38A08158242124E6000537D7 /* Hi-hat.aif */,
 				38731ED5242A1F30005A1916 /* Mechanical Metronome.aif */,
 				38A08155242124E5000537D7 /* Hjonk.aif */,
 				38A0815C242124E6000537D7 /* Jack slap.aif */,
 				38A08156242124E6000537D7 /* LAUGH!.aif */,
-				38A08159242124E6000537D7 /* Rimshot.aif */,
 			);
 			path = Sounds;
 			sourceTree = "<group>";
@@ -217,17 +217,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				38A08165242124E6000537D7 /* Bass drum.aif in Resources */,
-				38A08162242124E6000537D7 /* Hi-hat.aif in Resources */,
-				38A0815E242124E6000537D7 /* Clap.aif in Resources */,
 				38A08164242124E6000537D7 /* Cowbell.aif in Resources */,
 				38A08160242124E6000537D7 /* LAUGH!.aif in Resources */,
+				388E0565242A50E500436BDC /* Hi-hat.aif in Resources */,
 				38731ED6242A1F30005A1916 /* Mechanical Metronome.aif in Resources */,
 				384B704123FF304F00E22067 /* LaunchScreen.storyboard in Resources */,
 				384B703E23FF304F00E22067 /* Preview Assets.xcassets in Resources */,
 				384B703B23FF304F00E22067 /* Assets.xcassets in Resources */,
 				38A0815F242124E6000537D7 /* Hjonk.aif in Resources */,
-				38A08163242124E6000537D7 /* Rimshot.aif in Resources */,
+				388E0564242A50E500436BDC /* Clap.aif in Resources */,
 				38A08166242124E6000537D7 /* Jack slap.aif in Resources */,
+				388E0563242A50E500436BDC /* Rimshot.aif in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -394,7 +394,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.4;
+				MARKETING_VERSION = 0.5;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.jankriz.micro-metronome";
 				PRODUCT_NAME = "Micro Metronome";
 				SWIFT_VERSION = 5.0;
@@ -416,7 +416,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.4;
+				MARKETING_VERSION = 0.5;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.jankriz.micro-metronome";
 				PRODUCT_NAME = "Micro Metronome";
 				SWIFT_VERSION = 5.0;
