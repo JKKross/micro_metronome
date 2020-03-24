@@ -10,8 +10,10 @@ import UIKit
 import SwiftUI
 
 class KeyboardAwareUIHostingController<Content>: UIHostingController<Content> where Content: View {
-	
+
 	private let audioController: AudioController
+
+	private var alreadyPressedKeys: Array<Int> = []
 
 	private let keys = [
 		UIKeyCommand(input: " ", modifierFlags: [], action: #selector(playPause)),
@@ -23,6 +25,18 @@ class KeyboardAwareUIHostingController<Content>: UIHostingController<Content> wh
 		UIKeyCommand(input: UIKeyCommand.inputDownArrow, modifierFlags: [.command], action: #selector(minusTenBPM)),
 		UIKeyCommand(input: "+", modifierFlags: [.command], action: #selector(plusTenBPM)),
 		UIKeyCommand(input: "-", modifierFlags: [.command], action: #selector(minusTenBPM)),
+
+		UIKeyCommand(input: "0", modifierFlags: [], action: #selector(pressedZero)),
+		UIKeyCommand(input: "1", modifierFlags: [], action: #selector(pressedOne)),
+		UIKeyCommand(input: "2", modifierFlags: [], action: #selector(pressedTwo)),
+		UIKeyCommand(input: "3", modifierFlags: [], action: #selector(pressedThree)),
+		UIKeyCommand(input: "4", modifierFlags: [], action: #selector(pressedFour)),
+		UIKeyCommand(input: "5", modifierFlags: [], action: #selector(pressedFive)),
+		UIKeyCommand(input: "6", modifierFlags: [], action: #selector(pressedSix)),
+		UIKeyCommand(input: "7", modifierFlags: [], action: #selector(pressedSeven)),
+		UIKeyCommand(input: "8", modifierFlags: [], action: #selector(pressedEight)),
+		UIKeyCommand(input: "9", modifierFlags: [], action: #selector(pressedNine)),
+		UIKeyCommand(input: "\r", modifierFlags: [], action: #selector(pressedEnter)),
 	]
 
 	override var keyCommands: [UIKeyCommand]? {
@@ -35,27 +49,27 @@ class KeyboardAwareUIHostingController<Content>: UIHostingController<Content> wh
 
 		return keys
 	}
-	
+
 	public init(view: Content, audioController: AudioController) {
 		self.audioController = audioController
 		super.init(rootView: view)
 	}
-	
+
 	@objc required dynamic init?(coder aDecoder: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
 	}
-	
+
 	override func becomeFirstResponder() -> Bool {
 		true
 	}
-	
+
 	@objc func playPause() {
 		if audioController.isPlaying {
 			audioController.stop()
 		} else {
 			audioController.play()
 		}
-		
+
 		audioController.isPlaying.toggle()
 	}
 
@@ -67,7 +81,7 @@ class KeyboardAwareUIHostingController<Content>: UIHostingController<Content> wh
 		if audioController.bpm > audioController.minBPM {
 			audioController.bpm -= 1 }
 	}
-	
+
 	@objc func plusTenBPM() {
 		if audioController.bpm <= (audioController.maxBPM - 10) {
 			audioController.bpm += 10
@@ -83,4 +97,116 @@ class KeyboardAwareUIHostingController<Content>: UIHostingController<Content> wh
 			audioController.bpm = audioController.minBPM
 		}
 	}
+
+	@objc func pressedEnter() {
+		if alreadyPressedKeys.count >= 2 {
+			setBpmFromAlreadyPressedKeys()
+		}
+		alreadyPressedKeys.removeAll()
+	}
+
+	@objc func pressedZero() {
+		if alreadyPressedKeys.count == 3 {
+			setBpmFromAlreadyPressedKeys()
+		} else {
+			alreadyPressedKeys.append(0)
+		}
+	}
+
+	@objc func pressedOne() {
+		if alreadyPressedKeys.count == 3 {
+			setBpmFromAlreadyPressedKeys()
+		} else {
+			alreadyPressedKeys.append(1)
+		}
+	}
+
+	@objc func pressedTwo() {
+		if alreadyPressedKeys.count == 3 {
+			setBpmFromAlreadyPressedKeys()
+		} else {
+			alreadyPressedKeys.append(2)
+		}
+	}
+
+	@objc func pressedThree() {
+		if alreadyPressedKeys.count == 3 {
+			setBpmFromAlreadyPressedKeys()
+		} else {
+			alreadyPressedKeys.append(3)
+		}
+	}
+
+	@objc func pressedFour() {
+		if alreadyPressedKeys.count == 3 {
+			setBpmFromAlreadyPressedKeys()
+		} else {
+			alreadyPressedKeys.append(4)
+		}
+	}
+
+	@objc func pressedFive() {
+		if alreadyPressedKeys.count == 3 {
+			setBpmFromAlreadyPressedKeys()
+		} else {
+			alreadyPressedKeys.append(5)
+		}
+	}
+
+	@objc func pressedSix() {
+		if alreadyPressedKeys.count == 3 {
+			setBpmFromAlreadyPressedKeys()
+		} else {
+			alreadyPressedKeys.append(6)
+		}
+	}
+
+	@objc func pressedSeven() {
+		if alreadyPressedKeys.count == 3 {
+			setBpmFromAlreadyPressedKeys()
+		} else {
+			alreadyPressedKeys.append(7)
+		}
+	}
+
+	@objc func pressedEight() {
+		if alreadyPressedKeys.count == 3 {
+			setBpmFromAlreadyPressedKeys()
+		} else {
+			alreadyPressedKeys.append(8)
+		}
+	}
+
+	@objc func pressedNine() {
+		if alreadyPressedKeys.count == 3 {
+			setBpmFromAlreadyPressedKeys()
+		} else {
+			alreadyPressedKeys.append(9)
+		}
+	}
+
+	private func setBpmFromAlreadyPressedKeys() {
+
+		let bpm: Int = {
+			switch alreadyPressedKeys.count {
+			case 2:
+				return (alreadyPressedKeys[0] * 10) + alreadyPressedKeys[1]
+			case 3:
+				return (alreadyPressedKeys[0] * 100) + (alreadyPressedKeys[1] * 10) + alreadyPressedKeys[2]
+			default:
+				fatalError("alreadyPressedKeys array count was messed up. This should not happen!")
+			}
+		}()
+
+		if bpm >= audioController.maxBPM {
+			audioController.bpm = audioController.maxBPM
+		} else if bpm <= audioController.minBPM {
+			audioController.bpm = audioController.minBPM
+		} else {
+			audioController.bpm = bpm
+		}
+
+		alreadyPressedKeys.removeAll()
+	}
+
 }
