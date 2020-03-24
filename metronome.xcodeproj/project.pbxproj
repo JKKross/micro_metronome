@@ -36,7 +36,7 @@
 		380DD40D2426093500B789FD /* CustomButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButtonStyle.swift; sourceTree = "<group>"; };
 		381BAEA5241FC07F00CA8720 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		3820F0E12401BE3800FE8EF8 /* BPMSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BPMSlider.swift; sourceTree = "<group>"; usesTabs = 1; };
-		384B703123FF304900E22067 /* Untitled Metronome.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Untitled Metronome.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		384B703123FF304900E22067 /* Micro Metronome.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Micro Metronome.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		384B703423FF304900E22067 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		384B703623FF304900E22067 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		384B703823FF304900E22067 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -124,7 +124,7 @@
 		384B703223FF304900E22067 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				384B703123FF304900E22067 /* Untitled Metronome.app */,
+				384B703123FF304900E22067 /* Micro Metronome.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -172,7 +172,7 @@
 			);
 			name = metronome;
 			productName = metronome;
-			productReference = 384B703123FF304900E22067 /* Untitled Metronome.app */;
+			productReference = 384B703123FF304900E22067 /* Micro Metronome.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -391,8 +391,8 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 0.3.1;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.jankriz.untitled-metronome";
-				PRODUCT_NAME = "Untitled Metronome";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jankriz.micro-metronome";
+				PRODUCT_NAME = "Micro Metronome";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -413,8 +413,8 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 0.3.1;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.jankriz.untitled-metronome";
-				PRODUCT_NAME = "Untitled Metronome";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jankriz.micro-metronome";
+				PRODUCT_NAME = "Micro Metronome";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
