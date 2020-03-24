@@ -6,16 +6,11 @@ __________________________
 
 UI:
 
-Make the + & - buttons slightly bigger
-Settings screen - write "about the app", send feedback
-Setlist - in settings
-When setlist is active, put next/previous arrows on screen & song title
 Haptics when silenced ???
 
 __________________________
 
 Add README
-Add License
 
 __________________________
 

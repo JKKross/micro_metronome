@@ -40,24 +40,28 @@ fileprivate let appVersion  = Bundle.main.object(forInfoDictionaryKey: "CFBundle
 fileprivate let buildNumber = Bundle.main.object(forInfoDictionaryKey: kCFBundleVersionKey as String)
 
 fileprivate let aboutTheAppText = """
-[There will be some contact info & stuff here. Eventually...]
+Untitled Metronome is a minimalist metronome.
 
-Privacy Policy:
+Choose one of the few sounds, pick your tempo & start playing. That's it. No fancy features.
+In exchange, it is easy to use & lightweight.
 
-I don't have access to any of your personal data and/or information. The only way I can gain access to said information is if you decide to send me an e-mail. In that case, I will never willingly share your e-mail address or any private information included in that e-mail with anyone.
+Happy practicing!
 
 
 Untitled Metronome © 2020 Jan Kříž
 version \(appVersion ?? "APP_VERSION_NUMBER")
 build \(buildNumber ?? "BUILD_NUMBER")
+
+
+Privacy Policy:
+
+I don't have access to any of your personal data and/or information. The only way I can gain access to said information is if you decide to send me an e-mail. In that case, I will never willingly share your e-mail address or any private information included in that e-mail with anyone.
 """
 
 struct SettingsView: View {
 
 	@Binding var selectedSound: Sounds
 	@Binding var isOnScreen: Bool
-
-	@State private var isShowingAboutScreen = false
 
     var body: some View {
 		ZStack {
@@ -106,103 +110,109 @@ struct SettingsView: View {
 						Text(aboutTheAppText)
 						.foregroundColor(.white)
 						.padding(.trailing, 20)
+						.padding(.bottom, 25)
+
+						Button(action: { UIApplication.shared.open(URL(string: "mailto:zawadski.jkk@gmail.com")!) }) { Text("Send feedback") }
+						.foregroundColor(Color("highlight_2"))
 						.padding(.bottom, 2000)
+
+
 
 						Group {
 							Text("Looking for something?")
 							.foregroundColor(.white)
-							.padding(.bottom, 2000)
-							.font(.system(size: 30))
+							.frame(height: 2000, alignment: .topLeading)
+							.font(.headline)
 
 							Text("There's nothing to be found here")
 							.foregroundColor(.white)
-							.padding(.bottom, 2000)
-							.font(.system(size: 30))
+							.frame(height: 2000, alignment: .topLeading)
+							.font(.headline)
 
 							Text("Definitely no easter eggs or anything like that")
 							.foregroundColor(.white)
-							.padding(.bottom, 2000)
-							.font(.system(size: 30))
+							.frame(height: 2000, alignment: .topLeading)
+							.font(.headline)
 
 							Text("Trust me")
 							.foregroundColor(.white)
-							.padding(.bottom, 2000)
-							.font(.system(size: 30))
+							.frame(height: 2000, alignment: .topLeading)
+							.font(.headline)
 
 							Text("Really? Still trying?")
 							.foregroundColor(.white)
-							.padding(.bottom, 2000)
-							.font(.system(size: 30))
+							.frame(height: 2000, alignment: .topLeading)
+							.font(.headline)
 
 							Text("Go away")
 							.foregroundColor(.white)
-							.padding(.bottom, 2000)
-							.font(.system(size: 30))
+							.frame(height: 2000, alignment: .topLeading)
+							.font(.headline)
 
 							Text("I said...")
 							.foregroundColor(.white)
-							.padding(.bottom, 2000)
-							.font(.system(size: 30))
+							.frame(height: 2000, alignment: .topLeading)
+							.font(.headline)
 
 							Text("GO")
 							.foregroundColor(Color(red: 1, green: 0, blue: 0))
-							.padding(.bottom, 2000)
-							.font(.system(size: 40))
+							.frame(height: 2000, alignment: .topLeading)
+							.font(.system(size: 50, weight: .bold))
 
 							Text("AWAY!!!")
 							.foregroundColor(Color(red: 1, green: 0, blue: 0))
-							.padding(.bottom, 2000)
-							.font(.system(size: 50, weight: .bold))
+							.frame(height: 2000, alignment: .topLeading)
+							.font(.system(size: 60, weight: .bold))
 
 							Text("You won't?")
 							.foregroundColor(.white)
-							.padding(.bottom, 2000)
-							.font(.system(size: 30))
+							.frame(height: 2000, alignment: .topLeading)
+							.font(.headline)
 						}
-						
+
 						Group {
 							Text("OK, you win...")
 							.foregroundColor(.white)
-							.padding(.bottom, 2000)
-							.font(.system(size: 30))
-							
+							.frame(height: 2000, alignment: .topLeading)
+							.font(.headline)
+
 							Text("Here's your easter egg:")
 							.foregroundColor(.white)
-							.padding(.bottom, 2000)
-							.font(.system(size: 30))
-							
+							.frame(height: 2000, alignment: .topLeading)
+							.font(.headline)
+
 							Image("beethoven")
 							.padding(.bottom, 4000)
-							
+
 							Text("Really?! You're still here?!")
 							.foregroundColor(.white)
-							.padding(.bottom, 2000)
-							.font(.system(size: 30))
-							
+							.frame(height: 2000, alignment: .topLeading)
+							.font(.headline)
+
 							Text("Jeez...")
 							.foregroundColor(.white)
-							.padding(.bottom, 2000)
-							.font(.system(size: 30))
-							
+							.frame(height: 2000, alignment: .topLeading)
+							.font(.headline)
+
 							Text("Some people...")
 							.foregroundColor(.white)
-							.padding(.bottom, 2000)
-							.font(.system(size: 30))
-							
+							.frame(height: 2000, alignment: .topLeading)
+							.font(.headline)
+
 							Text("OK")
 							.foregroundColor(.white)
-							.padding(.bottom, 2000)
-							.font(.system(size: 30))
-							
+							.frame(height: 2000, alignment: .topLeading)
+							.font(.headline)
+
 							Text("Here it is for real")
 							.foregroundColor(.white)
-							.padding(.bottom, 2000)
-							.font(.system(size: 30))
-							
+							.frame(height: 2000, alignment: .topLeading)
+							.font(.headline)
+
 							Text("(Hope it was worth it)")
 							.foregroundColor(.white)
-							.padding(.bottom, 2000)
-							.font(.system(size: 30))
+							.frame(height: 2000, alignment: .topLeading)
+							.font(.headline)
 						}
 
 						Group {
