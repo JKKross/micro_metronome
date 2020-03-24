@@ -6,8 +6,10 @@ __________________________
 
 UI:
 
+Make the + & - buttons slightly bigger
 Settings screen - write "about the app", send feedback
-Setlist - in settings ???
+Setlist - in settings
+When setlist is active, put next/previous arrows on screen & song title
 Haptics when silenced ???
 
 __________________________
@@ -19,9 +21,7 @@ __________________________
 
 
 Platforms:
-iOS 13+
-iPadOS 13+
-MacOS 10.15+
+MacOS 10.15+ - catalyst
 Mac - Terminal
 WatchOS ???
 Linux terminal ???

@@ -60,42 +60,27 @@ class KeyboardAwareUIHostingController<Content>: UIHostingController<Content> wh
 	}
 
 	@objc func plusOneBPM() {
-		if audioController.isPlaying {	audioController.stop() }
-		if audioController.bpm < audioController.maxBPM {
-			audioController.bpm += 1
-		}
-		audioController.prepareBuffer()
-		if audioController.isPlaying { audioController.play() }
+		if audioController.bpm < audioController.maxBPM { audioController.bpm += 1 }
 	}
 
 	@objc func minusOneBPM() {
-		if audioController.isPlaying {	audioController.stop() }
 		if audioController.bpm > audioController.minBPM {
-			audioController.bpm -= 1
-		}
-		audioController.prepareBuffer()
-		if audioController.isPlaying { audioController.play() }
+			audioController.bpm -= 1 }
 	}
 	
 	@objc func plusTenBPM() {
-		if audioController.isPlaying {	audioController.stop() }
 		if audioController.bpm <= (audioController.maxBPM - 10) {
 			audioController.bpm += 10
 		} else {
 			audioController.bpm = audioController.maxBPM
 		}
-		audioController.prepareBuffer()
-		if audioController.isPlaying { audioController.play() }
 	}
 
 	@objc func minusTenBPM() {
-		if audioController.isPlaying {	audioController.stop() }
 		if audioController.bpm >= (audioController.minBPM + 10) {
 			audioController.bpm -= 10
 		} else {
 			audioController.bpm = audioController.minBPM
 		}
-		audioController.prepareBuffer()
-		if audioController.isPlaying { audioController.play() }
 	}
 }

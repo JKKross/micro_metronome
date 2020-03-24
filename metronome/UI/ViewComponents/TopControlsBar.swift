@@ -14,12 +14,11 @@ struct TopControlsBar: View {
 
     var body: some View {
 		HStack {
-
 			Button(action: {
 				if self.audioController.bpm > self.audioController.minBPM { self.audioController.bpm -= 1 }
 			}) { Image(systemName: "minus") }
-			.buttonStyle(CustomButtonStyle(size: 45))
-			.font(.system(size: 35))
+			.buttonStyle(CustomButtonStyle(size: 55))
+			.font(.system(size: 40))
 			.accessibility(label: Text("minus 1 bpm"))
 
 			Text("\(audioController.bpm)")
@@ -31,8 +30,8 @@ struct TopControlsBar: View {
 			Button(action: {
 				if self.audioController.bpm < self.audioController.maxBPM { self.audioController.bpm += 1 }
 			}) { Image(systemName: "plus") }
-			.buttonStyle(CustomButtonStyle(size: 45))
-			.font(.system(size: 35))
+			.buttonStyle(CustomButtonStyle(size: 55))
+			.font(.system(size: 40))
 			.accessibility(label: Text("plus 1 bpm"))
 		}
     }
