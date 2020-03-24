@@ -9,14 +9,15 @@
 import AVFoundation
 
 enum Sounds: String {
-	case rimshot  = "Rimshot"
-	case bassDrum = "Bass drum"
-	case clap     = "Clap"
-	case cowbell  = "Cowbell"
-	case hiHat    = "Hi-hat"
-	case hjonk    = "Hjonk"
-	case jackSlap = "Jack slap"
-	case laugh    = "LAUGH!"
+	case rimshot             = "Rimshot"
+	case bassDrum            = "Bass drum"
+	case clap                = "Clap"
+	case cowbell             = "Cowbell"
+	case hiHat               = "Hi-hat"
+	case mechanicalMetronome = "Mechanical Metronome"
+	case hjonk               = "Hjonk"
+	case jackSlap            = "Jack slap"
+	case laugh               = "LAUGH!"
 }
 
 final class AudioController: ObservableObject {

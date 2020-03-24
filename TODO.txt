@@ -1,17 +1,8 @@
 Separate the audio etc. into a multiplatform framework
 Siri Shortcuts support ?
 ACESSIBILITY!!!!!! (Contrast, font scaling etc.) - it's probably ok, the accessibility inspector says it's fine one time & gives me zillion others next time...
-
-__________________________
-
-UI:
-
 Haptics when silenced ???
-
-__________________________
-
 Add README
-
 __________________________
 
 

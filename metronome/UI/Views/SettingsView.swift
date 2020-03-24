@@ -40,7 +40,7 @@ fileprivate let appVersion  = Bundle.main.object(forInfoDictionaryKey: "CFBundle
 fileprivate let buildNumber = Bundle.main.object(forInfoDictionaryKey: kCFBundleVersionKey as String)
 
 fileprivate let aboutTheAppText = """
-Untitled Metronome is a minimalist metronome.
+Micro Metronome is a minimalist metronome.
 
 Choose one of the few sounds, pick your tempo & start playing. That's it. No fancy features.
 In exchange, it is easy to use & lightweight.
@@ -48,7 +48,7 @@ In exchange, it is easy to use & lightweight.
 Happy practicing!
 
 
-Untitled Metronome © 2020 Jan Kříž
+Micro Metronome © 2020 Jan Kříž
 version \(appVersion ?? "APP_VERSION_NUMBER")
 build \(buildNumber ?? "BUILD_NUMBER")
 
@@ -99,6 +99,7 @@ struct SettingsView: View {
 							Cell(action: { self.selectedSound = .clap }, name: .clap, currentlySelectedSound: selectedSound)
 							Cell(action: { self.selectedSound = .cowbell }, name: .cowbell, currentlySelectedSound: selectedSound)
 							Cell(action: { self.selectedSound = .hiHat }, name: .hiHat, currentlySelectedSound: selectedSound)
+							Cell(action: { self.selectedSound = .mechanicalMetronome }, name: .mechanicalMetronome, currentlySelectedSound: selectedSound)
 						}
 
 						Text("About the app:")

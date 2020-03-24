@@ -19,6 +19,7 @@
 		384B704123FF304F00E22067 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 384B703F23FF304F00E22067 /* LaunchScreen.storyboard */; };
 		3866CDE12427DDC4006FFF25 /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3866CDE02427DDC4006FFF25 /* UserSettings.swift */; };
 		3866CDE32427ED7D006FFF25 /* KeyboardAwareUIHostingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3866CDE22427ED7D006FFF25 /* KeyboardAwareUIHostingController.swift */; };
+		38731ED6242A1F30005A1916 /* Mechanical Metronome.aif in Resources */ = {isa = PBXBuildFile; fileRef = 38731ED5242A1F30005A1916 /* Mechanical Metronome.aif */; };
 		38A0815E242124E6000537D7 /* Clap.aif in Resources */ = {isa = PBXBuildFile; fileRef = 38A08154242124E5000537D7 /* Clap.aif */; };
 		38A0815F242124E6000537D7 /* Hjonk.aif in Resources */ = {isa = PBXBuildFile; fileRef = 38A08155242124E5000537D7 /* Hjonk.aif */; };
 		38A08160242124E6000537D7 /* LAUGH!.aif in Resources */ = {isa = PBXBuildFile; fileRef = 38A08156242124E6000537D7 /* LAUGH!.aif */; };
@@ -46,6 +47,7 @@
 		384B704223FF304F00E22067 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3866CDE02427DDC4006FFF25 /* UserSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettings.swift; sourceTree = "<group>"; };
 		3866CDE22427ED7D006FFF25 /* KeyboardAwareUIHostingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardAwareUIHostingController.swift; sourceTree = "<group>"; };
+		38731ED5242A1F30005A1916 /* Mechanical Metronome.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Mechanical Metronome.aif"; sourceTree = "<group>"; };
 		38A08154242124E5000537D7 /* Clap.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = Clap.aif; sourceTree = "<group>"; };
 		38A08155242124E5000537D7 /* Hjonk.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = Hjonk.aif; sourceTree = "<group>"; };
 		38A08156242124E6000537D7 /* LAUGH!.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LAUGH!.aif"; sourceTree = "<group>"; };
@@ -96,6 +98,7 @@
 				38A08154242124E5000537D7 /* Clap.aif */,
 				38A0815A242124E6000537D7 /* Cowbell.aif */,
 				38A08158242124E6000537D7 /* Hi-hat.aif */,
+				38731ED5242A1F30005A1916 /* Mechanical Metronome.aif */,
 				38A08155242124E5000537D7 /* Hjonk.aif */,
 				38A0815C242124E6000537D7 /* Jack slap.aif */,
 				38A08156242124E6000537D7 /* LAUGH!.aif */,
@@ -218,6 +221,7 @@
 				38A0815E242124E6000537D7 /* Clap.aif in Resources */,
 				38A08164242124E6000537D7 /* Cowbell.aif in Resources */,
 				38A08160242124E6000537D7 /* LAUGH!.aif in Resources */,
+				38731ED6242A1F30005A1916 /* Mechanical Metronome.aif in Resources */,
 				384B704123FF304F00E22067 /* LaunchScreen.storyboard in Resources */,
 				384B703E23FF304F00E22067 /* Preview Assets.xcassets in Resources */,
 				384B703B23FF304F00E22067 /* Assets.xcassets in Resources */,
@@ -390,7 +394,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.3.1;
+				MARKETING_VERSION = 0.4;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.jankriz.micro-metronome";
 				PRODUCT_NAME = "Micro Metronome";
 				SWIFT_VERSION = 5.0;
@@ -412,7 +416,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.3.1;
+				MARKETING_VERSION = 0.4;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.jankriz.micro-metronome";
 				PRODUCT_NAME = "Micro Metronome";
 				SWIFT_VERSION = 5.0;
