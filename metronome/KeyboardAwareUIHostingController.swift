@@ -78,8 +78,7 @@ class KeyboardAwareUIHostingController<Content>: UIHostingController<Content> wh
 	}
 
 	@objc func minusOneBPM() {
-		if audioController.bpm > audioController.minBPM {
-			audioController.bpm -= 1 }
+		if audioController.bpm > audioController.minBPM { audioController.bpm -= 1 }
 	}
 
 	@objc func plusTenBPM() {
@@ -88,6 +87,10 @@ class KeyboardAwareUIHostingController<Content>: UIHostingController<Content> wh
 		} else {
 			audioController.bpm = audioController.maxBPM
 		}
+		// just a hack to trigger the .onReceive modifier on BPMSlider
+		// No idea why it's not working properly
+		audioController.bpm += 1
+		audioController.bpm -= 1
 	}
 
 	@objc func minusTenBPM() {
@@ -96,6 +99,10 @@ class KeyboardAwareUIHostingController<Content>: UIHostingController<Content> wh
 		} else {
 			audioController.bpm = audioController.minBPM
 		}
+		// just a hack to trigger the .onReceive modifier on BPMSlider
+		// No idea why it's not working properly
+		audioController.bpm += 1
+		audioController.bpm -= 1
 	}
 
 	@objc func pressedEnter() {
@@ -207,6 +214,11 @@ class KeyboardAwareUIHostingController<Content>: UIHostingController<Content> wh
 		}
 
 		alreadyPressedKeys.removeAll()
+		
+		// just a hack to trigger the .onReceive modifier on BPMSlider
+		// No idea why it's not working properly
+		audioController.bpm += 1
+		audioController.bpm -= 1
 	}
 
 }
