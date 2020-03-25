@@ -27,8 +27,8 @@ final class UserSettings {
 		if let sound = ud.string(forKey: UDKeys.sound.rawValue) {
 			return Sounds(rawValue: sound)!
 		} else {
-			ud.set(Sounds.rimshot.rawValue as Any, forKey: UDKeys.sound.rawValue)
-			return .rimshot
+			ud.set(Sounds.mechanicalMetronome.rawValue as Any, forKey: UDKeys.sound.rawValue)
+			return .mechanicalMetronome
 		}
 	}
 

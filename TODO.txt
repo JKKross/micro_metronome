@@ -1,8 +1,13 @@
-Separate the audio etc. into a multiplatform framework
-Siri Shortcuts support ?
+Separate the audio etc. into a multiplatform framework!!!
+REFACTOR!!!!!!!!!!!!!!!!!!!!!!!!!
+Add "ad" for Red Zebra in under the feedback button
+Make it work with headphone play/pause
+
 ACESSIBILITY!!!!!! (Contrast, font scaling etc.) - it's probably ok, the accessibility inspector says it's fine one time & gives me zillion others next time...
-Haptics when silenced ???
 Add README
+Do the old/new UIHover-thingy
+Haptics when silenced ???
+Siri Shortcuts support ?
 __________________________
 
 

@@ -94,12 +94,12 @@ struct SettingsView: View {
 						.foregroundColor(.white)
 
 						Group {
+							Cell(action: { self.selectedSound = .mechanicalMetronome }, name: .mechanicalMetronome, currentlySelectedSound: selectedSound)
 							Cell(action: { self.selectedSound = .rimshot }, name: .rimshot, currentlySelectedSound: selectedSound)
 							Cell(action: { self.selectedSound = .bassDrum }, name: .bassDrum, currentlySelectedSound: selectedSound)
 							Cell(action: { self.selectedSound = .clap }, name: .clap, currentlySelectedSound: selectedSound)
 							Cell(action: { self.selectedSound = .cowbell }, name: .cowbell, currentlySelectedSound: selectedSound)
 							Cell(action: { self.selectedSound = .hiHat }, name: .hiHat, currentlySelectedSound: selectedSound)
-							Cell(action: { self.selectedSound = .mechanicalMetronome }, name: .mechanicalMetronome, currentlySelectedSound: selectedSound)
 						}
 
 						Text("About the app:")
