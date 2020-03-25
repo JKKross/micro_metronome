@@ -37,6 +37,7 @@
 		380DD40D2426093500B789FD /* CustomButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButtonStyle.swift; sourceTree = "<group>"; };
 		381BAEA5241FC07F00CA8720 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		3820F0E12401BE3800FE8EF8 /* BPMSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BPMSlider.swift; sourceTree = "<group>"; usesTabs = 1; };
+		38279C1A242BC53300BAD6DB /* Micro Metronome.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Micro Metronome.entitlements"; sourceTree = "<group>"; };
 		384B703123FF304900E22067 /* Micro Metronome.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Micro Metronome.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		384B703423FF304900E22067 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		384B703623FF304900E22067 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -135,6 +136,7 @@
 		384B703323FF304900E22067 /* metronome */ = {
 			isa = PBXGroup;
 			children = (
+				38279C1A242BC53300BAD6DB /* Micro Metronome.entitlements */,
 				384B703423FF304900E22067 /* AppDelegate.swift */,
 				384B703623FF304900E22067 /* SceneDelegate.swift */,
 				3866CDE22427ED7D006FFF25 /* KeyboardAwareUIHostingController.swift */,
@@ -386,8 +388,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "metronome/Micro Metronome.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_ASSET_PATHS = "\"metronome/Preview Content\"";
 				DEVELOPMENT_TEAM = E8938J75P7;
 				ENABLE_PREVIEWS = YES;
@@ -397,9 +400,10 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.5.2;
+				MARKETING_VERSION = 0.6;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.jankriz.micro-metronome";
 				PRODUCT_NAME = "Micro Metronome";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -409,8 +413,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "metronome/Micro Metronome.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_ASSET_PATHS = "\"metronome/Preview Content\"";
 				DEVELOPMENT_TEAM = E8938J75P7;
 				ENABLE_PREVIEWS = YES;
@@ -420,9 +425,10 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.5.2;
+				MARKETING_VERSION = 0.6;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.jankriz.micro-metronome";
 				PRODUCT_NAME = "Micro Metronome";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
