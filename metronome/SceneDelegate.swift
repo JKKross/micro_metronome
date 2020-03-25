@@ -12,7 +12,14 @@ import SwiftUI
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 	var window: UIWindow?
-	let audioController = AudioController()
+
+	// Definitely a hack.
+	// It's here just for Mac Catalyst, so the user can tap the command in the "controls" menu & it works.
+	// Maybe a bad idea.
+	// If it is, replace with:
+	// let audioController = AudioController()
+	// and delete all the crap from AppDelegate.
+	let audioController = (UIApplication.shared.delegate as! AppDelegate).audioController
 
 
 	func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
