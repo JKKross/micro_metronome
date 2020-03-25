@@ -17,12 +17,15 @@ class KeyboardAwareUIHostingController<Content>: UIHostingController<Content> wh
 
 	private let keys = [
 		UIKeyCommand(input: " ", modifierFlags: [], action: #selector(playPause)),
-		UIKeyCommand(input: "+", modifierFlags: [], action: #selector(plusOneBPM)),
-		UIKeyCommand(input: "-", modifierFlags: [], action: #selector(minusOneBPM)),
 		UIKeyCommand(input: UIKeyCommand.inputUpArrow, modifierFlags: [], action: #selector(plusOneBPM)),
 		UIKeyCommand(input: UIKeyCommand.inputDownArrow, modifierFlags: [], action: #selector(minusOneBPM)),
 		UIKeyCommand(input: UIKeyCommand.inputUpArrow, modifierFlags: [.command], action: #selector(plusTenBPM)),
 		UIKeyCommand(input: UIKeyCommand.inputDownArrow, modifierFlags: [.command], action: #selector(minusTenBPM)),
+		
+		UIKeyCommand(input: "0...9 + ⏎", modifierFlags: [], action: #selector(doNothing)),
+		
+		UIKeyCommand(input: "+", modifierFlags: [], action: #selector(plusOneBPM)),
+		UIKeyCommand(input: "-", modifierFlags: [], action: #selector(minusOneBPM)),
 		UIKeyCommand(input: "+", modifierFlags: [.command], action: #selector(plusTenBPM)),
 		UIKeyCommand(input: "-", modifierFlags: [.command], action: #selector(minusTenBPM)),
 
@@ -37,15 +40,16 @@ class KeyboardAwareUIHostingController<Content>: UIHostingController<Content> wh
 		UIKeyCommand(input: "8", modifierFlags: [], action: #selector(pressedEight)),
 		UIKeyCommand(input: "9", modifierFlags: [], action: #selector(pressedNine)),
 		UIKeyCommand(input: "\r", modifierFlags: [], action: #selector(pressedEnter)),
+		UIKeyCommand(input: "\r", modifierFlags: [.shift], action: #selector(pressedEnter)),
 	]
 
 	override var keyCommands: [UIKeyCommand]? {
 		keys[0].title = "Play/Pause"
-		// no need for info about + & - keys
-		keys[3].title = "+1 bpm"
-		keys[4].title = "-1 bpm"
-		keys[5].title = "+10 bpm"
-		keys[6].title = "-10 bpm"
+		keys[1].title = "+1 bpm"
+		keys[2].title = "-1 bpm"
+		keys[3].title = "+10 bpm"
+		keys[4].title = "-10 bpm"
+		keys[5].title = "Type your desired tempo & set it with ⏎"
 
 		return keys
 	}
@@ -61,6 +65,10 @@ class KeyboardAwareUIHostingController<Content>: UIHostingController<Content> wh
 
 	override func becomeFirstResponder() -> Bool {
 		true
+	}
+	
+	@objc func doNothing() {
+		//
 	}
 
 	@objc func playPause() {
