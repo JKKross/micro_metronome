@@ -67,6 +67,7 @@ struct SettingsView: View {
     var body: some View {
 		ZStack {
 			Color("settings_background")
+			.edgesIgnoringSafeArea(.all)
 
 			VStack {
 				HStack {
@@ -104,20 +105,30 @@ struct SettingsView: View {
 							Cell(action: { self.selectedSound = .hiHat }, name: .hiHat, currentlySelectedSound: selectedSound)
 						}
 
-						Text("About the app:")
-						.font(.headline)
-						.bold()
-						.padding(.vertical, 15)
-						.foregroundColor(.white)
+						Group {
+							Text("About the app:")
+							.font(.headline)
+							.bold()
+							.padding(.vertical, 15)
+							.foregroundColor(.white)
 
-						Text(aboutTheAppText)
-						.foregroundColor(.white)
-						.padding(.trailing, 20)
-						.padding(.bottom, 25)
+							Text(aboutTheAppText)
+							.foregroundColor(.white)
+							.padding(.trailing, 20)
+							.padding(.bottom, 15)
 
-						Button(action: { UIApplication.shared.open(URL(string: "mailto:zawadski.jkk@gmail.com")!) }) { Text("Send feedback") }
-						.foregroundColor(Color("highlight_2"))
-						.hoverEffect(.highlight)
+							Button(action: { UIApplication.shared.open(URL(string: "mailto:zawadski.jkk@gmail.com")!) }) { Text("Send feedback") }
+							.foregroundColor(Color("highlight_2"))
+							.hoverEffect(.highlight)
+
+							Text("If your looking for a simple text editor for iOS & iPadOS, check out my other app:")
+							.padding(.vertical, 15)
+							.foregroundColor(.white)
+
+							Button(action: { UIApplication.shared.open(URL(string: "https://itunes.apple.com/app/red-zebra/id1463017929?l=cs&ls=1&mt=8")!) }) { Text("Red Zebra") }
+							.foregroundColor(Color("highlight_2"))
+							.hoverEffect(.highlight)
+						}
 
 						Spacer()
 						.padding(.bottom, 2000)

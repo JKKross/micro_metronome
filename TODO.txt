@@ -1,17 +1,16 @@
 Separate the audio handling into a Swift Package!!!
 REFACTOR!!!!!!!!!!!!!!!!!!!!!!!!!
-Add "ad" for Red Zebra in under the feedback button
 Make it work with headphone play/pause
 
 ACESSIBILITY!!!!!! (Contrast, font scaling etc.) - it's probably ok, the accessibility inspector says it's fine one time & gives me zillion others next time...
 Add README
 Haptics when silenced ???
-Siri Shortcuts support ?
 __________________________
 
 
 Platforms:
 MacOS 10.15+ - catalyst
+Siri Shortcuts ???
 WatchOS ???
 Mac - Terminal (wait for SwiftPM resource files to be implemented)
 Linux terminal ??? (wait for SwiftPM resource files to be implemented)

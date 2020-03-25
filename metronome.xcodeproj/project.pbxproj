@@ -397,7 +397,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.5.1;
+				MARKETING_VERSION = 0.5.2;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.jankriz.micro-metronome";
 				PRODUCT_NAME = "Micro Metronome";
 				SWIFT_VERSION = 5.0;
@@ -420,7 +420,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.5.1;
+				MARKETING_VERSION = 0.5.2;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.jankriz.micro-metronome";
 				PRODUCT_NAME = "Micro Metronome";
 				SWIFT_VERSION = 5.0;
