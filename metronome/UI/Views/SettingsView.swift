@@ -41,7 +41,7 @@ fileprivate let appVersion  = Bundle.main.object(forInfoDictionaryKey: "CFBundle
 fileprivate let buildNumber = Bundle.main.object(forInfoDictionaryKey: kCFBundleVersionKey as String)
 
 fileprivate let aboutTheAppText = """
-Micro Metronome is a minimalist metronome.
+Micro Metronome is a minimalist metronome for iOS, iPadOS & MacOS.
 
 Choose one of the few sounds, pick your tempo & start playing. That's it. No fancy features.
 In exchange, it is easy to use & lightweight.
