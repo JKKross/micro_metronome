@@ -1,10 +1,12 @@
-Separate the audio handling into a Swift Package!!!
-REFACTOR!!!!!!!!!!!!!!!!!!!!!!!!!
 Make it work with headphone play/pause
 
 ACESSIBILITY!!!!!! (Contrast, font scaling etc.) - it's probably ok, the accessibility inspector says it's fine one time & gives me zillion others next time...
 Add README
+Test on all device simulators, just to be sure...
+Screenshots for App Store Connect
+
 Haptics when silenced ???
+Separate the audio handling into a Swift Package ???
 __________________________
 
 

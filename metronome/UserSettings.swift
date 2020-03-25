@@ -8,6 +8,11 @@
 
 import Foundation
 
+fileprivate enum UDKeys: String {
+	case bpm   = "BPM"
+	case sound = "SOUND"
+}
+
 final class UserSettings {
 
 	private let ud = UserDefaults.standard
@@ -39,9 +44,5 @@ final class UserSettings {
 	public func save(preferredSound: Sounds) {
 		ud.set(preferredSound.rawValue as Any, forKey: UDKeys.sound.rawValue)
 	}
-
-	private enum UDKeys: String {
-		case bpm   = "BPM"
-		case sound = "SOUND"
-	}
+	
 }
