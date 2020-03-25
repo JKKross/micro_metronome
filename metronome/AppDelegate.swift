@@ -11,14 +11,14 @@ import UIKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
+	#if targetEnvironment(macCatalyst)
 	let audioController = AudioController()
-
+	#endif
+	
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 		// Override point for customization after application launch.
 		return true
 	}
-
-	// MARK: UISceneSession Lifecycle
 
 	func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
 		// Called when a new scene session is being created.
@@ -26,17 +26,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		return UISceneConfiguration(name: "Default Configuration", sessionRole: connectingSceneSession.role)
 	}
 
-	func application(_ application: UIApplication, didDiscardSceneSessions sceneSessions: Set<UISceneSession>) {
-		// Called when the user discards a scene session.
-		// If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
-		// Use this method to release any resources that were specific to the discarded scenes, as they will not return.
-	}
-
 }
+
+#if targetEnvironment(macCatalyst)
 
 extension AppDelegate {
 	
 	override func buildMenu(with builder: UIMenuBuilder) {
+		// Mac Catalyst Menu Bar customization
+		
 		// Check that the menu is Main menu as opposed to a context menu.
 		guard builder.system == .main else { return }
 		
@@ -115,3 +113,5 @@ extension AppDelegate {
 	@objc func doNothing() {}
 	
 }
+
+#endif

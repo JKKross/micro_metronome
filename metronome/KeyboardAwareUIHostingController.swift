@@ -67,9 +67,7 @@ class KeyboardAwareUIHostingController<Content>: UIHostingController<Content> wh
 		true
 	}
 	
-	@objc func doNothing() {
-		//
-	}
+	@objc func doNothing() {}
 
 	@objc func playPause() {
 		if audioController.isPlaying {
