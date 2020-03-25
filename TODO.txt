@@ -1,11 +1,11 @@
-Separate the audio etc. into a multiplatform framework!!!
+Separate the audio handling into a Swift Package!!!
 REFACTOR!!!!!!!!!!!!!!!!!!!!!!!!!
 Add "ad" for Red Zebra in under the feedback button
 Make it work with headphone play/pause
+Add explanation for keyoard 1...9
 
 ACESSIBILITY!!!!!! (Contrast, font scaling etc.) - it's probably ok, the accessibility inspector says it's fine one time & gives me zillion others next time...
 Add README
-Do the old/new UIHover-thingy
 Haptics when silenced ???
 Siri Shortcuts support ?
 __________________________
@@ -13,8 +13,8 @@ __________________________
 
 Platforms:
 MacOS 10.15+ - catalyst
-Mac - Terminal
 WatchOS ???
-Linux terminal ???
-Windows terminal ???
+Mac - Terminal (wait for SwiftPM resource files to be implemented)
+Linux terminal ??? (wait for SwiftPM resource files to be implemented)
+Windows terminal ??? (wait for SwiftPM resource files to be implemented)
 Web ??? (probably not, we'll see...)

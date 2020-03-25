@@ -22,6 +22,7 @@ fileprivate struct Cell: View {
 				Button(action: self.action) { Text(self.name.rawValue) }
 				.foregroundColor(isSelected ? Color("highlight_2") : Color("highlight"))
 				.frame(alignment: .leading)
+				.hoverEffect(.highlight)
 
 				Spacer()
 
@@ -80,8 +81,9 @@ struct SettingsView: View {
 					Button(action: { self.isOnScreen = false }) { Image(systemName: "xmark") }
 					.foregroundColor(Color("highlight_2"))
 					.font(.largeTitle)
-					.padding(.trailing, 20)
+					.padding(20)
 					.accessibility(label: Text("Close settings"))
+					.hoverEffect(.highlight)
 				}
 				.padding(.vertical, 25)
 
@@ -115,8 +117,10 @@ struct SettingsView: View {
 
 						Button(action: { UIApplication.shared.open(URL(string: "mailto:zawadski.jkk@gmail.com")!) }) { Text("Send feedback") }
 						.foregroundColor(Color("highlight_2"))
-						.padding(.bottom, 2000)
+						.hoverEffect(.highlight)
 
+						Spacer()
+						.padding(.bottom, 2000)
 
 
 						Group {

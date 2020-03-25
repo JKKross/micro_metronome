@@ -25,6 +25,8 @@ struct BottomControlsBar: View {
 			.buttonStyle(CustomButtonStyle(size: 65))
 			.font(.system(size: 35))
 			.accessibility(label: Text("Settings"))
+			.frame(width: 70, height: 70)
+			.hoverEffect(.highlight)
 
 			Button(action: {
 				if self.audioController.isPlaying {
@@ -46,7 +48,8 @@ struct BottomControlsBar: View {
 			.buttonStyle(CustomButtonStyle(size: 80))
 			.font(.system(size: 55))
 			.accessibility(label: audioController.isPlaying ? Text("pause") : Text("play"))
-			.frame(width: 150)
+			.frame(width: 110, height: 110)
+			.hoverEffect(.highlight)
 
 			Button(action: {
 				let d = Date()
@@ -82,8 +85,9 @@ struct BottomControlsBar: View {
 			.buttonStyle(CustomButtonStyle(size: 65))
 			.font(.system(size: 25, weight: .bold))
 			.lineLimit(1)
-			.frame(width: 60, height: 60, alignment: .center)
 			.accessibility(label: Text("Tap to set tempo"))
+			.frame(width: 70, height: 70)
+			.hoverEffect(.highlight)
 		}
 	}
 

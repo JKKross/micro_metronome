@@ -19,7 +19,7 @@ struct ContentView: View {
 
 			VStack {
 				TopControlsBar()
-				.padding(.top, 25)
+				.padding(.top, 15)
 				.padding(.horizontal, 35)
 
 				BPMSlider()
