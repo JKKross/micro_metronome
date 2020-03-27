@@ -54,7 +54,7 @@ struct SettingsView: View {
 					Text("Settings")
 					.font(.largeTitle)
 					.bold()
-					.padding(.leading, 20)
+					.padding(20)
 					.foregroundColor(.white)
 
 					Spacer()
@@ -66,7 +66,6 @@ struct SettingsView: View {
 					.accessibility(label: Text("Close settings"))
 					.hoverEffect(.highlight)
 				}
-				.padding(.vertical, 25)
 
 				ScrollView(.vertical, showsIndicators: true) {
 					VStack(alignment: .leading) {

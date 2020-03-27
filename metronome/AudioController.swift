@@ -24,7 +24,7 @@ public enum Sounds: String {
 public final class AudioController: ObservableObject {
 
 	public let minBPM = 20
-	public let maxBPM = 260
+	public let maxBPM = 300
 
 	@Published public var isPlaying = false
 	@Published public var bpm = 100
