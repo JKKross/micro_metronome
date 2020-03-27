@@ -11,6 +11,7 @@ import SwiftUI
 struct BottomControlsBar: View {
 
 	@EnvironmentObject var audioController: AudioController
+
 	@State private var isShowingSettingsView = false
 	@State private var tapTimeStamps: Array<Date> = Array()
 
@@ -37,7 +38,7 @@ struct BottomControlsBar: View {
 				} else {
 					self.audioController.play()
 				}
-				
+
 				self.tapTimeStamps.removeAll()
 				self.audioController.isPlaying.toggle()
 			}) {
@@ -55,23 +56,23 @@ struct BottomControlsBar: View {
 				let d = Date()
 				self.tapTimeStamps.append(d)
 				guard self.tapTimeStamps.count > 2 else { return }
-				
+
 				var timeIntervals: Array<TimeInterval> = []
-				
+
 				for i in 0..<(self.tapTimeStamps.count - 1) {
 					let ti = DateInterval(start: self.tapTimeStamps[i], end: self.tapTimeStamps[i + 1])
 					timeIntervals.append(ti.duration)
 				}
-				
+
 				var sum = 0.0
 				for i in timeIntervals { sum += i }
 				let guessedBPM = Int(60 / (sum / Double(timeIntervals.count)))
-				
+
 				if self.audioController.isPlaying {
 					self.audioController.stop()
 					self.audioController.isPlaying = false
 				}
-				
+
 				if guessedBPM > self.audioController.maxBPM {
 					self.audioController.bpm = self.audioController.maxBPM
 				} else if guessedBPM < self.audioController.minBPM {
@@ -80,7 +81,7 @@ struct BottomControlsBar: View {
 					self.audioController.bpm = guessedBPM
 				}
 				if self.tapTimeStamps.count > 5 { self.tapTimeStamps.removeAll() }
-				
+
 			}) { Text("Tap") }
 			.buttonStyle(CustomButtonStyle(size: 65))
 			.font(.system(size: 25, weight: .bold))

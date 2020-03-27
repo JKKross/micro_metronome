@@ -9,9 +9,9 @@
 import SwiftUI
 
 struct CustomButtonStyle: ButtonStyle {
-	
-	let size: CGFloat
-	
+
+	private let size: CGFloat
+
 	init(size: CGFloat = 0) {
 		self.size = size
 	}

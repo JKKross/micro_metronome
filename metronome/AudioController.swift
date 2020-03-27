@@ -44,7 +44,6 @@ public final class AudioController: ObservableObject {
 	private var soundFileURL: URL!
 	private var originalAiffBuffer: Array<UInt8>!
 	private var aiffBuffer: Array<UInt8>!
-	private var soundData: Data!
 	private var player: AVAudioPlayer!
 
 	public init() {
@@ -52,11 +51,19 @@ public final class AudioController: ObservableObject {
 		self.selectedSound = settings.getPreferredSound()
 
 		self.loadFile(self.selectedSound)
-		self.setUpAudioSession()
 		self.prepareBuffer()
-		
+
+		do {
+			try audioSession.setCategory(.playback, mode: .default, options: [])
+			try audioSession.setActive(true, options: .notifyOthersOnDeactivation)
+		} catch {
+			debugPrint("Could not set-up audioSession:", error)
+		}
+
+		// Make the play/pause functionality available in control center &
+		// with headphones play/pause button
 		let mp = MPRemoteCommandCenter.shared()
-		
+
 		mp.playCommand.isEnabled = true
 		mp.playCommand.addTarget { _ in
 			if !self.isPlaying {
@@ -66,7 +73,7 @@ public final class AudioController: ObservableObject {
 			}
 			return .commandFailed
 		}
-		
+
 		mp.pauseCommand.isEnabled = true
 		mp.pauseCommand.addTarget { _ in
 			if self.isPlaying {
@@ -76,7 +83,7 @@ public final class AudioController: ObservableObject {
 			}
 			return .commandFailed
 		}
-			
+
 		UIApplication.shared.beginReceivingRemoteControlEvents()
 	}
 
@@ -93,7 +100,7 @@ public final class AudioController: ObservableObject {
 		settings.save(bpm: self.bpm)
 		settings.save(preferredSound: self.selectedSound)
 	}
-	
+
 	public func play() {
 		player.play()
 	}
@@ -106,21 +113,12 @@ public final class AudioController: ObservableObject {
 		aiffBuffer = Transform(aiffSoundFile: originalAiffBuffer, to: self.bpm)
 
 		do {
-			self.soundData = Data(aiffBuffer)
+			let soundData = Data(aiffBuffer)
 			self.player = try AVAudioPlayer(data: soundData, fileTypeHint: "public.aiff-audio")
 			player.numberOfLoops = -1
 			player.prepareToPlay()
 		} catch {
 			fatalError("Could not init AVAudioPlayer: \(error)")
-		}
-	}
-
-	public func setUpAudioSession() {
-		do {
-			try audioSession.setCategory(.playback, mode: .default, options: [])
-			try audioSession.setActive(true, options: .notifyOthersOnDeactivation)
-		} catch {
-			debugPrint("Could not set-up audioSession:", error)
 		}
 	}
 
@@ -132,7 +130,7 @@ public final class AudioController: ObservableObject {
 		}
 
 		do {
-			self.soundData = try Data(contentsOf: soundFileURL)
+			let soundData = try Data(contentsOf: soundFileURL)
 			originalAiffBuffer = Array(soundData[0..<soundData.endIndex])
 			aiffBuffer = originalAiffBuffer
 		} catch {
@@ -153,7 +151,7 @@ public final class AudioController: ObservableObject {
 fileprivate func Transform(aiffSoundFile data: Array<UInt8>, to bpm: Int) -> Array<UInt8> {
 	guard bpm >= 20 else { fatalError("Attempt to transform an AIFF file to less than 20 bpm.") }
 	if bpm == 20 { return data }
-	
+
 	let originalFileBPM = 20
 	var aiffBuffer = data
 	var index = 0
@@ -208,6 +206,6 @@ fileprivate func Transform(aiffSoundFile data: Array<UInt8>, to bpm: Int) -> Arr
 		let ckSize = Int32(bigEndian: ptr.assumingMemoryBound(to: Int32.self).pointee)
 		index += 4 + Int(ckSize)
 	}
-	
+
 	return aiffBuffer
 }

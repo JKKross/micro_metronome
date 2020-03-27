@@ -12,7 +12,7 @@ struct TopControlsBar: View {
 
 	@EnvironmentObject var audioController: AudioController
 
-    var body: some View {
+	var body: some View {
 		HStack {
 			Button(action: {
 				if self.audioController.bpm > self.audioController.minBPM { self.audioController.bpm -= 1 }
@@ -38,5 +38,5 @@ struct TopControlsBar: View {
 			.padding(12)
 			.hoverEffect(.highlight)
 		}
-    }
+	}
 }

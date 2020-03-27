@@ -27,7 +27,7 @@ fileprivate struct Cell: View {
 				Spacer()
 
 				Image(systemName: "checkmark.circle")
-					.foregroundColor(isSelected ? .white : .clear)
+				.foregroundColor(isSelected ? .white : .clear)
 				.accessibility(label: isSelected ? Text("Selected") : Text("Not selected"))
 				.padding(.trailing, 20)
 			}

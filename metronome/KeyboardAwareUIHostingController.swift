@@ -20,9 +20,9 @@ class KeyboardAwareUIHostingController<Content>: UIHostingController<Content> wh
 		UIKeyCommand(input: UIKeyCommand.inputDownArrow, modifierFlags: [], action: #selector(minusOneBPM)),
 		UIKeyCommand(input: UIKeyCommand.inputUpArrow, modifierFlags: [.command], action: #selector(plusTenBPM)),
 		UIKeyCommand(input: UIKeyCommand.inputDownArrow, modifierFlags: [.command], action: #selector(minusTenBPM)),
-		
+
 		UIKeyCommand(input: "0...9 + ⏎", modifierFlags: [], action: #selector(doNothing)),
-		
+
 		UIKeyCommand(input: "+", modifierFlags: [], action: #selector(plusOneBPM)),
 		UIKeyCommand(input: "-", modifierFlags: [], action: #selector(minusOneBPM)),
 		UIKeyCommand(input: "+", modifierFlags: [.command], action: #selector(plusTenBPM)),
@@ -65,10 +65,10 @@ class KeyboardAwareUIHostingController<Content>: UIHostingController<Content> wh
 	override func becomeFirstResponder() -> Bool {
 		true
 	}
-	
-	@objc func doNothing() {}
 
-	@objc func playPause() {
+	@objc private func doNothing() {}
+
+	@objc private func playPause() {
 		if audioController.isPlaying {
 			audioController.stop()
 		} else {
@@ -78,15 +78,15 @@ class KeyboardAwareUIHostingController<Content>: UIHostingController<Content> wh
 		audioController.isPlaying.toggle()
 	}
 
-	@objc func plusOneBPM() {
+	@objc private func plusOneBPM() {
 		if audioController.bpm < audioController.maxBPM { audioController.bpm += 1 }
 	}
 
-	@objc func minusOneBPM() {
+	@objc private func minusOneBPM() {
 		if audioController.bpm > audioController.minBPM { audioController.bpm -= 1 }
 	}
 
-	@objc func plusTenBPM() {
+	@objc private func plusTenBPM() {
 		if audioController.bpm <= (audioController.maxBPM - 10) {
 			audioController.bpm += 10
 		} else {
@@ -98,7 +98,7 @@ class KeyboardAwareUIHostingController<Content>: UIHostingController<Content> wh
 		audioController.bpm -= 1
 	}
 
-	@objc func minusTenBPM() {
+	@objc private func minusTenBPM() {
 		if audioController.bpm >= (audioController.minBPM + 10) {
 			audioController.bpm -= 10
 		} else {
@@ -110,14 +110,14 @@ class KeyboardAwareUIHostingController<Content>: UIHostingController<Content> wh
 		audioController.bpm -= 1
 	}
 
-	@objc func pressedEnter() {
+	@objc private func pressedEnter() {
 		if alreadyPressedKeys.count >= 2 {
 			setBpmFromAlreadyPressedKeys()
 		}
 		alreadyPressedKeys.removeAll()
 	}
 
-	@objc func pressedZero() {
+	@objc private func pressedZero() {
 		if alreadyPressedKeys.count == 3 {
 			setBpmFromAlreadyPressedKeys()
 		} else {
@@ -125,7 +125,7 @@ class KeyboardAwareUIHostingController<Content>: UIHostingController<Content> wh
 		}
 	}
 
-	@objc func pressedOne() {
+	@objc private func pressedOne() {
 		if alreadyPressedKeys.count == 3 {
 			setBpmFromAlreadyPressedKeys()
 		} else {
@@ -133,7 +133,7 @@ class KeyboardAwareUIHostingController<Content>: UIHostingController<Content> wh
 		}
 	}
 
-	@objc func pressedTwo() {
+	@objc private func pressedTwo() {
 		if alreadyPressedKeys.count == 3 {
 			setBpmFromAlreadyPressedKeys()
 		} else {
@@ -141,7 +141,7 @@ class KeyboardAwareUIHostingController<Content>: UIHostingController<Content> wh
 		}
 	}
 
-	@objc func pressedThree() {
+	@objc private func pressedThree() {
 		if alreadyPressedKeys.count == 3 {
 			setBpmFromAlreadyPressedKeys()
 		} else {
@@ -149,7 +149,7 @@ class KeyboardAwareUIHostingController<Content>: UIHostingController<Content> wh
 		}
 	}
 
-	@objc func pressedFour() {
+	@objc private func pressedFour() {
 		if alreadyPressedKeys.count == 3 {
 			setBpmFromAlreadyPressedKeys()
 		} else {
@@ -157,7 +157,7 @@ class KeyboardAwareUIHostingController<Content>: UIHostingController<Content> wh
 		}
 	}
 
-	@objc func pressedFive() {
+	@objc private func pressedFive() {
 		if alreadyPressedKeys.count == 3 {
 			setBpmFromAlreadyPressedKeys()
 		} else {
@@ -165,7 +165,7 @@ class KeyboardAwareUIHostingController<Content>: UIHostingController<Content> wh
 		}
 	}
 
-	@objc func pressedSix() {
+	@objc private func pressedSix() {
 		if alreadyPressedKeys.count == 3 {
 			setBpmFromAlreadyPressedKeys()
 		} else {
@@ -173,7 +173,7 @@ class KeyboardAwareUIHostingController<Content>: UIHostingController<Content> wh
 		}
 	}
 
-	@objc func pressedSeven() {
+	@objc private func pressedSeven() {
 		if alreadyPressedKeys.count == 3 {
 			setBpmFromAlreadyPressedKeys()
 		} else {
@@ -181,7 +181,7 @@ class KeyboardAwareUIHostingController<Content>: UIHostingController<Content> wh
 		}
 	}
 
-	@objc func pressedEight() {
+	@objc private func pressedEight() {
 		if alreadyPressedKeys.count == 3 {
 			setBpmFromAlreadyPressedKeys()
 		} else {
@@ -189,7 +189,7 @@ class KeyboardAwareUIHostingController<Content>: UIHostingController<Content> wh
 		}
 	}
 
-	@objc func pressedNine() {
+	@objc private func pressedNine() {
 		if alreadyPressedKeys.count == 3 {
 			setBpmFromAlreadyPressedKeys()
 		} else {
@@ -219,7 +219,7 @@ class KeyboardAwareUIHostingController<Content>: UIHostingController<Content> wh
 		}
 
 		alreadyPressedKeys.removeAll()
-		
+
 		// just a hack to trigger the .onReceive modifier on BPMSlider
 		// No idea why it's not working properly
 		audioController.bpm += 1

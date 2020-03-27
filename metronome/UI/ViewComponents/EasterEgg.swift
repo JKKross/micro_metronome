@@ -9,13 +9,13 @@
 import SwiftUI
 
 struct EasterEgg: View {
-	
-    var body: some View {
+
+	var body: some View {
 		VStack(alignment: .leading) {
 			Group {
 			Spacer()
 			.padding(.bottom, 2000)
-				
+
 			Text("Looking for something?")
 			.foregroundColor(.white)
 			.frame(height: 2000, alignment: .topLeading)
@@ -67,7 +67,7 @@ struct EasterEgg: View {
 			.foregroundColor(.white)
 			.frame(height: 2000, alignment: .topLeading)
 			.font(.headline)
-				
+
 			Text("OK, you win...")
 			.foregroundColor(.white)
 			.frame(height: 2000, alignment: .topLeading)
@@ -112,6 +112,6 @@ struct EasterEgg: View {
 			.font(.headline)
 			}
 		}
-    }
+	}
 }
 

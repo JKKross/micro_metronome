@@ -14,15 +14,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	#if targetEnvironment(macCatalyst)
 	let audioController = AudioController()
 	#endif
-	
+
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-		// Override point for customization after application launch.
 		return true
 	}
 
 	func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
-		// Called when a new scene session is being created.
-		// Use this method to select a configuration to create the new scene with.
 		return UISceneConfiguration(name: "Default Configuration", sessionRole: connectingSceneSession.role)
 	}
 
@@ -31,18 +28,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 #if targetEnvironment(macCatalyst)
 
 extension AppDelegate {
-	
+
+	// Mac Catalyst Menu Bar customization
 	override func buildMenu(with builder: UIMenuBuilder) {
-		// Mac Catalyst Menu Bar customization
-		
 		// Check that the menu is Main menu as opposed to a context menu.
 		guard builder.system == .main else { return }
-		
+
 		// Remove not needed menus
 		builder.remove(menu: .format)
 		builder.remove(menu: .edit)
 		builder.remove(menu: .file)
-		
+
 		// Give user the ability to discover keyboard controls in a menu
 		let keys = [
 			UIKeyCommand(input: " ", modifierFlags: [], action: #selector(playPause)),
@@ -52,22 +48,22 @@ extension AppDelegate {
 			UIKeyCommand(input: UIKeyCommand.inputDownArrow, modifierFlags: [.command], action: #selector(minusTenBPM)),
 			UIKeyCommand(input: "", modifierFlags: [], action: #selector(doNothing)),
 		]
-		
+
 		keys[0].title = "Play/Pause"
 		keys[1].title = "+1 bpm"
 		keys[2].title = "-1 bpm"
 		keys[3].title = "+10 bpm"
 		keys[4].title = "-10 bpm"
 		keys[5].title = "...or type your desired tempo & hit ⏎ to set it"
-		
+
 		let menuItems = UIMenu(title: "Controls", image: nil, identifier: UIMenu.Identifier("Controls"), options: .displayInline, children: keys)
-		
+
 		let menu = UIMenu(title: "Controls")
-		
+
 		builder.insertSibling(menu, beforeMenu: .view)
 		builder.insertChild(menuItems, atEndOfMenu: menu.identifier)
 	}
-	
+
 	@objc func playPause() {
 		if audioController.isPlaying {
 			audioController.stop()
@@ -77,7 +73,7 @@ extension AppDelegate {
 
 		audioController.isPlaying.toggle()
 	}
-	
+
 	@objc func plusOneBPM() {
 		if audioController.bpm < audioController.maxBPM { audioController.bpm += 1 }
 	}
@@ -109,9 +105,8 @@ extension AppDelegate {
 		audioController.bpm += 1
 		audioController.bpm -= 1
 	}
-	
+
 	@objc func doNothing() {}
-	
 }
 
 #endif

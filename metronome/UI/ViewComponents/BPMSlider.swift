@@ -16,7 +16,10 @@ struct BPMSlider: View {
 	@State private var offset: CGFloat = 0.0
 	@State private var previousOffset: CGFloat = 0.0
 	@State private var sliderValue: CGFloat = 0.0
-	// This is hacky AF...
+	// This is hacky... but it works & there's no reason to change it.
+	// Basically what this does is prevents the .onReceive modifier from working
+	// when the bpm is being set using the slider itself - otherwise it creates a feedback loop
+	// and either goes to max or min bpm.
 	@State private var shouldRespondToPublisher = true
 
 	var body: some View {
@@ -42,7 +45,7 @@ struct BPMSlider: View {
 				DragGesture(minimumDistance: 5)
 				.onChanged { val in
 					self.shouldRespondToPublisher = false
-					
+
 					if self.audioController.isPlaying { self.audioController.stop() }
 					self.offset = val.translation.height + self.previousOffset
 
@@ -70,18 +73,18 @@ struct BPMSlider: View {
 			}
 			.onReceive(self.audioController.$bpm) { _ in
 				guard self.shouldRespondToPublisher else { return }
-				
+
 				if self.audioController.isPlaying { self.audioController.stop() }
-				
+
 				let containingViewHeight = geo.size.height
 				self.sliderValue = CGFloat(self.audioController.bpm - self.audioController.minBPM) / CGFloat(self.audioController.maxBPM - self.audioController.minBPM)
 				self.offset = -(self.sliderValue * containingViewHeight - (containingViewHeight / 2))
 				self.previousOffset = self.offset
-				
+
 				self.audioController.prepareBuffer()
 				if self.audioController.isPlaying { self.audioController.play() }
 			}
-		
+
 		}
 	}
 }
