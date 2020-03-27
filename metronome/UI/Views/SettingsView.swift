@@ -37,27 +37,7 @@ fileprivate struct Cell: View {
 	}
 }
 
-fileprivate let appVersion  = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString")
-fileprivate let buildNumber = Bundle.main.object(forInfoDictionaryKey: kCFBundleVersionKey as String)
 
-fileprivate let aboutTheAppText = """
-Micro Metronome is a minimalist metronome for iOS, iPadOS & MacOS.
-
-Choose one of the few sounds, pick your tempo & start playing. That's it. No fancy features.
-In exchange, it is easy to use & lightweight.
-
-Happy practicing!
-
-
-Micro Metronome © 2020 Jan Kříž
-version \(appVersion ?? "APP_VERSION_NUMBER")
-build \(buildNumber ?? "BUILD_NUMBER")
-
-
-Privacy Policy:
-
-I don't have access to any of your personal data and/or information. The only way I can gain access to said information is if you decide to send me an e-mail. In that case, I will never willingly share your e-mail address or any private information included in that e-mail with anyone.
-"""
 
 struct SettingsView: View {
 
@@ -105,131 +85,9 @@ struct SettingsView: View {
 							Cell(action: { self.selectedSound = .hiHat }, name: .hiHat, currentlySelectedSound: selectedSound)
 						}
 
-						Group {
-							Text("About the app:")
-							.font(.headline)
-							.bold()
-							.padding(.vertical, 15)
-							.foregroundColor(.white)
+						AboutTheApp()
 
-							Text(aboutTheAppText)
-							.foregroundColor(.white)
-							.padding(.trailing, 20)
-							.padding(.bottom, 15)
-
-							Button(action: { UIApplication.shared.open(URL(string: "mailto:zawadski.jkk@gmail.com")!) }) { Text("Send feedback") }
-							.foregroundColor(Color("highlight_2"))
-							.hoverEffect(.highlight)
-
-							Text("If your looking for a simple text editor for iOS & iPadOS, check out my other app:")
-							.padding(.vertical, 15)
-							.foregroundColor(.white)
-
-							Button(action: { UIApplication.shared.open(URL(string: "https://itunes.apple.com/app/red-zebra/id1463017929?l=cs&ls=1&mt=8")!) }) { Text("Red Zebra") }
-							.foregroundColor(Color("highlight_2"))
-							.hoverEffect(.highlight)
-						}
-
-						Spacer()
-						.padding(.bottom, 2000)
-
-
-						Group {
-							Text("Looking for something?")
-							.foregroundColor(.white)
-							.frame(height: 2000, alignment: .topLeading)
-							.font(.headline)
-
-							Text("There's nothing to be found here")
-							.foregroundColor(.white)
-							.frame(height: 2000, alignment: .topLeading)
-							.font(.headline)
-
-							Text("Definitely no easter eggs or anything like that")
-							.foregroundColor(.white)
-							.frame(height: 2000, alignment: .topLeading)
-							.font(.headline)
-
-							Text("Trust me")
-							.foregroundColor(.white)
-							.frame(height: 2000, alignment: .topLeading)
-							.font(.headline)
-
-							Text("Really? Still trying?")
-							.foregroundColor(.white)
-							.frame(height: 2000, alignment: .topLeading)
-							.font(.headline)
-
-							Text("Go away")
-							.foregroundColor(.white)
-							.frame(height: 2000, alignment: .topLeading)
-							.font(.headline)
-
-							Text("I said...")
-							.foregroundColor(.white)
-							.frame(height: 2000, alignment: .topLeading)
-							.font(.headline)
-
-							Text("GO")
-							.foregroundColor(Color(red: 1, green: 0, blue: 0))
-							.frame(height: 2000, alignment: .topLeading)
-							.font(.system(size: 50, weight: .bold))
-
-							Text("AWAY!!!")
-							.foregroundColor(Color(red: 1, green: 0, blue: 0))
-							.frame(height: 2000, alignment: .topLeading)
-							.font(.system(size: 60, weight: .bold))
-
-							Text("You won't?")
-							.foregroundColor(.white)
-							.frame(height: 2000, alignment: .topLeading)
-							.font(.headline)
-						}
-
-						Group {
-							Text("OK, you win...")
-							.foregroundColor(.white)
-							.frame(height: 2000, alignment: .topLeading)
-							.font(.headline)
-
-							Text("Here's your easter egg:")
-							.foregroundColor(.white)
-							.frame(height: 2000, alignment: .topLeading)
-							.font(.headline)
-
-							Image("beethoven")
-							.padding(.bottom, 4000)
-
-							Text("Really?! You're still here?!")
-							.foregroundColor(.white)
-							.frame(height: 2000, alignment: .topLeading)
-							.font(.headline)
-
-							Text("Jeez...")
-							.foregroundColor(.white)
-							.frame(height: 2000, alignment: .topLeading)
-							.font(.headline)
-
-							Text("Some people...")
-							.foregroundColor(.white)
-							.frame(height: 2000, alignment: .topLeading)
-							.font(.headline)
-
-							Text("OK")
-							.foregroundColor(.white)
-							.frame(height: 2000, alignment: .topLeading)
-							.font(.headline)
-
-							Text("Here it is for real")
-							.foregroundColor(.white)
-							.frame(height: 2000, alignment: .topLeading)
-							.font(.headline)
-
-							Text("(Hope it was worth it)")
-							.foregroundColor(.white)
-							.frame(height: 2000, alignment: .topLeading)
-							.font(.headline)
-						}
+						EasterEgg()
 
 						Group {
 							Cell(action: { self.selectedSound = .hjonk }, name: .hjonk, currentlySelectedSound: selectedSound)

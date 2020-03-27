@@ -19,6 +19,8 @@
 		384B704123FF304F00E22067 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 384B703F23FF304F00E22067 /* LaunchScreen.storyboard */; };
 		3866CDE12427DDC4006FFF25 /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3866CDE02427DDC4006FFF25 /* UserSettings.swift */; };
 		3866CDE32427ED7D006FFF25 /* KeyboardAwareUIHostingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3866CDE22427ED7D006FFF25 /* KeyboardAwareUIHostingController.swift */; };
+		38728144242E5CD5001822E5 /* AboutTheApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38728143242E5CD4001822E5 /* AboutTheApp.swift */; };
+		38728146242E5D65001822E5 /* EasterEgg.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38728145242E5D65001822E5 /* EasterEgg.swift */; };
 		38731ED6242A1F30005A1916 /* Mechanical Metronome.aif in Resources */ = {isa = PBXBuildFile; fileRef = 38731ED5242A1F30005A1916 /* Mechanical Metronome.aif */; };
 		388E0563242A50E500436BDC /* Rimshot.aif in Resources */ = {isa = PBXBuildFile; fileRef = 388E0560242A50E500436BDC /* Rimshot.aif */; };
 		388E0564242A50E500436BDC /* Clap.aif in Resources */ = {isa = PBXBuildFile; fileRef = 388E0561242A50E500436BDC /* Clap.aif */; };
@@ -48,6 +50,8 @@
 		384B704223FF304F00E22067 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3866CDE02427DDC4006FFF25 /* UserSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettings.swift; sourceTree = "<group>"; };
 		3866CDE22427ED7D006FFF25 /* KeyboardAwareUIHostingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardAwareUIHostingController.swift; sourceTree = "<group>"; };
+		38728143242E5CD4001822E5 /* AboutTheApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutTheApp.swift; sourceTree = "<group>"; };
+		38728145242E5D65001822E5 /* EasterEgg.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EasterEgg.swift; sourceTree = "<group>"; };
 		38731ED5242A1F30005A1916 /* Mechanical Metronome.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Mechanical Metronome.aif"; sourceTree = "<group>"; };
 		388E0560242A50E500436BDC /* Rimshot.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = Rimshot.aif; sourceTree = "<group>"; };
 		388E0561242A50E500436BDC /* Clap.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = Clap.aif; sourceTree = "<group>"; };
@@ -85,6 +89,8 @@
 			isa = PBXGroup;
 			children = (
 				3820F0E12401BE3800FE8EF8 /* BPMSlider.swift */,
+				38728145242E5D65001822E5 /* EasterEgg.swift */,
+				38728143242E5CD4001822E5 /* AboutTheApp.swift */,
 				38C35F592423C38800343745 /* TopControlsBar.swift */,
 				38A163C0241FB3AC00276606 /* BottomControlsBar.swift */,
 				380DD40D2426093500B789FD /* CustomButtonStyle.swift */,
@@ -246,9 +252,11 @@
 				3866CDE32427ED7D006FFF25 /* KeyboardAwareUIHostingController.swift in Sources */,
 				3866CDE12427DDC4006FFF25 /* UserSettings.swift in Sources */,
 				38074ABA240BE7D600748945 /* AudioController.swift in Sources */,
+				38728146242E5D65001822E5 /* EasterEgg.swift in Sources */,
 				38C35F5A2423C38800343745 /* TopControlsBar.swift in Sources */,
 				3820F0E22401BE3800FE8EF8 /* BPMSlider.swift in Sources */,
 				384B703523FF304900E22067 /* AppDelegate.swift in Sources */,
+				38728144242E5CD5001822E5 /* AboutTheApp.swift in Sources */,
 				384B703723FF304900E22067 /* SceneDelegate.swift in Sources */,
 				384B703923FF304900E22067 /* ContentView.swift in Sources */,
 			);
