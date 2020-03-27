@@ -1,10 +1,7 @@
 REFACTOR!!! (Figure out abstractions, add comments where needed etc.)
-Make it work with headphone play/pause
-
-ACESSIBILITY!!!!!! (Contrast, font scaling etc.) - it's probably ok, the accessibility inspector says it's fine one time & gives me zillion others next time...
-Test on all device simulators, just to be sure...
 Screenshots for App Store Connect
 
+Scroll (mouse/trackpad) to change bpm ???
 Haptics when silenced ???
 Separate the audio handling into a Swift Package ???
 __________________________
@@ -16,4 +13,4 @@ WatchOS ???
 Mac - Terminal (wait for SwiftPM resource files to be implemented)
 Linux terminal ??? (wait for SwiftPM resource files to be implemented)
 Windows terminal ??? (wait for SwiftPM resource files to be implemented)
-Web ??? (probably not, we'll see...)
+Web (with SwiftWASM) ??? (probably not, we'll see...)

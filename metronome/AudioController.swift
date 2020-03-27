@@ -7,6 +7,7 @@
 //
 
 import AVFoundation
+import MediaPlayer
 
 public enum Sounds: String {
 	case rimshot             = "Rimshot"
@@ -53,6 +54,30 @@ public final class AudioController: ObservableObject {
 		self.loadFile(self.selectedSound)
 		self.setUpAudioSession()
 		self.prepareBuffer()
+		
+		let mp = MPRemoteCommandCenter.shared()
+		
+		mp.playCommand.isEnabled = true
+		mp.playCommand.addTarget { _ in
+			if !self.isPlaying {
+				self.player.play()
+				self.isPlaying = true
+				return .success
+			}
+			return .commandFailed
+		}
+		
+		mp.pauseCommand.isEnabled = true
+		mp.pauseCommand.addTarget { _ in
+			if self.isPlaying {
+				self.player.stop()
+				self.isPlaying = false
+				return .success
+			}
+			return .commandFailed
+		}
+			
+		UIApplication.shared.beginReceivingRemoteControlEvents()
 	}
 
 	deinit {
@@ -68,13 +93,8 @@ public final class AudioController: ObservableObject {
 		settings.save(bpm: self.bpm)
 		settings.save(preferredSound: self.selectedSound)
 	}
-
+	
 	public func play() {
-		do {
-			try audioSession.setActive(true, options: .notifyOthersOnDeactivation)
-		} catch {
-			debugPrint("Could not activate audioSession:", error)
-		}
 		player.play()
 	}
 
@@ -97,8 +117,8 @@ public final class AudioController: ObservableObject {
 
 	public func setUpAudioSession() {
 		do {
-			try audioSession.setActive(false, options: .notifyOthersOnDeactivation)
 			try audioSession.setCategory(.playback, mode: .default, options: [])
+			try audioSession.setActive(true, options: .notifyOthersOnDeactivation)
 		} catch {
 			debugPrint("Could not set-up audioSession:", error)
 		}

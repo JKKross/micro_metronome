@@ -12,7 +12,6 @@ import SwiftUI
 class KeyboardAwareUIHostingController<Content>: UIHostingController<Content> where Content: View {
 
 	private let audioController: AudioController
-
 	private var alreadyPressedKeys: Array<Int> = []
 
 	private let keys = [
