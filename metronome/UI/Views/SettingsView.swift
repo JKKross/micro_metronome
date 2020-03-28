@@ -43,6 +43,8 @@ struct SettingsView: View {
 
 	@Binding var selectedSound: Sounds
 	@Binding var isOnScreen: Bool
+	@Binding var hoursPracticed: Int
+	@Binding var minutesPracticed: Int
 
     var body: some View {
 		ZStack {
@@ -69,6 +71,12 @@ struct SettingsView: View {
 
 				ScrollView(.vertical, showsIndicators: true) {
 					VStack(alignment: .leading) {
+						Text("You've practiced \(hoursPracticed) hours & \(minutesPracticed) minutes so far with Micro Metronome!")
+						.font(.headline)
+						.bold()
+						.foregroundColor(.white)
+						.padding(.bottom, 30)
+						
 						Text("Sounds:")
 						.font(.headline)
 						.bold()

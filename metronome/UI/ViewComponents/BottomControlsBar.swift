@@ -22,7 +22,7 @@ struct BottomControlsBar: View {
 				self.tapTimeStamps.removeAll()
 				self.isShowingSettingsView = true
 			}) { Image(systemName: "gear") }
-			.sheet(isPresented: $isShowingSettingsView) { SettingsView(selectedSound: self.$audioController.selectedSound, isOnScreen: self.$isShowingSettingsView) }
+			.sheet(isPresented: $isShowingSettingsView) { SettingsView(selectedSound: self.$audioController.selectedSound, isOnScreen: self.$isShowingSettingsView, hoursPracticed: self.$audioController.totalHoursPracticedSoFar, minutesPracticed: self.$audioController.totalMinutesPracticedSoFar) }
 			.buttonStyle(CustomButtonStyle(size: 65))
 			.font(.system(size: 35))
 			.accessibility(label: Text("Settings"))

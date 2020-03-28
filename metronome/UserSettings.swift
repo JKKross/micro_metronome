@@ -11,6 +11,8 @@ import Foundation
 fileprivate enum UDKeys: String {
 	case bpm   = "BPM"
 	case sound = "SOUND"
+	case hoursPracticed = "HOURS_PRACTICED"
+	case minutesPracticed = "MINUTES_PRACTICED"
 }
 
 final class UserSettings {
@@ -36,6 +38,13 @@ final class UserSettings {
 			return .mechanicalMetronome
 		}
 	}
+	
+	public func getHoursAndMinutes() -> (Int, Int) {
+		let hours = ud.integer(forKey: UDKeys.hoursPracticed.rawValue)
+		let minutes = ud.integer(forKey: UDKeys.minutesPracticed.rawValue)
+		
+		return (hours, minutes)
+	}
 
 	public func save(bpm: Int) {
 		ud.set(bpm, forKey: UDKeys.bpm.rawValue)
@@ -43,6 +52,11 @@ final class UserSettings {
 
 	public func save(preferredSound: Sounds) {
 		ud.set(preferredSound.rawValue as Any, forKey: UDKeys.sound.rawValue)
+	}
+	
+	public func save(hours: Int, minutes: Int) {
+		ud.set(hours, forKey: UDKeys.hoursPracticed.rawValue)
+		ud.set(minutes, forKey: UDKeys.minutesPracticed.rawValue)
 	}
 	
 }

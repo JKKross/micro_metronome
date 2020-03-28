@@ -2,7 +2,7 @@ Scroll (mouse/trackpad) to change bpm ???
 Haptics when silenced ???
 Separate the audio handling into a Swift Package ???
 Handoff (bpm, sound, isPlaying) ???
-"You've practiced x hours & x minutes" feature ??? (synced with all devices)
+"You've practiced x hours & x minutes" sync between devices ???
 __________________________
 
 Platforms:

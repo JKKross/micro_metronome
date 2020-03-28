@@ -28,6 +28,8 @@ public final class AudioController: ObservableObject {
 
 	@Published public var isPlaying = false
 	@Published public var bpm = 100
+	@Published public var totalHoursPracticedSoFar = 0
+	@Published public var totalMinutesPracticedSoFar = 0
 
 	@Published public var selectedSound: Sounds = .rimshot {
 		willSet {
@@ -40,6 +42,7 @@ public final class AudioController: ObservableObject {
 
 	private let audioSession = AVAudioSession.sharedInstance()
 	private let settings = UserSettings()
+	private var startDate = Date()
 
 	private var soundFileURL: URL!
 	private var originalAiffBuffer: Array<UInt8>!
@@ -49,6 +52,11 @@ public final class AudioController: ObservableObject {
 	public init() {
 		self.bpm = settings.getBPM()
 		self.selectedSound = settings.getPreferredSound()
+		
+		let (hours, minutes) = settings.getHoursAndMinutes()
+		
+		self.totalHoursPracticedSoFar = hours
+		self.totalMinutesPracticedSoFar = minutes
 
 		self.loadFile(self.selectedSound)
 		self.prepareBuffer()
@@ -67,7 +75,7 @@ public final class AudioController: ObservableObject {
 		mp.playCommand.isEnabled = true
 		mp.playCommand.addTarget { _ in
 			if !self.isPlaying {
-				self.player.play()
+				self.play()
 				self.isPlaying = true
 				return .success
 			}
@@ -77,7 +85,7 @@ public final class AudioController: ObservableObject {
 		mp.pauseCommand.isEnabled = true
 		mp.pauseCommand.addTarget { _ in
 			if self.isPlaying {
-				self.player.stop()
+				self.stop()
 				self.isPlaying = false
 				return .success
 			}
@@ -88,7 +96,7 @@ public final class AudioController: ObservableObject {
 	}
 
 	deinit {
-		player.stop()
+		self.stop()
 		do {
 			try audioSession.setActive(false, options: .notifyOthersOnDeactivation)
 		} catch {
@@ -96,17 +104,36 @@ public final class AudioController: ObservableObject {
 		}
 	}
 
-	public func saveSelectedSoundAndCurrentBPM() {
+	public func saveStuff() {
 		settings.save(bpm: self.bpm)
 		settings.save(preferredSound: self.selectedSound)
+		self.settings.save(hours: self.totalHoursPracticedSoFar, minutes: self.totalMinutesPracticedSoFar)
 	}
 
 	public func play() {
 		player.play()
+		self.startDate = Date()
 	}
 
 	public func stop() {
 		player.stop()
+		
+		let endDate = Date()
+		let ti = DateInterval(start: self.startDate, end: endDate)
+		let seconds = Int(ti.duration + 0.5)
+		
+		let newMinutes = seconds / 60
+		var hours = 0
+		self.totalMinutesPracticedSoFar += newMinutes
+		
+		if self.totalMinutesPracticedSoFar >= 60 {
+			hours = self.totalMinutesPracticedSoFar / 60
+			self.totalMinutesPracticedSoFar = self.totalMinutesPracticedSoFar % 60
+		}
+		
+		self.totalHoursPracticedSoFar += hours
+		
+		self.settings.save(hours: self.totalHoursPracticedSoFar, minutes: self.totalMinutesPracticedSoFar)
 	}
 
 	public func prepareBuffer() {
