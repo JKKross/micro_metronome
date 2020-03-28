@@ -11,6 +11,9 @@
   </p>
 
 Micro Metronome is a minimalist metronome for iOS, iPadOS & MacOS.
+
 There are no fancy features like setlists or time signatures.
+
 Just a few nice sounds, multiple easy ways to set tempo and that's it.
-The focus is on core functionality, reliability & small binary size. (I know 6 megs is not small, but most of that are the sound & art assets)
+
+The focus is on core functionality, reliability & small binary size. (I know 6 megs is not small, but most of that are the sound assets)

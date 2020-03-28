@@ -1,5 +1,3 @@
-Screenshots for App Store Connect
-
 Scroll (mouse/trackpad) to change bpm ???
 Haptics when silenced ???
 Separate the audio handling into a Swift Package ???

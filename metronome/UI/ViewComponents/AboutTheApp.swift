@@ -23,7 +23,8 @@ struct AboutTheApp: View {
 		aboutTheAppText  = """
 		Micro Metronome is a minimalist metronome for iOS, iPadOS & MacOS.
 
-		Choose one of the few sounds, pick your tempo & start playing. That's it. No fancy features. Easy to use & lightweight.
+		Pick your favorite sound, choose your tempo & start playing.
+		That's it. No fancy features. Easy to use & lightweight.
 
 		Happy practicing!
 
