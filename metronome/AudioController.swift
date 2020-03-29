@@ -42,7 +42,7 @@ public final class AudioController: ObservableObject {
 
 	private let audioSession = AVAudioSession.sharedInstance()
 	private let settings = UserSettings()
-	private var startDate = Date()
+	private var startedPracticeTime = Date()
 
 	private var soundFileURL: URL!
 	private var originalAiffBuffer: Array<UInt8>!
@@ -112,26 +112,25 @@ public final class AudioController: ObservableObject {
 
 	public func play() {
 		player.play()
-		self.startDate = Date()
+		self.startedPracticeTime = Date()
 	}
 
 	public func stop() {
 		player.stop()
 		
-		let endDate = Date()
-		let ti = DateInterval(start: self.startDate, end: endDate)
+		let endedPracticeTime = Date()
+		let ti = DateInterval(start: self.startedPracticeTime, end: endedPracticeTime)
 		let seconds = Int(ti.duration + 0.5)
 		
-		let newMinutes = seconds / 60
-		var hours = 0
+		// The + 20 here is just a little bump that feels adequate to me.
+		// If the user turns off the metronome at 11 minutes 40 seconds, they get 12 minutes instead.
+		let newMinutes = (seconds + 20) / 60
 		self.totalMinutesPracticedSoFar += newMinutes
 		
-		if self.totalMinutesPracticedSoFar >= 60 {
-			hours = self.totalMinutesPracticedSoFar / 60
-			self.totalMinutesPracticedSoFar = self.totalMinutesPracticedSoFar % 60
-		}
-		
-		self.totalHoursPracticedSoFar += hours
+		// If totalMinutesPracticedSoFar if < 1 hour, nothing happens.
+		// Else if it is > 1 hour, than these two lines should work correctly.
+		self.totalHoursPracticedSoFar += self.totalMinutesPracticedSoFar / 60
+		self.totalMinutesPracticedSoFar = self.totalMinutesPracticedSoFar % 60
 		
 		self.settings.save(hours: self.totalHoursPracticedSoFar, minutes: self.totalMinutesPracticedSoFar)
 	}
