@@ -101,6 +101,9 @@ struct SettingsView: View {
 							Cell(action: { self.selectedSound = .jackSlap }, name: .jackSlap, currentlySelectedSound: selectedSound)
 							Cell(action: { self.selectedSound = .laugh }, name: .laugh, currentlySelectedSound: selectedSound)
 						}
+						
+						ThanksView()
+						.padding(.bottom, 20)
 					}
 				}
 				.padding(.leading, 20)

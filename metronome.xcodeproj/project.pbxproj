@@ -10,6 +10,7 @@
 		38074ABA240BE7D600748945 /* AudioController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38074AB9240BE7D600748945 /* AudioController.swift */; };
 		380DD40E2426093500B789FD /* CustomButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380DD40D2426093500B789FD /* CustomButtonStyle.swift */; };
 		381BAEA6241FC07F00CA8720 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 381BAEA5241FC07F00CA8720 /* SettingsView.swift */; };
+		381DBD3324312AAE00511213 /* ThanksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 381DBD3224312AAE00511213 /* ThanksView.swift */; };
 		3820F0E22401BE3800FE8EF8 /* BPMSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3820F0E12401BE3800FE8EF8 /* BPMSlider.swift */; };
 		384B703523FF304900E22067 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 384B703423FF304900E22067 /* AppDelegate.swift */; };
 		384B703723FF304900E22067 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 384B703623FF304900E22067 /* SceneDelegate.swift */; };
@@ -38,6 +39,7 @@
 		38074AB9240BE7D600748945 /* AudioController.swift */ = {isa = PBXFileReference; indentWidth = 3; lastKnownFileType = sourcecode.swift; path = AudioController.swift; sourceTree = "<group>"; tabWidth = 3; };
 		380DD40D2426093500B789FD /* CustomButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButtonStyle.swift; sourceTree = "<group>"; };
 		381BAEA5241FC07F00CA8720 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		381DBD3224312AAE00511213 /* ThanksView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThanksView.swift; sourceTree = "<group>"; };
 		3820F0E12401BE3800FE8EF8 /* BPMSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BPMSlider.swift; sourceTree = "<group>"; usesTabs = 1; };
 		38279C1A242BC53300BAD6DB /* Micro Metronome.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Micro Metronome.entitlements"; sourceTree = "<group>"; };
 		384B703123FF304900E22067 /* Micro Metronome.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Micro Metronome.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -89,6 +91,7 @@
 			isa = PBXGroup;
 			children = (
 				3820F0E12401BE3800FE8EF8 /* BPMSlider.swift */,
+				381DBD3224312AAE00511213 /* ThanksView.swift */,
 				38728145242E5D65001822E5 /* EasterEgg.swift */,
 				38728143242E5CD4001822E5 /* AboutTheApp.swift */,
 				38C35F592423C38800343745 /* TopControlsBar.swift */,
@@ -249,6 +252,7 @@
 				380DD40E2426093500B789FD /* CustomButtonStyle.swift in Sources */,
 				381BAEA6241FC07F00CA8720 /* SettingsView.swift in Sources */,
 				38A163C1241FB3AC00276606 /* BottomControlsBar.swift in Sources */,
+				381DBD3324312AAE00511213 /* ThanksView.swift in Sources */,
 				3866CDE32427ED7D006FFF25 /* KeyboardAwareUIHostingController.swift in Sources */,
 				3866CDE12427DDC4006FFF25 /* UserSettings.swift in Sources */,
 				38074ABA240BE7D600748945 /* AudioController.swift in Sources */,
