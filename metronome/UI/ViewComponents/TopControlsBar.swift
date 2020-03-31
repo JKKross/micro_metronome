@@ -10,12 +10,12 @@ import SwiftUI
 
 struct TopControlsBar: View {
 
-	@EnvironmentObject var audioController: AudioController
+	@EnvironmentObject var controller: MasterController
 
 	var body: some View {
 		HStack {
 			Button(action: {
-				if self.audioController.bpm > self.audioController.minBPM { self.audioController.bpm -= 1 }
+				if self.controller.bpm > self.controller.minBPM { self.controller.bpm -= 1 }
 			}) { Image(systemName: "minus") }
 			.buttonStyle(CustomButtonStyle(size: 55))
 			.font(.system(size: 40))
@@ -23,14 +23,14 @@ struct TopControlsBar: View {
 			.padding(12)
 			.hoverEffect(.highlight)
 
-			Text("\(audioController.bpm)")
+			Text("\(controller.bpm)")
 			.font(Font.custom("Futura", size: 65))
 			.foregroundColor(Color("text"))
-			.accessibility(label: Text("Current bpm: \(audioController.bpm)"))
+			.accessibility(label: Text("Current bpm: \(controller.bpm)"))
 			.frame(width: 125, height: 1)
 
 			Button(action: {
-				if self.audioController.bpm < self.audioController.maxBPM { self.audioController.bpm += 1 }
+				if self.controller.bpm < self.controller.maxBPM { self.controller.bpm += 1 }
 			}) { Image(systemName: "plus") }
 			.buttonStyle(CustomButtonStyle(size: 55))
 			.font(.system(size: 40))

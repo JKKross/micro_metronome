@@ -1,11 +1,9 @@
-Settings - make the whole row of sound tapable
 Play sound when changed in settings & !isPlaying
-REFACTOR!!! - separate audio from the "mainController" (now audioController); try functions for setting bpm etc. instead of willSet in @Published properties
+REFACTOR!!! - try functions for setting bpm etc. instead of willSet in @Published properties
 
 "You've practiced x hours & x minutes" sync between devices ???
 -||- push notification at 100, 500, 1000, 1500 etc. hours ???
-Handoff (bpm, sound, isPlaying) ???
-Separate the audio handling into a framework ???
+Handoff (bpm, sound) ???
 Playlists ???
 Scroll (mouse/trackpad) to change bpm ???
 Haptics when silenced ???

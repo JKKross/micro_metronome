@@ -32,7 +32,7 @@ final class UserSettings {
 
 	public func getPreferredSound() -> Sounds {
 		if let sound = ud.string(forKey: UDKeys.sound.rawValue) {
-			return Sounds(rawValue: sound)!
+			return Sounds(rawValue: sound) ?? .mechanicalMetronome
 		} else {
 			ud.set(Sounds.mechanicalMetronome.rawValue as Any, forKey: UDKeys.sound.rawValue)
 			return .mechanicalMetronome

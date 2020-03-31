@@ -12,7 +12,7 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
 	#if targetEnvironment(macCatalyst)
-	let audioController = AudioController()
+	let controller = MasterController()
 	#endif
 
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
@@ -65,45 +65,45 @@ extension AppDelegate {
 	}
 
 	@objc func playPause() {
-		if audioController.isPlaying {
-			audioController.stop()
+		if controller.isPlaying {
+			controller.stop()
 		} else {
-			audioController.play()
+			controller.play()
 		}
 
-		audioController.isPlaying.toggle()
+		controller.isPlaying.toggle()
 	}
 
 	@objc func plusOneBPM() {
-		if audioController.bpm < audioController.maxBPM { audioController.bpm += 1 }
+		if controller.bpm < controller.maxBPM { controller.bpm += 1 }
 	}
 
 	@objc func minusOneBPM() {
-		if audioController.bpm > audioController.minBPM { audioController.bpm -= 1 }
+		if controller.bpm > controller.minBPM { controller.bpm -= 1 }
 	}
 
 	@objc func plusTenBPM() {
-		if audioController.bpm <= (audioController.maxBPM - 10) {
-			audioController.bpm += 10
+		if controller.bpm <= (controller.maxBPM - 10) {
+			controller.bpm += 10
 		} else {
-			audioController.bpm = audioController.maxBPM
+			controller.bpm = controller.maxBPM
 		}
 		// just a hack to trigger the .onReceive modifier on BPMSlider
 		// No idea why it's not working properly
-		audioController.bpm += 1
-		audioController.bpm -= 1
+		controller.bpm += 1
+		controller.bpm -= 1
 	}
 
 	@objc func minusTenBPM() {
-		if audioController.bpm >= (audioController.minBPM + 10) {
-			audioController.bpm -= 10
+		if controller.bpm >= (controller.minBPM + 10) {
+			controller.bpm -= 10
 		} else {
-			audioController.bpm = audioController.minBPM
+			controller.bpm = controller.minBPM
 		}
 		// just a hack to trigger the .onReceive modifier on BPMSlider
 		// No idea why it's not working properly
-		audioController.bpm += 1
-		audioController.bpm -= 1
+		controller.bpm += 1
+		controller.bpm -= 1
 	}
 
 	@objc func doNothing() {}

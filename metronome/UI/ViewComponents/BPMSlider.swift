@@ -11,7 +11,7 @@ import SwiftUI
 
 struct BPMSlider: View {
 
-	@EnvironmentObject var audioController: AudioController
+	@EnvironmentObject var controller: MasterController
 
 	@State private var offset: CGFloat = 0.0
 	@State private var previousOffset: CGFloat = 0.0
@@ -46,7 +46,7 @@ struct BPMSlider: View {
 				.onChanged { val in
 					self.shouldRespondToPublisher = false
 
-					if self.audioController.isPlaying { self.audioController.stop() }
+					if self.controller.isPlaying { self.controller.stop() }
 					self.offset = val.translation.height + self.previousOffset
 
 					let containingViewHeight = geo.size.height
@@ -57,32 +57,32 @@ struct BPMSlider: View {
 					}
 					let realValue = (containingViewHeight / 2 + self.offset)
 					self.sliderValue = abs((realValue / containingViewHeight) - 1)
-					self.audioController.bpm = Int(self.sliderValue * CGFloat(self.audioController.maxBPM - self.audioController.minBPM)) + self.audioController.minBPM
+					self.controller.bpm = Int(self.sliderValue * CGFloat(self.controller.maxBPM - self.controller.minBPM)) + self.controller.minBPM
 				}
 				.onEnded { _ in
 					self.shouldRespondToPublisher = true
 					self.previousOffset = self.offset
-					self.audioController.prepareBuffer()
-					if self.audioController.isPlaying { self.audioController.play() }
+					self.controller.prepareBuffer()
+					if self.controller.isPlaying { self.controller.play() }
 				})
 			.onAppear {
 				let containingViewHeight = geo.size.height
-				self.sliderValue = CGFloat(self.audioController.bpm - self.audioController.minBPM) / CGFloat(self.audioController.maxBPM - self.audioController.minBPM)
+				self.sliderValue = CGFloat(self.controller.bpm - self.controller.minBPM) / CGFloat(self.controller.maxBPM - self.controller.minBPM)
 				self.offset = -(self.sliderValue * containingViewHeight - (containingViewHeight / 2))
 				self.previousOffset = self.offset
 			}
-			.onReceive(self.audioController.$bpm) { _ in
+			.onReceive(self.controller.$bpm) { _ in
 				guard self.shouldRespondToPublisher else { return }
 
-				if self.audioController.isPlaying { self.audioController.stop() }
+				if self.controller.isPlaying { self.controller.stop() }
 
 				let containingViewHeight = geo.size.height
-				self.sliderValue = CGFloat(self.audioController.bpm - self.audioController.minBPM) / CGFloat(self.audioController.maxBPM - self.audioController.minBPM)
+				self.sliderValue = CGFloat(self.controller.bpm - self.controller.minBPM) / CGFloat(self.controller.maxBPM - self.controller.minBPM)
 				self.offset = -(self.sliderValue * containingViewHeight - (containingViewHeight / 2))
 				self.previousOffset = self.offset
 
-				self.audioController.prepareBuffer()
-				if self.audioController.isPlaying { self.audioController.play() }
+				self.controller.prepareBuffer()
+				if self.controller.isPlaying { self.controller.play() }
 			}
 
 		}

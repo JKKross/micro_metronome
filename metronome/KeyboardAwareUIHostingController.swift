@@ -11,7 +11,7 @@ import SwiftUI
 
 class KeyboardAwareUIHostingController<Content>: UIHostingController<Content> where Content: View {
 
-	private let audioController: AudioController
+	private let controller: MasterController
 	private var alreadyPressedKeys: Array<Int> = []
 
 	private let keys = [
@@ -53,8 +53,8 @@ class KeyboardAwareUIHostingController<Content>: UIHostingController<Content> wh
 		return keys
 	}
 
-	public init(view: Content, audioController: AudioController) {
-		self.audioController = audioController
+	public init(view: Content, controller: MasterController) {
+		self.controller = controller
 		super.init(rootView: view)
 	}
 
@@ -69,45 +69,45 @@ class KeyboardAwareUIHostingController<Content>: UIHostingController<Content> wh
 	@objc private func doNothing() {}
 
 	@objc private func playPause() {
-		if audioController.isPlaying {
-			audioController.stop()
+		if controller.isPlaying {
+			controller.stop()
 		} else {
-			audioController.play()
+			controller.play()
 		}
 
-		audioController.isPlaying.toggle()
+		controller.isPlaying.toggle()
 	}
 
 	@objc private func plusOneBPM() {
-		if audioController.bpm < audioController.maxBPM { audioController.bpm += 1 }
+		if controller.bpm < controller.maxBPM { controller.bpm += 1 }
 	}
 
 	@objc private func minusOneBPM() {
-		if audioController.bpm > audioController.minBPM { audioController.bpm -= 1 }
+		if controller.bpm > controller.minBPM { controller.bpm -= 1 }
 	}
 
 	@objc private func plusTenBPM() {
-		if audioController.bpm <= (audioController.maxBPM - 10) {
-			audioController.bpm += 10
+		if controller.bpm <= (controller.maxBPM - 10) {
+			controller.bpm += 10
 		} else {
-			audioController.bpm = audioController.maxBPM
+			controller.bpm = controller.maxBPM
 		}
 		// just a hack to trigger the .onReceive modifier on BPMSlider
 		// No idea why it's not working properly
-		audioController.bpm += 1
-		audioController.bpm -= 1
+		controller.bpm += 1
+		controller.bpm -= 1
 	}
 
 	@objc private func minusTenBPM() {
-		if audioController.bpm >= (audioController.minBPM + 10) {
-			audioController.bpm -= 10
+		if controller.bpm >= (controller.minBPM + 10) {
+			controller.bpm -= 10
 		} else {
-			audioController.bpm = audioController.minBPM
+			controller.bpm = controller.minBPM
 		}
 		// just a hack to trigger the .onReceive modifier on BPMSlider
 		// No idea why it's not working properly
-		audioController.bpm += 1
-		audioController.bpm -= 1
+		controller.bpm += 1
+		controller.bpm -= 1
 	}
 
 	@objc private func pressedEnter() {
@@ -210,20 +210,20 @@ class KeyboardAwareUIHostingController<Content>: UIHostingController<Content> wh
 			}
 		}()
 
-		if bpm >= audioController.maxBPM {
-			audioController.bpm = audioController.maxBPM
-		} else if bpm <= audioController.minBPM {
-			audioController.bpm = audioController.minBPM
+		if bpm >= controller.maxBPM {
+			controller.bpm = controller.maxBPM
+		} else if bpm <= controller.minBPM {
+			controller.bpm = controller.minBPM
 		} else {
-			audioController.bpm = bpm
+			controller.bpm = bpm
 		}
 
 		alreadyPressedKeys.removeAll()
 
 		// just a hack to trigger the .onReceive modifier on BPMSlider
 		// No idea why it's not working properly
-		audioController.bpm += 1
-		audioController.bpm -= 1
+		controller.bpm += 1
+		controller.bpm -= 1
 	}
 
 }

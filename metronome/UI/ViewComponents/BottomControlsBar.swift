@@ -10,7 +10,7 @@ import SwiftUI
 
 struct BottomControlsBar: View {
 
-	@EnvironmentObject var audioController: AudioController
+	@EnvironmentObject var controller: MasterController
 
 	@State private var isShowingSettingsView = false
 	@State private var tapTimeStamps: Array<Date> = Array()
@@ -22,7 +22,7 @@ struct BottomControlsBar: View {
 				self.tapTimeStamps.removeAll()
 				self.isShowingSettingsView = true
 			}) { Image(systemName: "gear") }
-			.sheet(isPresented: $isShowingSettingsView) { SettingsView(selectedSound: self.$audioController.selectedSound, isOnScreen: self.$isShowingSettingsView, hoursPracticed: self.$audioController.totalHoursPracticedSoFar, minutesPracticed: self.$audioController.totalMinutesPracticedSoFar) }
+			.sheet(isPresented: $isShowingSettingsView) { SettingsView(selectedSound: self.$controller.selectedSound, isOnScreen: self.$isShowingSettingsView, hoursPracticed: self.$controller.totalHoursPracticedSoFar, minutesPracticed: self.$controller.totalMinutesPracticedSoFar) }
 			.buttonStyle(CustomButtonStyle(size: 65))
 			.font(.system(size: 35))
 			.accessibility(label: Text("Settings"))
@@ -30,25 +30,25 @@ struct BottomControlsBar: View {
 			.hoverEffect(.highlight)
 
 			Button(action: {
-				if self.audioController.isPlaying {
-					self.audioController.stop()
+				if self.controller.isPlaying {
+					self.controller.stop()
 					// We want to prepare the buffer here, otherwise it will start playing from where
 					// the the user stopped it, which may start with silence & sound weird
-					self.audioController.prepareBuffer()
+					self.controller.prepareBuffer()
 				} else {
-					self.audioController.play()
+					self.controller.play()
 				}
 
 				self.tapTimeStamps.removeAll()
-				self.audioController.isPlaying.toggle()
+				self.controller.isPlaying.toggle()
 			}) {
-				Image(systemName: audioController.isPlaying ? "pause" : "play")
-				.offset(x: audioController.isPlaying ? 0 : 3)
-				.foregroundColor(audioController.isPlaying ? Color("highlight_2") : Color("highlight"))
+				Image(systemName: controller.isPlaying ? "pause" : "play")
+				.offset(x: controller.isPlaying ? 0 : 3)
+				.foregroundColor(controller.isPlaying ? Color("highlight_2") : Color("highlight"))
 				}
 			.buttonStyle(CustomButtonStyle(size: 80))
 			.font(.system(size: 55))
-			.accessibility(label: audioController.isPlaying ? Text("pause") : Text("play"))
+			.accessibility(label: controller.isPlaying ? Text("pause") : Text("play"))
 			.frame(width: 110, height: 110)
 			.hoverEffect(.highlight)
 
@@ -68,17 +68,17 @@ struct BottomControlsBar: View {
 				for i in timeIntervals { sum += i }
 				let guessedBPM = Int(60 / (sum / Double(timeIntervals.count)))
 
-				if self.audioController.isPlaying {
-					self.audioController.stop()
-					self.audioController.isPlaying = false
+				if self.controller.isPlaying {
+					self.controller.stop()
+					self.controller.isPlaying = false
 				}
 
-				if guessedBPM > self.audioController.maxBPM {
-					self.audioController.bpm = self.audioController.maxBPM
-				} else if guessedBPM < self.audioController.minBPM {
-					self.audioController.bpm = self.audioController.minBPM
+				if guessedBPM > self.controller.maxBPM {
+					self.controller.bpm = self.controller.maxBPM
+				} else if guessedBPM < self.controller.minBPM {
+					self.controller.bpm = self.controller.minBPM
 				} else {
-					self.audioController.bpm = guessedBPM
+					self.controller.bpm = guessedBPM
 				}
 				if self.tapTimeStamps.count > 5 { self.tapTimeStamps.removeAll() }
 

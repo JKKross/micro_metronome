@@ -10,7 +10,7 @@ import SwiftUI
 
 struct ContentView: View {
 
-	@EnvironmentObject var audioController: AudioController
+	@EnvironmentObject var controller: MasterController
 
 	var body: some View {
 		ZStack {

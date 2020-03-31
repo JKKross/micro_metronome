@@ -18,12 +18,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 	// Maybe a bad idea.
 	// Probably a bad idea.
 	// If any issues come up, replace with:
-	// let audioController = AudioController()
+	// let controller = AudioController()
 	// and delete all the crap from AppDelegate.
 	#if targetEnvironment(macCatalyst)
-	let audioController = (UIApplication.shared.delegate as! AppDelegate).audioController
+	let controller = (UIApplication.shared.delegate as! AppDelegate).controller
 	#else
-	let audioController = AudioController()
+	let controller = MasterController()
 	#endif
 
 
@@ -34,7 +34,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 		// Use a UIHostingController as window root view controller.
 		if let windowScene = scene as? UIWindowScene {
 		    let window = UIWindow(windowScene: windowScene)
-			window.rootViewController = KeyboardAwareUIHostingController(view: contentView.environmentObject(audioController), audioController: audioController)
+			window.rootViewController = KeyboardAwareUIHostingController(view: contentView.environmentObject(controller), controller: controller)
 		    self.window = window
 		    window.makeKeyAndVisible()
 		}
@@ -43,14 +43,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 	func sceneWillResignActive(_ scene: UIScene) {
 		// Called when the scene will move from an active state to an inactive state.
 		// This may occur due to temporary interruptions (ex. an incoming phone call).
-		audioController.saveStuff()
+		controller.saveStuff()
 	}
 
 	func sceneDidEnterBackground(_ scene: UIScene) {
 		// Called as the scene transitions from the foreground to the background.
 		// Use this method to save data, release shared resources, and store enough scene-specific state information
 		// to restore the scene back to its current state.
-		audioController.saveStuff()
+		controller.saveStuff()
 	}
 
 }

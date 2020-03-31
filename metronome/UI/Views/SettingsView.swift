@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import MetronomeKit
 
 fileprivate struct Cell: View {
 
