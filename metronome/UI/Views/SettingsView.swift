@@ -27,16 +27,16 @@ fileprivate struct Cell: View {
 					Text(self.name.rawValue)
 					.foregroundColor(isSelected ? Color("highlight_2") : Color("highlight"))
 					.frame(alignment: .leading)
-					.hoverEffect(.highlight)
 
 					Spacer()
 
 					Image(systemName: "checkmark.circle")
 					.foregroundColor(isSelected ? .white : .clear)
 					.accessibility(label: isSelected ? Text("Selected") : Text("Not selected"))
-					.padding(.trailing, 20)
+					.padding(.trailing, 15)
 				}
 			}
+			.hoverEffect(.highlight)
 			.onTapGesture { self.action() }
 
 			Divider()
@@ -78,7 +78,7 @@ struct SettingsView: View {
 
 				ScrollView(.vertical, showsIndicators: true) {
 					VStack(alignment: .leading) {
-						Text("You've practiced \(hoursPracticed) hours & \(minutesPracticed) minutes so far with Micro Metronome!")
+						Text("You've practiced \(hoursPracticed) \(hoursPracticed == 1 ? "hour" : "hours") & \(minutesPracticed) \(minutesPracticed == 1 ? "minute" : "minutes") so far with Micro Metronome!")
 						.font(.headline)
 						.bold()
 						.foregroundColor(.white)
@@ -114,6 +114,7 @@ struct SettingsView: View {
 					}
 				}
 				.padding(.leading, 20)
+				.padding(.trailing, 5)
 			}
 			.frame(alignment: .topLeading)
 		}

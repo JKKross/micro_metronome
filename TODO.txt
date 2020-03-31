@@ -1,5 +1,3 @@
--||- push notification at 100, 500, 1000, 1500 etc. hours ???
-Handoff (bpm, sound) ???
 Playlists ???
 Scroll (mouse/trackpad) to change bpm ???
 Haptics when silenced ???

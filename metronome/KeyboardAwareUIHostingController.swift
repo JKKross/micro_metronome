@@ -48,7 +48,7 @@ class KeyboardAwareUIHostingController<Content>: UIHostingController<Content> wh
 		keys[2].title = "-1 bpm"
 		keys[3].title = "+10 bpm"
 		keys[4].title = "-10 bpm"
-		keys[5].title = "Type your desired tempo & set it with ⏎"
+		keys[5].title = "...or type your desired tempo & hit ⏎ to set it"
 
 		return keys
 	}
