@@ -520,7 +520,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.8.1;
+				MARKETING_VERSION = 0.9;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.jankriz.micro-metronome";
 				PRODUCT_NAME = "Micro Metronome";
 				SUPPORTS_MACCATALYST = YES;
@@ -546,7 +546,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.8.1;
+				MARKETING_VERSION = 0.9;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.jankriz.micro-metronome";
 				PRODUCT_NAME = "Micro Metronome";
 				SUPPORTS_MACCATALYST = YES;

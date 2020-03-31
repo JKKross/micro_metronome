@@ -24,7 +24,7 @@ fileprivate struct Cell: View {
 				Color("settings_background")
 
 				HStack {
-					Button(action: self.action) { Text(self.name.rawValue) }
+					Text(self.name.rawValue)
 					.foregroundColor(isSelected ? Color("highlight_2") : Color("highlight"))
 					.frame(alignment: .leading)
 					.hoverEffect(.highlight)
@@ -37,7 +37,7 @@ fileprivate struct Cell: View {
 					.padding(.trailing, 20)
 				}
 			}
-			.onTapGesture { self.action() } // This is here just so the whole row is tapable
+			.onTapGesture { self.action() }
 
 			Divider()
 		}

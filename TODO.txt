@@ -1,6 +1,3 @@
-Play sound when changed in settings & !isPlaying
-
-"You've practiced x hours & x minutes" sync between devices ???
 -||- push notification at 100, 500, 1000, 1500 etc. hours ???
 Handoff (bpm, sound) ???
 Playlists ???
