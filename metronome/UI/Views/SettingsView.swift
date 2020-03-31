@@ -18,19 +18,25 @@ fileprivate struct Cell: View {
 
 	var body: some View {
 		VStack(alignment: .leading) {
-			HStack {
-				Button(action: self.action) { Text(self.name.rawValue) }
-				.foregroundColor(isSelected ? Color("highlight_2") : Color("highlight"))
-				.frame(alignment: .leading)
-				.hoverEffect(.highlight)
+			ZStack {
+				// This is here just so the whole row is tapable
+				Color("settings_background")
 
-				Spacer()
+				HStack {
+					Button(action: self.action) { Text(self.name.rawValue) }
+					.foregroundColor(isSelected ? Color("highlight_2") : Color("highlight"))
+					.frame(alignment: .leading)
+					.hoverEffect(.highlight)
 
-				Image(systemName: "checkmark.circle")
-				.foregroundColor(isSelected ? .white : .clear)
-				.accessibility(label: isSelected ? Text("Selected") : Text("Not selected"))
-				.padding(.trailing, 20)
+					Spacer()
+
+					Image(systemName: "checkmark.circle")
+					.foregroundColor(isSelected ? .white : .clear)
+					.accessibility(label: isSelected ? Text("Selected") : Text("Not selected"))
+					.padding(.trailing, 20)
+				}
 			}
+			.onTapGesture { self.action() } // This is here just so the whole row is tapable
 
 			Divider()
 		}
@@ -76,7 +82,7 @@ struct SettingsView: View {
 						.bold()
 						.foregroundColor(.white)
 						.padding(.bottom, 30)
-						
+
 						Text("Sounds:")
 						.font(.headline)
 						.bold()
@@ -101,7 +107,7 @@ struct SettingsView: View {
 							Cell(action: { self.selectedSound = .jackSlap }, name: .jackSlap, currentlySelectedSound: selectedSound)
 							Cell(action: { self.selectedSound = .laugh }, name: .laugh, currentlySelectedSound: selectedSound)
 						}
-						
+
 						ThanksView()
 						.padding(.bottom, 20)
 					}

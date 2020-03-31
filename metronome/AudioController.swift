@@ -15,7 +15,7 @@ public enum Sounds: String {
 	case clap                = "Clap"
 	case cowbell             = "Cowbell"
 	case hiHat               = "Hi-hat"
-	case mechanicalMetronome = "Mechanical Metronome"
+	case mechanicalMetronome = "Mechanical metronome"
 	case hjonk               = "Hjonk"
 	case jackSlap            = "Jack slap"
 	case laugh               = "LAUGH!"
