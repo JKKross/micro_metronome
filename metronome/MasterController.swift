@@ -7,6 +7,7 @@
 //
 
 import MediaPlayer
+import AVFoundation
 import MetronomeKit
 
 
@@ -47,6 +48,7 @@ public final class MasterController: ObservableObject {
 	private let settings = UserSettings()
 	private var startedPracticeTime = Date()
 	private let engine = AudioEngine()
+	private let audioSession = AVAudioSession.sharedInstance()
 	
 	private var soundFileURL: URL!
 	private var aiffBuffer: Array<UInt8>!
@@ -60,6 +62,13 @@ public final class MasterController: ObservableObject {
 		self.totalHoursPracticedSoFar = hours
 		self.totalMinutesPracticedSoFar = minutes
 
+		do {
+			try audioSession.setCategory(.playback, mode: .default, options: [])
+			try audioSession.setActive(true, options: .notifyOthersOnDeactivation)
+		} catch {
+			debugPrint("Could not set-up audioSession:", error)
+		}
+		
 		// Make the play/pause functionality available in control center &
 		// with headphones play/pause button
 		let mp = MPRemoteCommandCenter.shared()
@@ -85,6 +94,15 @@ public final class MasterController: ObservableObject {
 		}
 
 		UIApplication.shared.beginReceivingRemoteControlEvents()
+	}
+	
+	deinit {
+		self.stop()
+		do {
+			try audioSession.setActive(false, options: .notifyOthersOnDeactivation)
+		} catch {
+			debugPrint("Could not deactivate audioSession:", error)
+		}
 	}
 
 

@@ -11,34 +11,9 @@ import AVFoundation
 
 public final class AudioEngine {
 
-	private var isPlaying = false
-	private var bpm = 100
-
-	private let audioSession = AVAudioSession.sharedInstance()
-
-	private var originalAiffBuffer: Array<UInt8>!
 	private var player: AVAudioPlayer!
 
-
-	public init() {
-
-		do {
-			try audioSession.setCategory(.playback, mode: .default, options: [])
-			try audioSession.setActive(true, options: .notifyOthersOnDeactivation)
-		} catch {
-			debugPrint("Could not set-up audioSession:", error)
-		}
-	}
-
-	deinit {
-		self.stop()
-		do {
-			try audioSession.setActive(false, options: .notifyOthersOnDeactivation)
-		} catch {
-			debugPrint("Could not deactivate audioSession:", error)
-		}
-	}
-
+	public init() {}
 
 	public func prepareToPlay(aiffBuffer: Array<UInt8>, bpm: Int) {
 		let aiffBuffer = Transform(aiffSoundFile: aiffBuffer, to: bpm)
@@ -55,12 +30,10 @@ public final class AudioEngine {
 
 	public func play() {
 		self.player.play()
-		self.isPlaying = true
 	}
 
 	public func stop() {
 		self.player.stop()
-		self.isPlaying = false
 		self.player.prepareToPlay()
 	}
 
