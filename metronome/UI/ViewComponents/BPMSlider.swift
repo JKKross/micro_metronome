@@ -57,7 +57,9 @@ struct BPMSlider: View {
 					}
 					let realValue = (containingViewHeight / 2 + self.offset)
 					self.sliderValue = abs((realValue / containingViewHeight) - 1)
-					self.controller.bpm = Int(self.sliderValue * CGFloat(self.controller.maxBPM - self.controller.minBPM)) + self.controller.minBPM
+					let bpm = Int(self.sliderValue * CGFloat(self.controller.maxBPM - self.controller.minBPM)) + self.controller.minBPM
+					
+					self.controller.setBPM(bpm)
 				}
 				.onEnded { _ in
 					self.shouldRespondToPublisher = true

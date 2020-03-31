@@ -15,7 +15,7 @@ struct TopControlsBar: View {
 	var body: some View {
 		HStack {
 			Button(action: {
-				if self.controller.bpm > self.controller.minBPM { self.controller.bpm -= 1 }
+				self.controller.setBPM(self.controller.bpm - 1)
 			}) { Image(systemName: "minus") }
 			.buttonStyle(CustomButtonStyle(size: 55))
 			.font(.system(size: 40))
@@ -30,7 +30,7 @@ struct TopControlsBar: View {
 			.frame(width: 125, height: 1)
 
 			Button(action: {
-				if self.controller.bpm < self.controller.maxBPM { self.controller.bpm += 1 }
+				self.controller.setBPM(self.controller.bpm + 1)
 			}) { Image(systemName: "plus") }
 			.buttonStyle(CustomButtonStyle(size: 55))
 			.font(.system(size: 40))

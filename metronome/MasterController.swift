@@ -29,11 +29,8 @@ public final class MasterController: ObservableObject {
 	public let maxBPM = 300
 
 	@Published public var isPlaying = false
-	@Published public var bpm = 100 {
-		didSet {
-			self.prepareBuffer()
-		}
-	}
+	
+	@Published public private(set) var bpm = 100
 
 	@Published public var totalHoursPracticedSoFar = 0
 	@Published public var totalMinutesPracticedSoFar = 0
@@ -120,6 +117,16 @@ public final class MasterController: ObservableObject {
 		self.totalMinutesPracticedSoFar = self.totalMinutesPracticedSoFar % 60
 
 		self.settings.save(hours: self.totalHoursPracticedSoFar, minutes: self.totalMinutesPracticedSoFar)
+	}
+	
+	public func setBPM(_ bpm: Int) {
+		if bpm >= self.maxBPM {
+			self.bpm = self.maxBPM
+		} else if bpm <= self.minBPM {
+			self.bpm = self.minBPM
+		} else {
+			self.bpm = bpm
+		}
 	}
 
 	public func prepareBuffer() {

@@ -73,13 +73,7 @@ struct BottomControlsBar: View {
 					self.controller.isPlaying = false
 				}
 
-				if guessedBPM > self.controller.maxBPM {
-					self.controller.bpm = self.controller.maxBPM
-				} else if guessedBPM < self.controller.minBPM {
-					self.controller.bpm = self.controller.minBPM
-				} else {
-					self.controller.bpm = guessedBPM
-				}
+				self.controller.setBPM(guessedBPM)
 				if self.tapTimeStamps.count > 5 { self.tapTimeStamps.removeAll() }
 
 			}) { Text("Tap") }

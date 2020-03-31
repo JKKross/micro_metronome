@@ -79,35 +79,27 @@ class KeyboardAwareUIHostingController<Content>: UIHostingController<Content> wh
 	}
 
 	@objc private func plusOneBPM() {
-		if controller.bpm < controller.maxBPM { controller.bpm += 1 }
+		self.controller.setBPM(controller.bpm + 1)
 	}
 
 	@objc private func minusOneBPM() {
-		if controller.bpm > controller.minBPM { controller.bpm -= 1 }
+		self.controller.setBPM(controller.bpm - 1)
 	}
 
 	@objc private func plusTenBPM() {
-		if controller.bpm <= (controller.maxBPM - 10) {
-			controller.bpm += 10
-		} else {
-			controller.bpm = controller.maxBPM
-		}
-		// just a hack to trigger the .onReceive modifier on BPMSlider
-		// No idea why it's not working properly
-		controller.bpm += 1
-		controller.bpm -= 1
+		// Why are we setting this twice here?
+		// It's just a hack to trigger the .onReceive modifier on BPMSlider.
+		// No idea why it's not working properly.
+		self.controller.setBPM(controller.bpm + 10)
+		self.controller.setBPM(controller.bpm)
 	}
 
 	@objc private func minusTenBPM() {
-		if controller.bpm >= (controller.minBPM + 10) {
-			controller.bpm -= 10
-		} else {
-			controller.bpm = controller.minBPM
-		}
-		// just a hack to trigger the .onReceive modifier on BPMSlider
-		// No idea why it's not working properly
-		controller.bpm += 1
-		controller.bpm -= 1
+		// Why are we setting this twice here?
+		// It's just a hack to trigger the .onReceive modifier on BPMSlider.
+		// No idea why it's not working properly.
+		self.controller.setBPM(controller.bpm - 10)
+		self.controller.setBPM(controller.bpm)
 	}
 
 	@objc private func pressedEnter() {
@@ -210,20 +202,13 @@ class KeyboardAwareUIHostingController<Content>: UIHostingController<Content> wh
 			}
 		}()
 
-		if bpm >= controller.maxBPM {
-			controller.bpm = controller.maxBPM
-		} else if bpm <= controller.minBPM {
-			controller.bpm = controller.minBPM
-		} else {
-			controller.bpm = bpm
-		}
+		// Why are we setting this twice here?
+		// It's just a hack to trigger the .onReceive modifier on BPMSlider.
+		// No idea why it's not working properly.
+		self.controller.setBPM(bpm)
+		self.controller.setBPM(bpm)
 
 		alreadyPressedKeys.removeAll()
-
-		// just a hack to trigger the .onReceive modifier on BPMSlider
-		// No idea why it's not working properly
-		controller.bpm += 1
-		controller.bpm -= 1
 	}
 
 }

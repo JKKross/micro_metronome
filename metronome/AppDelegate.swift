@@ -75,35 +75,27 @@ extension AppDelegate {
 	}
 
 	@objc func plusOneBPM() {
-		if controller.bpm < controller.maxBPM { controller.bpm += 1 }
+		self.controller.setBPM(controller.bpm + 1)
 	}
 
 	@objc func minusOneBPM() {
-		if controller.bpm > controller.minBPM { controller.bpm -= 1 }
+		self.controller.setBPM(controller.bpm - 1)
 	}
 
-	@objc func plusTenBPM() {
-		if controller.bpm <= (controller.maxBPM - 10) {
-			controller.bpm += 10
-		} else {
-			controller.bpm = controller.maxBPM
-		}
-		// just a hack to trigger the .onReceive modifier on BPMSlider
-		// No idea why it's not working properly
-		controller.bpm += 1
-		controller.bpm -= 1
+	@objc private func plusTenBPM() {
+		// Why are we setting this twice here?
+		// It's just a hack to trigger the .onReceive modifier on BPMSlider.
+		// No idea why it's not working properly.
+		self.controller.setBPM(controller.bpm + 10)
+		self.controller.setBPM(controller.bpm)
 	}
 
-	@objc func minusTenBPM() {
-		if controller.bpm >= (controller.minBPM + 10) {
-			controller.bpm -= 10
-		} else {
-			controller.bpm = controller.minBPM
-		}
-		// just a hack to trigger the .onReceive modifier on BPMSlider
-		// No idea why it's not working properly
-		controller.bpm += 1
-		controller.bpm -= 1
+	@objc private func minusTenBPM() {
+		// Why are we setting this twice here?
+		// It's just a hack to trigger the .onReceive modifier on BPMSlider.
+		// No idea why it's not working properly.
+		self.controller.setBPM(controller.bpm - 10)
+		self.controller.setBPM(controller.bpm)
 	}
 
 	@objc func doNothing() {}
