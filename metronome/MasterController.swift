@@ -46,12 +46,12 @@ public final class MasterController: ObservableObject {
 	}
 
 	private let settings = UserSettings()
-	private var startedPracticeTime = Date()
 	private let engine = AudioEngine()
 	private let audioSession = AVAudioSession.sharedInstance()
 	
 	private var soundFileURL: URL!
 	private var aiffBuffer: Array<UInt8>!
+	private var startedPracticeTime: Date?
 
 	public init() {
 		self.selectedSound = settings.getPreferredSound()
@@ -76,7 +76,7 @@ public final class MasterController: ObservableObject {
 		mp.playCommand.isEnabled = true
 		mp.playCommand.addTarget { _ in
 			if !self.isPlaying {
-				self.engine.play()
+				self.play()
 				self.isPlaying = true
 				return .success
 			}
@@ -86,7 +86,7 @@ public final class MasterController: ObservableObject {
 		mp.pauseCommand.isEnabled = true
 		mp.pauseCommand.addTarget { _ in
 			if self.isPlaying {
-				self.engine.stop()
+				self.stop()
 				self.isPlaying = false
 				return .success
 			}
@@ -119,9 +119,11 @@ public final class MasterController: ObservableObject {
 
 	public func stop() {
 		self.engine.stop()
+		
+		guard let startDate = self.startedPracticeTime else { return }
 
 		let endedPracticeTime = Date()
-		let ti = DateInterval(start: self.startedPracticeTime, end: endedPracticeTime)
+		let ti = DateInterval(start: startDate, end: endedPracticeTime)
 		let seconds = Int(ti.duration + 0.5)
 
 		// The + 20 here is just a little bump that feels adequate to me.
@@ -135,6 +137,8 @@ public final class MasterController: ObservableObject {
 		self.totalMinutesPracticedSoFar = self.totalMinutesPracticedSoFar % 60
 
 		self.settings.save(hours: self.totalHoursPracticedSoFar, minutes: self.totalMinutesPracticedSoFar)
+		
+		self.startedPracticeTime = nil
 	}
 	
 	public func setBPM(_ bpm: Int) {
