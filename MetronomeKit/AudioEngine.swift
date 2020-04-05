@@ -39,14 +39,14 @@ public final class AudioEngine {
 
 }
 
+/**
+	Transforms given AIFF file to desired bpm.
 
-/// Transforms given AIFF file to desired bpm.
-///
-/// - Parameter data: AIFF file (as bytes) which represents exactly 3 seconds long (20 bpm) sound. If the sound has any other duration than 20 bpm, result is undefined.
-/// - Parameter bpm: What bpm to transform the sound into. Must be >= 20, crashes otherwise.
-///
-/// - Returns: Array of bytes representing new AIFF file of desired bpm.
-///
+	- Parameter data: AIFF file (as bytes) which represents exactly 3 seconds long (20 bpm) sound. If the sound has any other duration than 20 bpm, result is undefined.
+	- Parameter bpm: What bpm to transform the sound into. Must be >= 20, crashes otherwise.
+
+	- Returns: Array of bytes representing new AIFF file of desired bpm.
+*/
 fileprivate func Transform(aiffSoundFile data: Array<UInt8>, to bpm: Int) -> Array<UInt8> {
 	guard bpm >= 20 else { fatalError("Attempt to transform an AIFF file to less than 20 bpm.") }
 	if bpm == 20 { return data }

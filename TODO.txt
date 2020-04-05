@@ -1,3 +1,8 @@
+Sounds:
+Remove clap???
+Mech. metronome high & low
+Remove echo - clap, rimshot, hihat
+
 Playlists ???
 Scroll (mouse/trackpad) to change bpm ???
 Haptics when silenced ???

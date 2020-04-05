@@ -27,7 +27,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 }
 
 #if targetEnvironment(macCatalyst)
-
 extension AppDelegate {
 
 	// Mac Catalyst Menu Bar customization
@@ -101,5 +100,4 @@ extension AppDelegate {
 
 	@objc func doNothing() {}
 }
-
 #endif

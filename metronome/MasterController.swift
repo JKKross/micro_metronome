@@ -69,6 +69,9 @@ public final class MasterController: ObservableObject {
 			debugPrint("Could not set-up audioSession:", error)
 		}
 		
+		let nc = NotificationCenter.default
+		nc.addObserver(self, selector: #selector(handleInterruption(_:)), name: AVAudioSession.interruptionNotification, object: nil)
+		
 		// Make the play/pause functionality available in control center &
 		// with headphones play/pause button
 		let mp = MPRemoteCommandCenter.shared()
@@ -169,7 +172,24 @@ public final class MasterController: ObservableObject {
 			fatalError("DATA READING ERROR: \(error)")
 		}
 	}
+	
+	@objc private func handleInterruption(_ notification: Notification) {
+		guard let userInfo = notification.userInfo,
+			 let typeValue = userInfo[AVAudioSessionInterruptionTypeKey] as? UInt,
+			 let type = AVAudioSession.InterruptionType(rawValue: typeValue) else {
+				  return
+		}
+		
+		switch type {
+		case .began:
+			if self.isPlaying {
+				self.stop()
+				self.isPlaying = false
+			}
+		default:
+			// We could resume playback on .ended, but I don't think that's appropriate for a metronome
+			()
+		}
+	}
 
 }
-
-

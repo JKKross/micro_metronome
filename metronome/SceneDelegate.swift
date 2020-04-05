@@ -39,6 +39,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 		    window.makeKeyAndVisible()
 		}
 	}
+	
+	func sceneWillResignActive(_ scene: UIScene) {
+		// Called when the scene will move from an active state to an inactive state.
+ 		// This may occur due to temporary interruptions (ex. an incoming phone call).
+		NSUbiquitousKeyValueStore.default.synchronize()
+		controller.saveStuff()
+	}
 
 	func sceneDidEnterBackground(_ scene: UIScene) {
 		// Called as the scene transitions from the foreground to the background.
