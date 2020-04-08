@@ -38,10 +38,10 @@ public final class MasterController: ObservableObject {
 
 	@Published public var selectedSound: Sounds = .rimshot {
 		didSet {
-			if self.isPlaying { self.engine.stop() }
+			if self.isPlaying { self.stop() }
 			self.loadFile(self.selectedSound)
 			self.prepareBuffer()
-			if self.isPlaying { self.engine.play() }
+			if self.isPlaying { self.play() }
 		}
 	}
 

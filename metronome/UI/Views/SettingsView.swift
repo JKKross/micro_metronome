@@ -48,10 +48,12 @@ fileprivate struct Cell: View {
 
 struct SettingsView: View {
 
-	@Binding var selectedSound: Sounds
+	@EnvironmentObject var controller: MasterController
+
 	@Binding var isOnScreen: Bool
-	@Binding var hoursPracticed: Int
-	@Binding var minutesPracticed: Int
+
+	@State private var shouldShowEraseAlert               = false
+    @State private var shouldShowResetOnAllDevicesMessage = false
 
     var body: some View {
 		ZStack {
@@ -78,7 +80,7 @@ struct SettingsView: View {
 
 				ScrollView(.vertical, showsIndicators: true) {
 					VStack(alignment: .leading) {
-						Text("You've practiced \(hoursPracticed) \(hoursPracticed == 1 ? "hour" : "hours") & \(minutesPracticed) \(minutesPracticed == 1 ? "minute" : "minutes") so far with Micro Metronome!")
+						Text("You've practiced \(controller.totalHoursPracticedSoFar) \(controller.totalHoursPracticedSoFar == 1 ? "hour" : "hours") & \(controller.totalMinutesPracticedSoFar) \(controller.totalMinutesPracticedSoFar == 1 ? "minute" : "minutes") so far with Micro Metronome!")
 						.font(.headline)
 						.bold()
 						.foregroundColor(.white)
@@ -91,22 +93,50 @@ struct SettingsView: View {
 						.foregroundColor(.white)
 
 						Group {
-							Cell(action: { self.selectedSound = .mechanicalMetronome }, name: .mechanicalMetronome, currentlySelectedSound: selectedSound)
-							Cell(action: { self.selectedSound = .rimshot }, name: .rimshot, currentlySelectedSound: selectedSound)
-							Cell(action: { self.selectedSound = .bassDrum }, name: .bassDrum, currentlySelectedSound: selectedSound)
-							Cell(action: { self.selectedSound = .clap }, name: .clap, currentlySelectedSound: selectedSound)
-							Cell(action: { self.selectedSound = .cowbell }, name: .cowbell, currentlySelectedSound: selectedSound)
-							Cell(action: { self.selectedSound = .hiHat }, name: .hiHat, currentlySelectedSound: selectedSound)
+							Cell(action: { self.controller.selectedSound = .mechanicalMetronome }, name: .mechanicalMetronome, currentlySelectedSound: controller.selectedSound)
+							Cell(action: { self.controller.selectedSound = .rimshot }, name: .rimshot, currentlySelectedSound: controller.selectedSound)
+							Cell(action: { self.controller.selectedSound = .bassDrum }, name: .bassDrum, currentlySelectedSound: controller.selectedSound)
+							Cell(action: { self.controller.selectedSound = .clap }, name: .clap, currentlySelectedSound: controller.selectedSound)
+							Cell(action: { self.controller.selectedSound = .cowbell }, name: .cowbell, currentlySelectedSound: controller.selectedSound)
+							Cell(action: { self.controller.selectedSound = .hiHat }, name: .hiHat, currentlySelectedSound: controller.selectedSound)
 						}
 
 						AboutTheApp()
 
+						Button(action: { self.shouldShowEraseAlert = true }) { Text("Reset total hours & minutes practiced so far") }
+						.foregroundColor(Color("highlight_2"))
+						.hoverEffect(.highlight)
+						.padding(.top, 20)
+						.alert(isPresented: $shouldShowEraseAlert) {
+
+							if self.shouldShowResetOnAllDevicesMessage {
+
+								return Alert(title: Text("Please note that if you have Micro Metronome installed on some of your other devices, you need to reset the hours & minutes practiced so far on those as well"),
+												dismissButton: .default(Text("OK")) { self.shouldShowResetOnAllDevicesMessage = false })
+
+							} else {
+
+								return Alert(title: Text("Set total hours & minutes practiced to 0?"),
+												message: Text("THIS ACTION RESULTS IN PERMANENT LOSS OF YOUR PRACTICE TIME DATA!"),
+												primaryButton: .destructive(Text("Delete it")) {
+													self.controller.totalHoursPracticedSoFar = 0
+													self.controller.totalMinutesPracticedSoFar = 0
+													self.controller.saveStuff()
+													NSUbiquitousKeyValueStore.default.synchronize()
+													self.shouldShowResetOnAllDevicesMessage = true
+
+													DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) { self.shouldShowEraseAlert = true }
+												},
+												secondaryButton: .default(Text("Keep it")))
+							}
+						}
+
 						EasterEgg()
 
 						Group {
-							Cell(action: { self.selectedSound = .hjonk }, name: .hjonk, currentlySelectedSound: selectedSound)
-							Cell(action: { self.selectedSound = .jackSlap }, name: .jackSlap, currentlySelectedSound: selectedSound)
-							Cell(action: { self.selectedSound = .laugh }, name: .laugh, currentlySelectedSound: selectedSound)
+							Cell(action: { self.controller.selectedSound = .hjonk }, name: .hjonk, currentlySelectedSound: controller.selectedSound)
+							Cell(action: { self.controller.selectedSound = .jackSlap }, name: .jackSlap, currentlySelectedSound: controller.selectedSound)
+							Cell(action: { self.controller.selectedSound = .laugh }, name: .laugh, currentlySelectedSound: controller.selectedSound)
 						}
 
 						ThanksView()
