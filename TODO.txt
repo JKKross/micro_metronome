@@ -1,7 +1,5 @@
 Sounds:
-Remove clap???
-Mech. metronome high & low
-Remove echo - clap, rimshot, hihat
+Remove echo - rimshot, hihat
 
 Playlists ???
 Scroll (mouse/trackpad) to change bpm ???

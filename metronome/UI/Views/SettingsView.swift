@@ -93,10 +93,10 @@ struct SettingsView: View {
 						.foregroundColor(.white)
 
 						Group {
-							Cell(action: { self.controller.selectedSound = .mechanicalMetronome }, name: .mechanicalMetronome, currentlySelectedSound: controller.selectedSound)
+							Cell(action: { self.controller.selectedSound = .mechanicalMetronomeLow }, name: .mechanicalMetronomeLow, currentlySelectedSound: controller.selectedSound)
+							Cell(action: { self.controller.selectedSound = .mechanicalMetronomeHigh }, name: .mechanicalMetronomeHigh, currentlySelectedSound: controller.selectedSound)
 							Cell(action: { self.controller.selectedSound = .rimshot }, name: .rimshot, currentlySelectedSound: controller.selectedSound)
 							Cell(action: { self.controller.selectedSound = .bassDrum }, name: .bassDrum, currentlySelectedSound: controller.selectedSound)
-							Cell(action: { self.controller.selectedSound = .clap }, name: .clap, currentlySelectedSound: controller.selectedSound)
 							Cell(action: { self.controller.selectedSound = .cowbell }, name: .cowbell, currentlySelectedSound: controller.selectedSound)
 							Cell(action: { self.controller.selectedSound = .hiHat }, name: .hiHat, currentlySelectedSound: controller.selectedSound)
 						}
@@ -134,7 +134,6 @@ struct SettingsView: View {
 						EasterEgg()
 
 						Group {
-							Cell(action: { self.controller.selectedSound = .hjonk }, name: .hjonk, currentlySelectedSound: controller.selectedSound)
 							Cell(action: { self.controller.selectedSound = .jackSlap }, name: .jackSlap, currentlySelectedSound: controller.selectedSound)
 							Cell(action: { self.controller.selectedSound = .laugh }, name: .laugh, currentlySelectedSound: controller.selectedSound)
 						}

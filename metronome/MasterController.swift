@@ -12,15 +12,14 @@ import MetronomeKit
 
 
 public enum Sounds: String {
-	case rimshot             = "Rimshot"
-	case bassDrum            = "Bass drum"
-	case clap                = "Clap"
-	case cowbell             = "Cowbell"
-	case hiHat               = "Hi-hat"
-	case mechanicalMetronome = "Mechanical metronome"
-	case hjonk               = "Hjonk"
-	case jackSlap            = "Jack slap"
-	case laugh               = "LAUGH!"
+	case rimshot                 = "Rimshot"
+	case bassDrum                = "Bass drum"
+	case cowbell                 = "Cowbell"
+	case hiHat                   = "Hi-hat"
+	case mechanicalMetronomeLow  = "Mechanical metronome - Low"
+   case mechanicalMetronomeHigh = "Mechanical metronome - High"
+	case jackSlap                = "Jack slap"
+	case laugh                   = "LAUGH!"
 }
 
 

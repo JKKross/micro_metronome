@@ -18,15 +18,14 @@
 		384B703B23FF304F00E22067 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 384B703A23FF304F00E22067 /* Assets.xcassets */; };
 		384B703E23FF304F00E22067 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 384B703D23FF304F00E22067 /* Preview Assets.xcassets */; };
 		384B704123FF304F00E22067 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 384B703F23FF304F00E22067 /* LaunchScreen.storyboard */; };
+		3853BBB3244359D5006EE52E /* Mechanical metronome - Low.aif in Resources */ = {isa = PBXBuildFile; fileRef = 3853BBB2244359D5006EE52E /* Mechanical metronome - Low.aif */; };
+		3853BBB5244359DD006EE52E /* Mechanical metronome - High.aif in Resources */ = {isa = PBXBuildFile; fileRef = 3853BBB4244359DD006EE52E /* Mechanical metronome - High.aif */; };
+		3853BBB7244359EC006EE52E /* Hi-hat.aif in Resources */ = {isa = PBXBuildFile; fileRef = 3853BBB6244359EC006EE52E /* Hi-hat.aif */; };
+		3853BBB9244359FE006EE52E /* Rimshot.aif in Resources */ = {isa = PBXBuildFile; fileRef = 3853BBB8244359FE006EE52E /* Rimshot.aif */; };
 		3866CDE12427DDC4006FFF25 /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3866CDE02427DDC4006FFF25 /* UserSettings.swift */; };
 		3866CDE32427ED7D006FFF25 /* KeyboardAwareUIHostingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3866CDE22427ED7D006FFF25 /* KeyboardAwareUIHostingController.swift */; };
 		38728144242E5CD5001822E5 /* AboutTheApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38728143242E5CD4001822E5 /* AboutTheApp.swift */; };
 		38728146242E5D65001822E5 /* EasterEgg.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38728145242E5D65001822E5 /* EasterEgg.swift */; };
-		38731ED6242A1F30005A1916 /* Mechanical metronome.aif in Resources */ = {isa = PBXBuildFile; fileRef = 38731ED5242A1F30005A1916 /* Mechanical metronome.aif */; };
-		388E0563242A50E500436BDC /* Rimshot.aif in Resources */ = {isa = PBXBuildFile; fileRef = 388E0560242A50E500436BDC /* Rimshot.aif */; };
-		388E0564242A50E500436BDC /* Clap.aif in Resources */ = {isa = PBXBuildFile; fileRef = 388E0561242A50E500436BDC /* Clap.aif */; };
-		388E0565242A50E500436BDC /* Hi-hat.aif in Resources */ = {isa = PBXBuildFile; fileRef = 388E0562242A50E500436BDC /* Hi-hat.aif */; };
-		38A0815F242124E6000537D7 /* Hjonk.aif in Resources */ = {isa = PBXBuildFile; fileRef = 38A08155242124E5000537D7 /* Hjonk.aif */; };
 		38A08160242124E6000537D7 /* LAUGH!.aif in Resources */ = {isa = PBXBuildFile; fileRef = 38A08156242124E6000537D7 /* LAUGH!.aif */; };
 		38A08164242124E6000537D7 /* Cowbell.aif in Resources */ = {isa = PBXBuildFile; fileRef = 38A0815A242124E6000537D7 /* Cowbell.aif */; };
 		38A08165242124E6000537D7 /* Bass drum.aif in Resources */ = {isa = PBXBuildFile; fileRef = 38A0815B242124E6000537D7 /* Bass drum.aif */; };
@@ -65,27 +64,26 @@
 /* Begin PBXFileReference section */
 		38074AB9240BE7D600748945 /* MasterController.swift */ = {isa = PBXFileReference; indentWidth = 3; lastKnownFileType = sourcecode.swift; path = MasterController.swift; sourceTree = "<group>"; tabWidth = 3; };
 		380DD40D2426093500B789FD /* CustomButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButtonStyle.swift; sourceTree = "<group>"; };
-		381BAEA5241FC07F00CA8720 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		381BAEA5241FC07F00CA8720 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; usesTabs = 1; };
 		381DBD3224312AAE00511213 /* ThanksView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThanksView.swift; sourceTree = "<group>"; };
 		3820F0E12401BE3800FE8EF8 /* BPMSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BPMSlider.swift; sourceTree = "<group>"; usesTabs = 1; };
 		38279C1A242BC53300BAD6DB /* Micro Metronome.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Micro Metronome.entitlements"; sourceTree = "<group>"; };
 		384B703123FF304900E22067 /* Micro Metronome.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Micro Metronome.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		384B703423FF304900E22067 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		384B703623FF304900E22067 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		384B703623FF304900E22067 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; usesTabs = 1; };
 		384B703823FF304900E22067 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		384B703A23FF304F00E22067 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		384B703D23FF304F00E22067 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		384B704023FF304F00E22067 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		384B704223FF304F00E22067 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3853BBB2244359D5006EE52E /* Mechanical metronome - Low.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Mechanical metronome - Low.aif"; sourceTree = "<group>"; };
+		3853BBB4244359DD006EE52E /* Mechanical metronome - High.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Mechanical metronome - High.aif"; sourceTree = "<group>"; };
+		3853BBB6244359EC006EE52E /* Hi-hat.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Hi-hat.aif"; sourceTree = "<group>"; };
+		3853BBB8244359FE006EE52E /* Rimshot.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = Rimshot.aif; sourceTree = "<group>"; };
 		3866CDE02427DDC4006FFF25 /* UserSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettings.swift; sourceTree = "<group>"; };
 		3866CDE22427ED7D006FFF25 /* KeyboardAwareUIHostingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardAwareUIHostingController.swift; sourceTree = "<group>"; };
 		38728143242E5CD4001822E5 /* AboutTheApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutTheApp.swift; sourceTree = "<group>"; };
 		38728145242E5D65001822E5 /* EasterEgg.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EasterEgg.swift; sourceTree = "<group>"; };
-		38731ED5242A1F30005A1916 /* Mechanical metronome.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Mechanical metronome.aif"; sourceTree = "<group>"; };
-		388E0560242A50E500436BDC /* Rimshot.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = Rimshot.aif; sourceTree = "<group>"; };
-		388E0561242A50E500436BDC /* Clap.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = Clap.aif; sourceTree = "<group>"; };
-		388E0562242A50E500436BDC /* Hi-hat.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Hi-hat.aif"; sourceTree = "<group>"; };
-		38A08155242124E5000537D7 /* Hjonk.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = Hjonk.aif; sourceTree = "<group>"; };
 		38A08156242124E6000537D7 /* LAUGH!.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LAUGH!.aif"; sourceTree = "<group>"; };
 		38A0815A242124E6000537D7 /* Cowbell.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = Cowbell.aif; sourceTree = "<group>"; };
 		38A0815B242124E6000537D7 /* Bass drum.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Bass drum.aif"; sourceTree = "<group>"; };
@@ -143,12 +141,11 @@
 			isa = PBXGroup;
 			children = (
 				38A0815B242124E6000537D7 /* Bass drum.aif */,
-				388E0561242A50E500436BDC /* Clap.aif */,
-				388E0562242A50E500436BDC /* Hi-hat.aif */,
-				388E0560242A50E500436BDC /* Rimshot.aif */,
+				3853BBB6244359EC006EE52E /* Hi-hat.aif */,
+				3853BBB2244359D5006EE52E /* Mechanical metronome - Low.aif */,
+				3853BBB4244359DD006EE52E /* Mechanical metronome - High.aif */,
+				3853BBB8244359FE006EE52E /* Rimshot.aif */,
 				38A0815A242124E6000537D7 /* Cowbell.aif */,
-				38731ED5242A1F30005A1916 /* Mechanical metronome.aif */,
-				38A08155242124E5000537D7 /* Hjonk.aif */,
 				38A0815C242124E6000537D7 /* Jack slap.aif */,
 				38A08156242124E6000537D7 /* LAUGH!.aif */,
 			);
@@ -313,16 +310,15 @@
 			files = (
 				38A08165242124E6000537D7 /* Bass drum.aif in Resources */,
 				38A08164242124E6000537D7 /* Cowbell.aif in Resources */,
+				3853BBB3244359D5006EE52E /* Mechanical metronome - Low.aif in Resources */,
 				38A08160242124E6000537D7 /* LAUGH!.aif in Resources */,
-				388E0565242A50E500436BDC /* Hi-hat.aif in Resources */,
-				38731ED6242A1F30005A1916 /* Mechanical metronome.aif in Resources */,
 				384B704123FF304F00E22067 /* LaunchScreen.storyboard in Resources */,
+				3853BBB9244359FE006EE52E /* Rimshot.aif in Resources */,
+				3853BBB5244359DD006EE52E /* Mechanical metronome - High.aif in Resources */,
 				384B703E23FF304F00E22067 /* Preview Assets.xcassets in Resources */,
+				3853BBB7244359EC006EE52E /* Hi-hat.aif in Resources */,
 				384B703B23FF304F00E22067 /* Assets.xcassets in Resources */,
-				38A0815F242124E6000537D7 /* Hjonk.aif in Resources */,
-				388E0564242A50E500436BDC /* Clap.aif in Resources */,
 				38A08166242124E6000537D7 /* Jack slap.aif in Resources */,
-				388E0563242A50E500436BDC /* Rimshot.aif in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -510,7 +506,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "metronome/Micro Metronome.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 11;
+				CURRENT_PROJECT_VERSION = 12;
 				DEVELOPMENT_ASSET_PATHS = "\"metronome/Preview Content\"";
 				DEVELOPMENT_TEAM = E8938J75P7;
 				ENABLE_PREVIEWS = YES;
@@ -520,7 +516,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.9.4;
+				MARKETING_VERSION = 0.9.5;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.jankriz.micro-metronome";
 				PRODUCT_NAME = "Micro Metronome";
 				SUPPORTS_MACCATALYST = YES;
@@ -536,7 +532,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "metronome/Micro Metronome.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 11;
+				CURRENT_PROJECT_VERSION = 12;
 				DEVELOPMENT_ASSET_PATHS = "\"metronome/Preview Content\"";
 				DEVELOPMENT_TEAM = E8938J75P7;
 				ENABLE_PREVIEWS = YES;
@@ -546,7 +542,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.9.4;
+				MARKETING_VERSION = 0.9.5;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.jankriz.micro-metronome";
 				PRODUCT_NAME = "Micro Metronome";
 				SUPPORTS_MACCATALYST = YES;
