@@ -1,5 +1,4 @@
-Sounds:
-Remove echo - rimshot, hihat
+Features:
 
 Playlists ???
 Scroll (mouse/trackpad) to change bpm ???

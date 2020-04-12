@@ -21,13 +21,13 @@ fileprivate enum KVStoreKeys: String {
 }
 
 final class UserSettings {
-
+	
 	private let ud = UserDefaults.standard
 	private let iCloudKVStore = NSUbiquitousKeyValueStore.default
-
+	
 	public func getBPM() -> Int {
 		let bpm = ud.integer(forKey: UDKeys.bpm.rawValue)
-
+		
 		if bpm == 0 {
 			ud.set(100, forKey: UDKeys.bpm.rawValue)
 			return 100
@@ -35,7 +35,7 @@ final class UserSettings {
 			return bpm
 		}
 	}
-
+	
 	public func getPreferredSound() -> Sounds {
 		if let sound = ud.string(forKey: UDKeys.sound.rawValue) {
 			return Sounds(rawValue: sound) ?? .mechanicalMetronomeLow
@@ -64,11 +64,11 @@ final class UserSettings {
 		
 		return (localHours, localMinutes)
 	}
-
+	
 	public func save(bpm: Int) {
 		ud.set(bpm, forKey: UDKeys.bpm.rawValue)
 	}
-
+	
 	public func save(preferredSound: Sounds) {
 		ud.set(preferredSound.rawValue as Any, forKey: UDKeys.sound.rawValue)
 	}

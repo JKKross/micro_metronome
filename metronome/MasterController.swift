@@ -17,24 +17,24 @@ public enum Sounds: String {
 	case cowbell                 = "Cowbell"
 	case hiHat                   = "Hi-hat"
 	case mechanicalMetronomeLow  = "Mechanical metronome - Low"
-   case mechanicalMetronomeHigh = "Mechanical metronome - High"
+	case mechanicalMetronomeHigh = "Mechanical metronome - High"
 	case jackSlap                = "Jack slap"
 	case laugh                   = "LAUGH!"
 }
 
 
 public final class MasterController: ObservableObject {
-
+	
 	public let minBPM = 20
 	public let maxBPM = 300
-
+	
 	@Published public var isPlaying = false
 	
 	@Published public private(set) var bpm = 100
-
+	
 	@Published public var totalHoursPracticedSoFar = 0
 	@Published public var totalMinutesPracticedSoFar = 0
-
+	
 	@Published public var selectedSound: Sounds = .rimshot {
 		didSet {
 			if self.isPlaying { self.stop() }
@@ -43,7 +43,7 @@ public final class MasterController: ObservableObject {
 			if self.isPlaying { self.play() }
 		}
 	}
-
+	
 	private let settings = UserSettings()
 	private let engine = AudioEngine()
 	private let audioSession = AVAudioSession.sharedInstance()
@@ -51,22 +51,16 @@ public final class MasterController: ObservableObject {
 	private var soundFileURL: URL!
 	private var aiffBuffer: Array<UInt8>!
 	private var startedPracticeTime: Date?
-
+	
 	public init() {
 		self.selectedSound = settings.getPreferredSound()
 		self.bpm = settings.getBPM()
-
+		
 		let (hours, minutes) = settings.getHoursAndMinutes()
-
+		
 		self.totalHoursPracticedSoFar = hours
 		self.totalMinutesPracticedSoFar = minutes
 
-		do {
-			try audioSession.setCategory(.playback, mode: .default, options: [])
-			try audioSession.setActive(true, options: .notifyOthersOnDeactivation)
-		} catch {
-			debugPrint("Could not set-up audioSession:", error)
-		}
 		
 		let nc = NotificationCenter.default
 		nc.addObserver(self, selector: #selector(handleInterruption(_:)), name: AVAudioSession.interruptionNotification, object: nil)
@@ -74,7 +68,7 @@ public final class MasterController: ObservableObject {
 		// Make the play/pause functionality available in control center &
 		// with headphones play/pause button
 		let mp = MPRemoteCommandCenter.shared()
-
+		
 		mp.playCommand.isEnabled = true
 		mp.playCommand.addTarget { _ in
 			if !self.isPlaying {
@@ -84,7 +78,7 @@ public final class MasterController: ObservableObject {
 			}
 			return .commandFailed
 		}
-
+		
 		mp.pauseCommand.isEnabled = true
 		mp.pauseCommand.addTarget { _ in
 			if self.isPlaying {
@@ -94,7 +88,7 @@ public final class MasterController: ObservableObject {
 			}
 			return .commandFailed
 		}
-
+		
 		UIApplication.shared.beginReceivingRemoteControlEvents()
 	}
 	
@@ -106,38 +100,38 @@ public final class MasterController: ObservableObject {
 			debugPrint("Could not deactivate audioSession:", error)
 		}
 	}
-
-
+	
+	
 	public func saveStuff() {
 		settings.save(bpm: self.bpm)
 		settings.save(preferredSound: self.selectedSound)
 		self.settings.save(hours: self.totalHoursPracticedSoFar, minutes: self.totalMinutesPracticedSoFar)
 	}
-
+	
 	public func play() {
 		self.engine.play()
 		self.startedPracticeTime = Date()
 	}
-
+	
 	public func stop() {
 		self.engine.stop()
 		
 		guard let startDate = self.startedPracticeTime else { return }
-
+		
 		let endedPracticeTime = Date()
 		let ti = DateInterval(start: startDate, end: endedPracticeTime)
 		let seconds = Int(ti.duration + 0.5)
-
+		
 		// The + 20 here is just a little bump that feels adequate to me.
 		// If the user turns off the metronome at 11 minutes 40 seconds, they get 12 minutes instead.
 		let newMinutes = (seconds + 20) / 60
 		self.totalMinutesPracticedSoFar += newMinutes
-
+		
 		// If totalMinutesPracticedSoFar if < 1 hour, nothing happens.
 		// Else if it is > 1 hour, than these two lines should work correctly.
 		self.totalHoursPracticedSoFar += self.totalMinutesPracticedSoFar / 60
 		self.totalMinutesPracticedSoFar = self.totalMinutesPracticedSoFar % 60
-
+		
 		self.settings.save(hours: self.totalHoursPracticedSoFar, minutes: self.totalMinutesPracticedSoFar)
 		
 		self.startedPracticeTime = nil
@@ -152,18 +146,18 @@ public final class MasterController: ObservableObject {
 			self.bpm = bpm
 		}
 	}
-
+	
 	public func prepareBuffer() {
 		self.engine.prepareToPlay(aiffBuffer: self.aiffBuffer, bpm: self.bpm)
 	}
-
+	
 	private func loadFile(_ fileName: Sounds) {
 		if let path = Bundle.main.path(forResource: "\(selectedSound.rawValue).aif", ofType: nil) {
 			self.soundFileURL = URL(fileURLWithPath: path)
 		} else {
 			fatalError("Could not create url for \(selectedSound.rawValue).aif")
 		}
-
+		
 		do {
 			let soundData = try Data(contentsOf: soundFileURL)
 			self.aiffBuffer = Array(soundData[0..<soundData.endIndex])
@@ -174,9 +168,9 @@ public final class MasterController: ObservableObject {
 	
 	@objc private func handleInterruption(_ notification: Notification) {
 		guard let userInfo = notification.userInfo,
-			 let typeValue = userInfo[AVAudioSessionInterruptionTypeKey] as? UInt,
-			 let type = AVAudioSession.InterruptionType(rawValue: typeValue) else {
-				  return
+			let typeValue = userInfo[AVAudioSessionInterruptionTypeKey] as? UInt,
+			let type = AVAudioSession.InterruptionType(rawValue: typeValue) else {
+				return
 		}
 		
 		switch type {
@@ -190,5 +184,5 @@ public final class MasterController: ObservableObject {
 			()
 		}
 	}
-
+	
 }

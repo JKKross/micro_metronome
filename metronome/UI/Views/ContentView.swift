@@ -9,26 +9,26 @@
 import SwiftUI
 
 struct ContentView: View {
-
+	
 	@EnvironmentObject var controller: MasterController
-
+	
 	var body: some View {
 		ZStack {
 			Color("background")
-			.edgesIgnoringSafeArea(.all)
-
+				.edgesIgnoringSafeArea(.all)
+			
 			VStack {
 				TopControlsBar()
-				.padding(.top, 15)
-				.padding(.horizontal, 35)
-
+					.padding(.top, 15)
+					.padding(.horizontal, 35)
+				
 				BPMSlider()
-
+				
 				BottomControlsBar()
-				.frame(height: 75)
-				.padding(.bottom, 25)
-				.padding(.top, 20)
-				.padding(.horizontal, 35)
+					.frame(height: 75)
+					.padding(.bottom, 25)
+					.padding(.top, 20)
+					.padding(.horizontal, 35)
 			}
 		}
 	}

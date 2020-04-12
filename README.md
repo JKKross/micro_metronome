@@ -2,7 +2,7 @@
 
 
   <p align="center">
-    <img src="https://img.shields.io/badge/version-0.9.4-red.svg" alt="version 0.9.4"/>
+    <img src="https://img.shields.io/badge/version-1.0-green.svg" alt="version 1.0"/>
     <img src="https://img.shields.io/badge/iOS-13.4%2B-blue.svg" alt="iOS 13.4 plus"/>
     <img src="https://img.shields.io/badge/iPadOS-13.4%2B-blue.svg" alt="iPadOS 13.4 plus"/>
     <img src="https://img.shields.io/badge/MacOS-10.15%2B-blue.svg" alt="MacOS 10.15 plus"/>
