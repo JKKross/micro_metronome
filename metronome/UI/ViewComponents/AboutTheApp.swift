@@ -52,7 +52,7 @@ struct AboutTheApp: View {
 				.foregroundColor(Color("highlight_2"))
 				.hoverEffect(.highlight)
 			
-			Text("If your looking for a simple text editor for iOS & iPadOS, check out my other app:")
+			Text("If you're looking for a simple text editor for iOS & iPadOS, check out my other app:")
 				.padding(.vertical, 15)
 				.foregroundColor(.white)
 			
