@@ -38,6 +38,7 @@ extension AppDelegate {
 		builder.remove(menu: .format)
 		builder.remove(menu: .edit)
 		builder.remove(menu: .file)
+		builder.remove(menu: .help)
 		
 		// Give user the ability to discover keyboard controls in a menu
 		let keys = [

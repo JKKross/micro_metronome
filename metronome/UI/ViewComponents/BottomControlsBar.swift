@@ -76,11 +76,19 @@ struct BottomControlsBar: View {
 				self.controller.setBPM(guessedBPM)
 				if self.tapTimeStamps.count > 5 { self.tapTimeStamps.removeAll() }
 				
-			}) { Text("Tap") }
-				.buttonStyle(CustomButtonStyle(size: 65))
+			}) {
+				#if targetEnvironment(macCatalyst)
+				Text("Click")
+				.font(.system(size: 22, weight: .bold))
+				.accessibility(label: Text("Click to set tempo"))
+				#else
+				Text("Tap")
 				.font(.system(size: 25, weight: .bold))
-				.lineLimit(1)
 				.accessibility(label: Text("Tap to set tempo"))
+				#endif
+			}
+				.buttonStyle(CustomButtonStyle(size: 65))
+				.lineLimit(1)
 				.frame(width: 70, height: 70)
 				.hoverEffect(.highlight)
 		}
