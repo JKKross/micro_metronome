@@ -16,3 +16,5 @@ There are no fancy features like setlists or time signatures.
 Just a few nice sounds, multiple easy ways to set tempo and that's it.
 
 The focus is on core functionality, reliability & small binary size. (I know 5 megs is not small, but most of that are the sound assets)
+
+[Download on the App Store!](https://apps.apple.com/app/micro-metronome/id1504217852?l=cs)
