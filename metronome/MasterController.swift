@@ -60,6 +60,13 @@ public final class MasterController: ObservableObject {
 		
 		self.totalHoursPracticedSoFar = hours
 		self.totalMinutesPracticedSoFar = minutes
+		
+		do {
+			try audioSession.setCategory(.playback)
+			try audioSession.setActive(true, options: .notifyOthersOnDeactivation)
+		} catch {
+			debugPrint("Could not activate AudioSession. Error: \(error)")
+		}
 
 		
 		let nc = NotificationCenter.default
