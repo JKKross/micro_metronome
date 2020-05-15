@@ -10,6 +10,8 @@
     <img src="https://img.shields.io/badge/SwiftUI-orange.svg" alt="SwiftUI"/>
   </p>
 
+<img src="https://github.com/JKKross/Micro_Metrome/blob/master/micro_metronome.png"/>
+
 Micro Metronome is a minimalist metronome for iOS, iPadOS & MacOS.
 
 There are no fancy features like setlists or time signatures.
