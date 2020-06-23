@@ -1,14 +1,13 @@
-Features:
-
-Playlists ???
-Scroll (mouse/trackpad) to change bpm ???
+Rearchitect - Main functionality in SwiftPM, split into frameworks, etc.
+Scroll (mouse/trackpad) to change bpm - at least on the mac
 Haptics when silenced ???
 __________________________
 
 Platforms:
-Siri Shortcuts ???
-WatchOS ???
+NATIVE MAC!!!
+Siri Shortcuts!!!
 Mac - Terminal (wait for SwiftPM resource files to be implemented)
+WatchOS ???
 Linux terminal ??? (wait for SwiftPM resource files to be implemented)
 Windows terminal ??? (wait for SwiftPM resource files to be implemented)
 Web (with SwiftWASM) ??? (probably not, we'll see...)
