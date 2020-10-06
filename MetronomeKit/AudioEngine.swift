@@ -16,7 +16,7 @@ public final class AudioEngine {
     public init() {}
     
     public func prepareToPlay(aiffBuffer: Array<UInt8>, bpm: Int) {
-        let aiffBuffer = Transform(aiffSoundFile: aiffBuffer, to: bpm)
+        let aiffBuffer = transform(aiffSoundFile: aiffBuffer, to: bpm)
         
         do {
             let soundData = Data(aiffBuffer)
@@ -47,7 +47,7 @@ Transforms given AIFF file to desired bpm.
 
 - Returns: Array of bytes representing new AIFF file of desired bpm.
 */
-fileprivate func Transform(aiffSoundFile data: Array<UInt8>, to bpm: Int) -> Array<UInt8> {
+fileprivate func transform(aiffSoundFile data: Array<UInt8>, to bpm: Int) -> Array<UInt8> {
     guard bpm >= 20 else { fatalError("Attempt to transform an AIFF file to less than 20 bpm.") }
     if bpm == 20 { return data }
     
@@ -59,6 +59,7 @@ fileprivate func Transform(aiffSoundFile data: Array<UInt8>, to bpm: Int) -> Arr
     // to subtract from it with this formula to get the sound of desired length.
     var sizeToSubtract = Int32(529_208 - (529_208 * originalFileBPM / bpm))
     
+    // Make it even to remove artifacts.
     if sizeToSubtract % 2 != 0 { sizeToSubtract += 1 }
     
     // Divide by 4 because one sample frame is 32-bits wide (Two 16-bit floats, one for each channel)
