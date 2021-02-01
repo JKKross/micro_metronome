@@ -9,6 +9,12 @@
     <img src="https://img.shields.io/badge/swift-5.2-orange.svg" alt="Swift 5.2"/>
     <img src="https://img.shields.io/badge/SwiftUI-orange.svg" alt="SwiftUI"/>
   </p>
+  
+<h2>THE APP IS NO LONGER MAINTAINED!!!</h2>
+
+Due to my personal issues with Apple, I decided to abandon this project.
+If anyone wants to "steal" the app, go for it.
+If you do, I'd appreciate some slight design changes & maybe an "honorable mention", but it's definitely not mandatory ;-) 
 
 <p align="center"><img width=30% src="https://github.com/JKKross/Micro_Metronome/blob/master/micro_metronome.png"/></p>
 
